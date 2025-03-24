@@ -132,74 +132,102 @@ local function make_title(player, text, color, transparency)
 			if not head then return warn("Head does not exist!") end
 			if head:FindFirstChild("ZacksEasyBillboard") then return end
 
-			local billboardGui = Instance.new("BillboardGui")
-			billboardGui.Name = "ZacksEasyBillboard"
-			billboardGui.Size = UDim2.new(3, 0, 1, 0)
-			billboardGui.MaxDistance = math.huge
-			billboardGui.LightInfluence = 0
-			billboardGui.StudsOffset = Vector3.new(0, 3, 0)
-			billboardGui.AlwaysOnTop = true
-			billboardGui.Parent = head
-			billboardGui.Enabled = true
+			local BillboardGui = Instance.new("BillboardGui")
+			local Rank = Instance.new("Frame")
+			local TextLabel = Instance.new("TextLabel")
+			local TextLabel_2 = Instance.new("TextLabel")
 
-			local background = Instance.new("Frame")
-			background.Size = UDim2.new(1, 0, 1, 0)
-			background.BackgroundTransparency = transparency
-			background.BackgroundColor3 = color
-			background.BorderSizePixel = 0
-			background.Parent = billboardGui
+			BillboardGui.Parent = head
+			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+			BillboardGui.Active = true
+			BillboardGui.LightInfluence = 1.000
+			BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
+			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
 
-			local uiCorner = Instance.new("UICorner")
-			uiCorner.CornerRadius = UDim.new(0.3, 0)
-			uiCorner.Parent = background
+			Rank.Name = "Rank"
+			Rank.Parent = BillboardGui
+			Rank.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rank.BackgroundTransparency = 1.000
+			Rank.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			Rank.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
+			Rank.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
 
-			local textLabel = Instance.new("TextLabel")
-			textLabel.Size = UDim2.new(1, -10, 1, -10)
-			textLabel.Position = UDim2.new(0, 5, 0, 5)
-			textLabel.BackgroundTransparency = 1
-			textLabel.TextScaled = true
-			textLabel.Font = Enum.Font.GothamBold
-			textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-			textLabel.TextStrokeTransparency = 0
-			textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-			textLabel.Text = text
-			textLabel.Parent = background
+			TextLabel.Parent = BillboardGui
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			TextLabel.Size = UDim2.new(1, 0, 0.300000012, 0)
+			TextLabel.Font = Enum.Font.GothamBold
+			TextLabel.Text = "Golds Easy Hub"
+			TextLabel.TextColor3 = Color3.fromRGB(0, 170, 255)
+			TextLabel.TextScaled = true
+			TextLabel.TextSize = 30.000
+			TextLabel.TextStrokeTransparency = 0.540
+			TextLabel.TextWrapped = true
+
+			TextLabel_2.Parent = BillboardGui
+			TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel_2.BackgroundTransparency = 1.000
+			TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			TextLabel_2.Position = UDim2.new(0.25, 0, 0.300000012, 0)
+			TextLabel_2.Size = UDim2.new(0.5, 0, 0.300000012, 0)
+			TextLabel_2.Font = Enum.Font.Unknown
+			TextLabel_2.Text = text
+			TextLabel_2.TextColor3 = color
+			TextLabel_2.TextScaled = true
+			TextLabel_2.TextSize = 30.000
+			TextLabel_2.TextStrokeTransparency = 0.540
+			TextLabel_2.TextWrapped = true
 		else
 			local head = character:FindFirstChild("Head")
 			if head:FindFirstChild("ZacksEasyBillboard") then return end
 
-			local billboardGui = Instance.new("BillboardGui")
-			billboardGui.Name = "ZacksEasyBillboard"
-			billboardGui.Size = UDim2.new(3, 0, 1, 0)
-			billboardGui.MaxDistance = math.huge
-			billboardGui.LightInfluence = 0
-			billboardGui.StudsOffset = Vector3.new(0, 3, 0)
-			billboardGui.AlwaysOnTop = true
-			billboardGui.Parent = head
-			billboardGui.Enabled = true
+			local BillboardGui = Instance.new("BillboardGui")
+			local Rank = Instance.new("Frame")
+			local TextLabel = Instance.new("TextLabel")
+			local TextLabel_2 = Instance.new("TextLabel")
 
-			local background = Instance.new("Frame")
-			background.Size = UDim2.new(1, 0, 1, 0)
-			background.BackgroundTransparency = transparency
-			background.BackgroundColor3 = color
-			background.BorderSizePixel = 0
-			background.Parent = billboardGui
+			BillboardGui.Parent = head
+			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+			BillboardGui.Active = true
+			BillboardGui.LightInfluence = 1.000
+			BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
+			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
 
-			local uiCorner = Instance.new("UICorner")
-			uiCorner.CornerRadius = UDim.new(0.3, 0)
-			uiCorner.Parent = background
+			Rank.Name = "Rank"
+			Rank.Parent = BillboardGui
+			Rank.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rank.BackgroundTransparency = 1.000
+			Rank.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			Rank.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
+			Rank.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
 
-			local textLabel = Instance.new("TextLabel")
-			textLabel.Size = UDim2.new(1, -10, 1, -10)
-			textLabel.Position = UDim2.new(0, 5, 0, 5)
-			textLabel.BackgroundTransparency = 1
-			textLabel.TextScaled = true
-			textLabel.Font = Enum.Font.GothamBold
-			textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-			textLabel.TextStrokeTransparency = 0
-			textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-			textLabel.Text = text
-			textLabel.Parent = background
+			TextLabel.Parent = BillboardGui
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			TextLabel.Size = UDim2.new(1, 0, 0.300000012, 0)
+			TextLabel.Font = Enum.Font.GothamBold
+			TextLabel.Text = "Golds Easy Hub"
+			TextLabel.TextColor3 = Color3.fromRGB(0, 170, 255)
+			TextLabel.TextScaled = true
+			TextLabel.TextSize = 30.000
+			TextLabel.TextStrokeTransparency = 0.540
+			TextLabel.TextWrapped = true
+
+			TextLabel_2.Parent = BillboardGui
+			TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel_2.BackgroundTransparency = 1.000
+			TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			TextLabel_2.Position = UDim2.new(0.25, 0, 0.300000012, 0)
+			TextLabel_2.Size = UDim2.new(0.5, 0, 0.300000012, 0)
+			TextLabel_2.Font = Enum.Font.Unknown
+			TextLabel_2.Text = text
+			TextLabel_2.TextColor3 = color
+			TextLabel_2.TextScaled = true
+			TextLabel_2.TextSize = 30.000
+			TextLabel_2.TextStrokeTransparency = 0.540
+			TextLabel_2.TextWrapped = true
 		end
 	end
 
