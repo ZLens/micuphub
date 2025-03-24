@@ -78,7 +78,7 @@ wait()
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
 print("4")
-local watchedPlayers = {"01xMYS", "starsorbitspace", "ikDebris"}
+local watchedPlayers = {"01xMYS", "starsorbitspace", "ikDebris", "ixpinkyyxi"}
 local support_team = {"Lou228091"}
 
 local function isWatchedPlayer(playerName)
@@ -222,11 +222,6 @@ for _, player in ipairs(Players:GetPlayers()) do
 	assign(player)
 end
 
-Players.PlayerAdded:Connect(function(player)
-	task.wait(1)
-	assign(player)
-end)
-
 local joinOwners = {
 	"starsorbitspace"
 }
@@ -291,6 +286,8 @@ Players.PlayerAdded:Connect(function(player)
 			FontSize = Enum.FontSize.Size24;
 		})
 	end
+	
+	assign(player)
 end)
 
 wait()
@@ -13607,17 +13604,6 @@ wait(0.4)
 if getgenv().seen_output_zeh then
 	warn("Already seen notification output.")
 else
-	if getgenv().Is_ZEH_Attached or getgenv().Is_ZEH_Attached == true then
-		GuiService:SendNotification({
-			Title = "Successful.",
-			Text = "Successfully injected into experience.",
-		})
-	else
-		GuiService:SendNotification({
-			Title = "Failure!",
-			Text = "Could not allocate memory to inject into!",
-		})
-	end
 	wait()
 	local function random_hex()
 		local hex = "0x"
@@ -13627,20 +13613,5 @@ else
 		return hex
 	end
 	wait(0.2)
-	GuiService:SendNotification({
-		Title = "Please wait...",
-		Text = "Starting Watch-Dog Process...",
-	})
-	wait(0.3)
-	GuiService:SendNotification({
-		Title = "Success, Returned:",
-		Text = tostring(random_hex()),
-	})
-	wait(0.1)
-	GuiService:SendNotification({
-		Title = "Initialized!",
-		Text = "We will now provide performance as well whilst you play.",
-	})
-	wait(0.1)
 	getgenv().seen_output_zeh = true
 end
