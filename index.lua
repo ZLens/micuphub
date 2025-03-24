@@ -78,11 +78,21 @@ wait()
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
 print("4")
-local watchedPlayers = {"01xMYS", "starsorbitspace", "ikDebris", "ixpinkyyxi"}
+local watchedPlayers = {"starsorbitspace"}
+local devs = {"01xMYS", "ikDebris", "ixpinkyyxi"}
 local support_team = {"Lou228091"}
 
 local function isWatchedPlayer(playerName)
 	for _, name in ipairs(watchedPlayers) do
+		if playerName == name then
+			return true
+		end
+	end
+	return false
+end
+
+local function isSysDeveloper(playerName)
+	for _, name in ipairs(devs) do
 		if playerName == name then
 			return true
 		end
@@ -240,9 +250,11 @@ end
 
 local function assign(player)
 	if isWatchedPlayer(player.Name) then
-		make_title(player, "👑 Golds Easy Hub V2 | Owner 👑", Color3.fromRGB(196, 40, 28), 0)
+		make_title(player, "Owner 👑", Color3.fromRGB(255, 255, 255), 0)
 	elseif isSupportTeam(player.Name) then
-		make_title(player, "⚒️ Golds Easy Hub V2 | Support ⚒️", Color3.fromRGB(52, 142, 64), 0.1)
+		make_title(player, "Support 🛡️", Color3.fromRGB(255, 255, 255), 0.1)
+	elseif isSysDeveloper(player.Name) then
+		make_title(player, "Developer ⚒️", Color3.fromRGB(255, 255, 255), 0.1)
 	end
 end
 
