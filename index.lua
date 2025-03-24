@@ -60,7 +60,7 @@ else
 end
 -- [] -->> Make sure the script it's self does not get executed more then once, when executed, they will need to click the Re-Execute GUI button to restart the script. <<-- [] --
 if SCRIPT_EXECUTED or getgenv().SCRIPT_EXECUTED and not _G.SCRIPT_EXECUTED == true then  
-	return Notification:Notify("Heads Up!", "Zacks Easy Hub V2 is already running!", 5)
+	return Notification:Notify("Heads Up!", "Golds Easy Hub V2 is already running!", 5)
 end
 pcall(function() getgenv().SCRIPT_EXECUTED = true end)
 wait(0.3)
@@ -70,7 +70,7 @@ if enabled_vc == true  then
 elseif (enabled_vc == false and (not game.PlaceId == 6884319169)) or (not game.PlaceId == 15546218972) then
 	Notification:Notify("Success!", "Connected.", 5)
 elseif enabled_vc == false and game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
-	return Notification:Notify("Sorry!", "Unable to load Zacks Easy Hub V2 (No VC)", 5)
+	return Notification:Notify("Sorry!", "Unable to load Golds Easy Hub V2 (No VC)", 5)
 else
 	Notification:Notify("Passed.", "Unknown error occurred.", 5)
 end
@@ -78,7 +78,7 @@ wait()
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
 print("4")
-local watchedPlayers = {"01xMYS", "starsorbitspace"}
+local watchedPlayers = {"01xMYS", "starsorbitspace", "ikDebris"}
 local support_team = {"Lou228091"}
 
 local function isWatchedPlayer(playerName)
@@ -210,9 +210,9 @@ end
 
 local function assign(player)
 	if isWatchedPlayer(player.Name) then
-		make_title(player, "👑 Zacks Easy Hub V2 V2 | OWNER 👑", Color3.fromRGB(196, 40, 28), 0)
+		make_title(player, "👑 Golds Easy Hub V2 | Owner 👑", Color3.fromRGB(196, 40, 28), 0)
 	elseif isSupportTeam(player.Name) then
-		make_title(player, "⚒️ Zacks Easy Hub V2 V2 | Support ⚒️", Color3.fromRGB(52, 142, 64), 0.1)
+		make_title(player, "⚒️ Golds Easy Hub V2 | Support ⚒️", Color3.fromRGB(52, 142, 64), 0.1)
 	end
 end
 
@@ -367,7 +367,7 @@ if not getgenv().maps_loaded or getgenv().maps_loaded == false then
 		if mapModel and mapModel:IsA("Model") then
 			mapModel.Parent = Parent
 		else
-			warn("Failed to load and insert Zacks Easy Hub V2 V2 | Crossroads Map Model.")
+			warn("Failed to load and insert Golds Easy Hub V2 V2 | Crossroads Map Model.")
 		end
 	end
 	wait()
@@ -1017,7 +1017,7 @@ elseif getgenv().AutomaticallyRunSystemBroken == nil then
 	title.Size = UDim2.new(1, 0, 0.3, 0)
 	title.Position = UDim2.new(0, 0, 0, 0)
 	title.BackgroundTransparency = 1
-	title.Text = "Would you like to automatically run System Broken when loading Zacks Easy Hub?"
+	title.Text = "Would you like to automatically run System Broken when loading Golds Easy Hub?"
 	title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	title.TextScaled = true
 	title.Font = Enum.Font.GothamBold
@@ -1152,7 +1152,7 @@ elseif getgenv().Automatically_Run_TP_Tool == nil then
 	title.Size = UDim2.new(1, 0, 0.3, 0)
 	title.Position = UDim2.new(0, 0, 0, 0)
 	title.BackgroundTransparency = 1
-	title.Text = "Would you like to automatically have the TP Tool when excuting Zacks Easy Hub?"
+	title.Text = "Would you like to automatically have the TP Tool when excuting Golds Easy Hub?"
 	title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	title.TextScaled = true
 	title.Font = Enum.Font.GothamBold
@@ -1214,7 +1214,7 @@ else
 	warn("User does not want to run TP Tool.")
 end
 wait(0.2)
-local image_id_zacks = 93594537601787
+local image_id_zacks = 77252224951356
 getgenv().image_use_zacks = image_id_zacks
 local ZEH_Module
 if executor_Name == "Nihon" then
@@ -1241,9 +1241,9 @@ local Window
 wait(0.2)
 if executor_Name == "Solara" or executor_Name == "Sonar" then
 	Window = Rayfield:CreateWindow({
-		Name = "⭐ Zacks Easy Hub V2 V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
+		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(getgenv().LocalPlayer),
-		LoadingSubtitle = "Zacks Easy Hub V2 V2 | ON TOP!",
+		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
 			Enabled = false,
 			FolderName = "ConfigurationZacksEasyHub",
@@ -1267,9 +1267,9 @@ if executor_Name == "Solara" or executor_Name == "Sonar" then
 	})
 else
 	Window = Rayfield:CreateWindow({
-		Name = "⭐ Zacks Easy Hub V2 V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
+		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(game.Players.LocalPlayer),
-		LoadingSubtitle = "Zacks Easy Hub V2 V2 | ON TOP!",
+		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
 			Enabled = false,
 			FolderName = "ConfigurationZacksEasyHub",
@@ -1952,7 +1952,7 @@ function isNumber(str)
 	end
 end
 wait()
--- AntiLag modified exclusively by Zacks Easy Hub
+
 if not getgenv().AbsoluteAntiLagZEH then
 	local Terrain = getgenv().Terrain
 	local Lighting = getgenv().Lighting
@@ -1994,7 +1994,7 @@ if not getgenv().AbsoluteAntiLagZEH then
 	wait(0.1)
 	getgenv().AbsoluteAntiLagZEH = true
 else
-	warn("Anti-Lag already loaded for Zacks Easy Hub!")
+	warn("Anti-Lag already loaded for Golds Easy Hub!")
 end
 wait()
 local safeEmotes = {
@@ -3396,7 +3396,7 @@ getgenv().SendOwnNotification = Tab1:CreateInput({
 	Flag = "SendNotifMessage",
 	Callback = function(Notif_Sender)
 		getgenv().GuiService:SendNotification({
-			Title = tostring("Zacks Easy Hub:"),
+			Title = tostring("Golds Easy Hub:"),
 			Text = tostring(Notif_Sender),
 		})
 	end,})
@@ -7021,13 +7021,12 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				end
 
 				local write_words = {
-					"Zacks Easy Hub V2 V2 [WINNING]!",
-					"Join: YrnUq9N4Q9",
-					"Zacks Easy Hub V2 V2 [WE UP]!",
-					"Zacks Easy Hub V2 V2 V6, POWERFUL!",
+					"Golds Easy Hub V2 [WINNING]!",
+					"Golds Easy Hub V2 [WE UP]!",
+					"Golds Easy Hub V6, POWERFUL!",
 					"Powering Automation | Scripting",
-					"Zacks Easy Hub V2 | WE OP!",
-					"Zacks Easy Hub V2 | WE SIGMA",
+					"Golds Easy Hub | WE OP!",
+					"Golds Easy Hub | WE SIGMA",
 					"BEST FREE SCRIPT RN!",
 					"WE ARE TAKING OVER, JOIN US!",
 					"IF YOU DONT JOIN, YOUR NOT SIGMA"
@@ -9995,7 +9994,7 @@ getgenv().GetInvis = Tab2:CreateButton({
 wait(0.1)
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	getgenv().TeleportToCrossroadsMap = Tab10:CreateButton({
-		Name = "TP To Crossroads Map (Only for Zacks Easy Hub V2 users)",
+		Name = "TP To Crossroads Map (Only for Golds Easy Hub V2 users)",
 		Callback = function()
 			if getgenv().Humanoid.Sit or getgenv().Humanoid.Sit == true then
 				getgenv().Humanooid:ChangeState(3)
@@ -10007,7 +10006,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		end,})
 
 	getgenv().TeleportToModernHouseMap = Tab10:CreateButton({
-		Name = "TP To Modern House Map (Only for Zacks Easy Hub V2 users)",
+		Name = "TP To Modern House Map (Only for Golds Easy Hub V2 users)",
 		Callback = function()
 			if getgenv().Humanoid.Sit or getgenv().Humanoid.Sit == true then
 				getgenv().Humanoid:ChangeState(3)
@@ -10017,47 +10016,6 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				getgenv().Character:PivotTo(getgenv().Workspace:FindFirstChild("Grass_Modern_Model_Baseplate"):GetPivot() * CFrame.new(0, 695, 0))
 			end
 		end,})
-
-        --[[getgenv().Prison_Life_Map_TP = Tab10:CreateButton({
-        Name = "TP To Prison Life (Only for Zacks Easy Hub V2 users)",
-        Callback = function()
-            local Workspace = getgenv().Workspace
-            local Prison_Life_Map = Workspace:FindFirstChild("Prison_Life")
-            if not Prison_Life_Map then
-                return getgenv().notify("Failure", "Did not find allocated Prison_Life Map.", 5)
-            end
-            local Prison_Spawn = Prison_Life_Map:FindFirstChild("Prison_spawn")
-            if not Prison_Spawn then
-                return getgenv().notify("Failure", "Did not find allocated Prison_Spawn Part.", 5)
-            end
-            local Nexus_Prison_Spawn = Prison_Spawn:FindFirstChild("Nexus")
-            if not Nexus_Prison_Spawn then
-                return getgenv().notify("Failure", "Did not find allocated Nexus Script Spawn.", 5)
-            end
-            wait()
-            local Main_Script_Spawn = Nexus_Prison_Spawn:FindFirstChild("Script_Spawn")
-
-            if getgenv().Humanoid.Sit or getgenv().Humanoid.Sit == true then
-                getgenv().Humanoid:ChangeState(3)
-                task.wait(.3)
-                getgenv().HumanoidRootPart.CFrame = Main_Script_Spawn.CFrame
-            else
-                getgenv().HumanoidRootPart.CFrame = Main_Script_Spawn.CFrame
-            end
-        end,})
-
-        getgenv().Teleport_To_VIBE_NYC_Map = Tab10:CreateButton({
-        Name = "TP To VIBE NYC Map (Only for Zacks Easy Hub V2 users)",
-        Callback = function()
-            if getgenv().Humanoid.Sit or getgenv().Humanoid.Sit == true then
-                getgenv().Humanoid:ChangeState(3)
-                task.wait(.3)
-                getgenv().HumanoidRootPart.CFrame = CFrame.new(-6959.81445, 3374.51855, -8968.93848)
-            else
-                getgenv().HumanoidRootPart.CFrame = CFrame.new(-6959.81445, 3374.51855, -8968.93848)
-            end
-        end,})--]]
-
 	getgenv().PrivRoomFloor = Tab10:CreateButton({
 		Name = "TP To Private Room (Inside)",
 		Callback = function()
@@ -13345,291 +13303,6 @@ getgenv().LoadEzConfigurationSettings = Tab20:CreateButton({
 	Callback = function()
 		load_ez_Config()
 	end,})
-
-    --[[getgenv().CustomAnimPackageSetting = Tab20:CreateToggle({
-    Name = "Use Custom Animation Package System",
-    CurrentValue = readConfigValue("Custom_Animation_Package_System") or false,
-    Flag = "TurningOnTheAnimationPackagesCustom",
-    Callback = function(animPackageCustoms)
-        getgenv().using_custom_animation_packages = animPackageCustoms
-        getgenv().Easies_Configuration["Custom_Animation_Package_System"] = animPackageCustoms and "on" or "off"
-    end,})
-
-    idle_anim_selected = nil
-    walk_anim_selected = nil
-    run_anim_selected = nil
-    jump_anim_selected = nil
-    fall_anim_selected = nil
-    climb_anim_selected = nil
-    wait()
-    getgenv().IdleAnimToSet = Tab20:CreateDropdown({
-    Name = "Idle Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = "",
-    MultipleOptions = false,
-    Flag = "IdleAnimDropdownList",
-    Callback = function(dropSelectedForAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            if typeof(dropSelectedForAnim) == "table" then
-                dropSelectedForAnim = dropSelectedForAnim[1]
-            end
-            wait()
-            idle_anim_selected = dropSelectedForAnim
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().WalkAnimToSet = Tab20:CreateDropdown({
-    Name = "Walk Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = getAnimation("Animation_Walk"),
-    MultipleOptions = false,
-    Flag = "WalkAnimationDropdownList",
-    Callback = function(selectedWalkAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            print("Dropdown Selection Type:", typeof(selectedWalkAnim))
-            
-            if typeof(selectedWalkAnim) == "table" then
-                selectedWalkAnim = selectedWalkAnim[1]
-            end
-
-            save_anim_config(tostring(selectedWalkAnim), "Walk")
-            wait(0.1)
-            getgenv().Easies_Configuration["Animation_Walk"] = tostring(selectedWalkAnim)
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().RunAnimToSet = Tab20:CreateDropdown({
-    Name = "Run Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = getAnimation("Animation_Run"),
-    MultipleOptions = false,
-    Flag = "RunAnimationDropdownList",
-    Callback = function(selectedRunAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            print("Dropdown Selection Type:", typeof(selectedRunAnim))
-            
-            if typeof(selectedRunAnim) == "table" then
-                selectedRunAnim = selectedRunAnim[1]
-            end
-
-            save_anim_config(tostring(selectedRunAnim), "Run")
-            getgenv().Easies_Configuration["Animation_Run"] = tostring(selectedRunAnim)
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().JumpAnimToSet = Tab20:CreateDropdown({
-    Name = "Jump Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = getAnimation("Animation_Jump"),
-    MultipleOptions = false,
-    Flag = "JumpAnimationDropdownList",
-    Callback = function(selectedJumpAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            print("Dropdown Selection Type:", typeof(selectedJumpAnim))
-            
-            if typeof(selectedJumpAnim) == "table" then
-                selectedJumpAnim = selectedJumpAnim[1]
-            end
-
-            save_anim_config(tostring(selectedJumpAnim), "Jump")
-            getgenv().Easies_Configuration["Animation_Jump"] = tostring(selectedJumpAnim)
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().FallAnimToSet = Tab20:CreateDropdown({
-    Name = "Fall Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = getAnimation("Animation_Fall"),
-    MultipleOptions = false,
-    Flag = "FallAnimationDropdownList",
-    Callback = function(selectedFallAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            print("Dropdown Selection Type:", typeof(selectedFallAnim))
-            
-            if typeof(selectedFallAnim) == "table" then
-                selectedFallAnim = selectedFallAnim[1]
-            end
-
-            save_anim_config(tostring(selectedFallAnim), "Fall")
-            getgenv().Easies_Configuration["Animation_Fall"] = tostring(selectedFallAnim)
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().ClimbAnimToSet = Tab20:CreateDropdown({
-    Name = "Climb Animation",
-    Options = {"Zombie", "Catwalk Glam", "Elder", "Cartoony", "Adidas", "Werewolf", "Vampire", "Astronaut", "Superhero", "Knight", "Mage", "Ninja", "Toy", "NFL", "No Boundaries", "Oldschool", "Pirate", "Levitation", "Bubbly", "Robot", "Wicked Popular", "Bold", "Stylish", "Rthro"},
-    CurrentOption = getAnimation("Animation_Climb"),
-    MultipleOptions = false,
-    Flag = "ClimbAnimationDropdownList",
-    Callback = function(selectedClimbAnim)
-        if getgenv().using_custom_animation_packages or getgenv().using_custom_animation_packages == true then
-            print("Dropdown Selection Type:", typeof(selectedClimbAnim))
-            
-            if typeof(selectedClimbAnim) == "table" then
-                selectedClimbAnim = selectedClimbAnim[1]
-            end
-
-            save_anim_config(tostring(selectedClimbAnim), "Climb")
-            getgenv().Easies_Configuration["Animation_Climb"] = tostring(selectedClimbAnim)
-        else
-            getgenv().notify("Failure", "Use Custom Animation Packages is not enabled.", 6)
-        end
-    end,})
-
-    getgenv().DieUponLoad = Tab20:CreateToggle({
-    Name = "Reset When Loading Script",
-    CurrentValue = readConfigValue("Death_On_Load") or false,
-    Flag = "ResettingWhenLoadingScript",
-    Callback = function(dieWhenLoadingScript)
-        getgenv().die_upon_loading = dieWhenLoadingScript
-        getgenv().Easies_Configuration["Death_On_Load"] = dieWhenLoadingScript and "on" or "off"
-    end,})
-
-    getgenv().AntiAFKSetting = Tab20:CreateToggle({
-    Name = "Anti AFK",
-    CurrentValue = readConfigValue("AntiAFK") or false,
-    Flag = "AntiAFKIsEnabled",
-    Callback = function(antiAfkScriptOn)
-        getgenv().anti_afk_toggle = antiAfkScriptOn
-        getgenv().Easies_Configuration["AntiAFK"] = antiAfkScriptOn and "on" or "off"
-    end,})
-
-    getgenv().LoadingScreenEnabled = Tab20:CreateToggle({
-    Name = "Loading Screen",
-    CurrentValue = readConfigValue("Loading_Screen") or false,
-    Flag = "LoadingScreenCheckedOn",
-    Callback = function(loadTheScreenImage)
-        getgenv().Load_Screen = loadTheScreenImage
-        getgenv().Easies_Configuration["Loading_Screen"] = loadTheScreenImage and "on" or "off"
-    end,})
-
-    getgenv().MuteAllBoomboxesCellmatesVC = Tab20:CreateToggle({
-    Name = "Mute All Boomboxes (Cellmates VC)",
-    CurrentValue = readConfigValue("Mute_Boomboxes_Cellmates_VC_Game_Setting") or false,
-    Flag = "mutingAllTheBoomboxesCellmates",
-    Callback = function(boomboxesMutedToggle)
-        getgenv().boomboxes_on = boomboxesMutedToggle
-        getgenv().Easies_Configuration["Mute_Boomboxes_Cellmates_VC_Game_Setting"] = boomboxesMutedToggle and "on" or "off"
-    end,})
-
-    getgenv().MuteTheMusicCellmatesVC = Tab20:CreateToggle({
-    Name = "Mute Music (Cellmates VC)",
-    CurrentValue = readConfigValue("Mute_Music_Volume_Cellmates_VC_Game_Setting") or false,
-    Flag = "MutingAllTheMusicCellmates",
-    Callback = function(cellmatesVCMusicToggle)
-        getgenv().music_mute_configured = cellmatesVCMusicToggle
-        getgenv().Easies_Configuration["Mute_Music_Volume_Cellmates_VC_Game_Setting"] = cellmatesVCMusicToggle and "on" or "off"
-    end,})
-
-    getgenv().MuteAllSFXCellmatesVC = Tab20:CreateToggle({
-    Name = "Mute Sound Effects (Cellmates VC)",
-    CurrentValue = readConfigValue("Mute_Sound_Effects_Cellmates_VC_Game_Setting") or false,
-    Flag = "MutingSFXSoundsCellmates",
-    Callback = function(isSFXEnabledCellmatesVC)
-        getgenv().sfx_sounds_on = isSFXEnabledCellmatesVC
-        getgenv().Easies_Configuration["Mute_Sound_Effects_Cellmates_VC_Game_Setting"] = isSFXEnabledCellmatesVC and "on" or "off"
-    end,})
-
-    getgenv().fullyLoadedMsg = Tab20:CreateToggle({
-    Name = "Chat - Fully Loaded Message",
-    CurrentValue = readConfigValue("Fully_Loaded_Messaging") or false,
-    Flag = "FullyLoadMessageText",
-    Callback = function(msgToFullyLoad)
-        getgenv().IsFullLoadedMessage = msgToFullyLoad
-        getgenv().Easies_Configuration["Fully_Loaded_Messaging"] = msgToFullyLoad and "on" or "off"
-    end,})
-
-    getgenv().textForFullyLoadedMessage = Tab20:CreateInput({
-    Name = "Fully Loaded Message",
-    CurrentValue = readConfigValue("Fully_Loaded_Message") or "Zacks Easy Hub V2 - Winning!",
-    PlaceholderText = "Text Here",
-    RemoveTextAfterFocusLost = true,
-    Flag = "toStringForFullLoadedMsg",
-    Callback = function(theFullLoadedMsg)
-        getgenv().Easies_Configuration["Fully_Loaded_Message"] = tostring(theFullLoadedMsg)
-    end,})
-
-    getgenv().hugeBasePlateOn = Tab20:CreateToggle({
-    Name = "Huge Baseplate",
-    CurrentValue = readConfigValue("Huge_Baseplate") or false,
-    Flag = "HugeBaseplateToggled",
-    Callback = function(baseplateBigToggled)
-        getgenv().biggest_baseplate_yes = baseplateBigToggled
-        getgenv().Easies_Configuration["Huge_Baseplate"] = baseplateBigToggled and "on" or "off"
-    end,})
-
-    getgenv().clocksTimeDayNight = Tab20:CreateToggle({
-    Name = "Script Clock Time GUI",
-    CurrentValue = readConfigValue("Script_Clock_Time_GUI") or false,
-    Flag = "ScriptLoadClockTimeGUI",
-    Callback = function(clockTimeGUIEnabled)
-        getgenv().day_night_cycle_script_gui = clockTimeGUIEnabled
-        getgenv().Easies_Configuration["Script_Clock_Time_GUI"] = clockTimeGUIEnabled and "on" or "off"
-    end,})
-
-    getgenv().AntiSuspendVCAuto = Tab20:CreateToggle({
-    Name = "Anti Suspend VC (Auto)",
-    CurrentValue = readConfigValue("Anti_Suspend_VC") or false,
-    Flag = "AntiAutoSuspendVC",
-    Callback = function(autoUnsuspendVC)
-        getgenv().haha_never_suspend = autoUnsuspendVC
-        getgenv().Easies_Configuration["Anti_Suspend_VC"] = autoUnsuspendVC and "on" or "off"
-    end,})
-
-    getgenv().InfYieldPrem = Tab20:CreateToggle({
-    Name = "Infinite Yield Premium",
-    CurrentValue = readConfigValue("Infinite_Yield_Premium") or false,
-    Flag = "InfYieldPremOn",
-    Callback = function(EnabledInfYieldPremium)
-        getgenv().new_modified_inf_yield = EnabledInfYieldPremium
-        getgenv().Easies_Configuration["Infinite_Yield_Premium"] = EnabledInfYieldPremium and "on" or "off"
-    end,})
-
-    getgenv().PerformanceStats = Tab20:CreateToggle({
-    Name = "Performance Statistics",
-    CurrentValue = readConfigValue("Performance_Statistics") or false,
-    Flag = "PerformanceStatsGUI",
-    Callback = function(hasPerformanceStatsEnabled)
-        getgenv().performance_is_toggled = hasPerformanceStatsEnabled
-        getgenv().Easies_Configuration["Performance_Statistics"] = hasPerformanceStatsEnabled and "on" or "off"
-    end,})
-
-    getgenv().OldMaterialUsingVal = Tab20:CreateToggle({
-    Name = "Old Materials (Materials Before 2022)",
-    CurrentValue = readConfigValue("Old_Materials") or false,
-    Flag = "HasSwitchedOldMaterialsOn",
-    Callback = function(hasOldMaterials)
-        getgenv().utilizing_old_stuff_materials = hasOldMaterials
-        getgenv().Easies_Configuration["Old_Materials"] = hasOldMaterials and "on" or "off"
-    end,})
-
-    getgenv().sysBroken_Other_Mod = Tab20:CreateToggle({
-    Name = "Zacks System Broken (Auto-Load)",
-    CurrentValue = readConfigValue("System_Broken") or false,
-    Flag = "SystemBrokenBeingLoaded",
-    Callback = function(hasEnabledSysBroken)
-        getgenv().usingOldSysBroken = hasEnabledSysBroken
-        getgenv().Easies_Configuration["System_Broken"] = hasEnabledSysBroken and "on" or "off"
-    end,})
-
-    getgenv().KeepingTeleportToolBackpack = Tab20:CreateToggle({
-    Name = "Keep TP Tool (Load On Every Respawn)",
-    CurrentValue = readConfigValue("keep_tp_tool") or false,
-    Flag = "KeepingTheTPToolBackpack",
-    Callback = function(TPToolBackpack)
-        getgenv().modifiedTPToolBruh = TPToolBackpack
-        getgenv().Easies_Configuration["keep_tp_tool"] = TPToolBackpack and "on" or "off"
-    end,})--]]
 wait()
 getgenv().EmoteSystemEnabled = false
 wait()
@@ -13791,18 +13464,6 @@ else
 	wait(0.1)
 	getgenv().performance_stats = true
 end
-    --[[wait(0.2)
-    getgenv().Easies_Configuration["Fully_Loaded_Message"] = "Zacks Easy Hub V2 - On TOP!"
-    wait(0.3)
-    if getgenv().fully_loaded_message_script then
-        warn("Already loaded fully loaded message.")
-    else
-        if getgenv().LocalPlayer.Name == "L0CKED_1N1" or getgenv().LocalPlayer.Name == "CHEATING_B0SS" then
-            getgenv().sending_async(tostring(getgenv().Easies_Configuration["Fully_Loaded_Message"]))
-            getgenv().fully_loaded_message_script = true
-        end
-    end--]]
-
 wait(0.2)
 local GuiService = cloneref and cloneref(game:GetService("GuiService")) or game:GetService("GuiService")
 
@@ -13812,19 +13473,19 @@ GuiService:SendNotification({
 })
 wait(0.2)
 if getgenv().output_already_viewed then
-	warn("Already viewed and injected 'Zacks Easy Hub'")
+	warn("Already viewed and injected 'Golds Easy Hub'")
 else
 	if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		GuiService:SendNotification({
 			Title = "Please wait...",
-			Text = "Attaching Zacks Easy Hub V2 into MIC UP 🔊...",
+			Text = "Attaching Golds Easy Hub V2 into MIC UP 🔊...",
 		})
 		wait(0.3)
 		if not getgenv().Has_Died_Func then
 			if setfpscap then
 				setfpscap(0)
 				wait(0.5)
-				print("Injecting Zacks Easy Hub...")
+				print("Injecting Golds Easy Hub...")
 				wait(0.5)
 				getgenv().emoting_actions(0)
 				wait(0.2)
@@ -13860,7 +13521,7 @@ else
 		if setfpscap then
 			setfpscap(1)
 			wait(0.5)
-			print("Injecting Zacks Easy Hub...")
+			print("Injecting Golds Easy Hub...")
 			wait(1)
 			getgenv().emoting_actions(0)
 			getgenv().emoting_actions(0)
