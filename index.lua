@@ -134,12 +134,13 @@ local function make_title(player, text, color, transparency)
 
 			local billboardGui = Instance.new("BillboardGui")
 			billboardGui.Name = "ZacksEasyBillboard"
-			billboardGui.Size = UDim2.new(10, 0, 1.5, 0)
+			billboardGui.Size = UDim2.new(3, 0, 1, 0)
 			billboardGui.MaxDistance = math.huge
 			billboardGui.LightInfluence = 0
 			billboardGui.StudsOffset = Vector3.new(0, 3, 0)
 			billboardGui.AlwaysOnTop = true
 			billboardGui.Parent = head
+			billboardGui.Enabled = true
 
 			local background = Instance.new("Frame")
 			background.Size = UDim2.new(1, 0, 1, 0)
@@ -169,12 +170,13 @@ local function make_title(player, text, color, transparency)
 
 			local billboardGui = Instance.new("BillboardGui")
 			billboardGui.Name = "ZacksEasyBillboard"
-			billboardGui.Size = UDim2.new(10, 0, 1.5, 0)
+			billboardGui.Size = UDim2.new(3, 0, 1, 0)
 			billboardGui.MaxDistance = math.huge
 			billboardGui.LightInfluence = 0
 			billboardGui.StudsOffset = Vector3.new(0, 3, 0)
 			billboardGui.AlwaysOnTop = true
 			billboardGui.Parent = head
+			billboardGui.Enabled = true
 
 			local background = Instance.new("Frame")
 			background.Size = UDim2.new(1, 0, 1, 0)
@@ -224,6 +226,73 @@ Players.PlayerAdded:Connect(function(player)
 	task.wait(1)
 	assign(player)
 end)
+
+local joinOwners = {
+	"starsorbitspace"
+}
+
+local joinDevs = {
+	"ikDebris",
+	"ixpinkyyxi",
+	"01xMYS"
+}
+
+local joinStaff = {
+	--"Username1",
+}
+
+local function isJoinOwner(username)
+	for _, dev in ipairs(joinOwners) do
+		if dev == username then
+			return true
+		end
+	end
+	return false
+end
+
+local function isJoinDev(username)
+	for _, dev in ipairs(joinDevs) do
+		if dev == username then
+			return true
+		end
+	end
+	return false
+end
+
+local function isJoinStaff(username)
+	for _, dev in ipairs(joinStaff) do
+		if dev == username then
+			return true
+		end
+	end
+	return false
+end
+
+Players.PlayerAdded:Connect(function(player)
+	if isJoinDev(player.Name) then
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {
+			Text = "A Developer has joined the game!";
+			Color = Color3.fromRGB(85, 170, 255);
+			Font = Enum.Font.SourceSansBold;
+			FontSize = Enum.FontSize.Size24;
+		})
+	elseif isJoinOwner(player.Name) then
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {
+			Text = "A Developer has joined the game!";
+			Color = Color3.fromRGB(255, 170, 0);
+			Font = Enum.Font.SourceSansBold;
+			FontSize = Enum.FontSize.Size24;
+		})
+	elseif isJoinStaff(player.Name) then
+		game.StarterGui:SetCore("ChatMakeSystemMessage", {
+			Text = "A Developer has joined the game!";
+			Color = Color3.fromRGB(255, 170, 0);
+			Font = Enum.Font.SourceSansBold;
+			FontSize = Enum.FontSize.Size24;
+		})
+	end
+end)
+
 wait()
 print("9")
 wait(0.3)
