@@ -265,26 +265,11 @@ end
 
 Players.PlayerAdded:Connect(function(player)
 	if isJoinDev(player.Name) then
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {
-			Text = "A Developer has joined the game!";
-			Color = Color3.fromRGB(85, 170, 255);
-			Font = Enum.Font.SourceSansBold;
-			FontSize = Enum.FontSize.Size24;
-		})
+		game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(`[GEH]: A developer of the hub joined the server @{player.Name}`)
 	elseif isJoinOwner(player.Name) then
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {
-			Text = "A Developer has joined the game!";
-			Color = Color3.fromRGB(255, 170, 0);
-			Font = Enum.Font.SourceSansBold;
-			FontSize = Enum.FontSize.Size24;
-		})
+		game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(`[GEH]: An owner of the hub joined the server @{player.Name}`)
 	elseif isJoinStaff(player.Name) then
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {
-			Text = "A Developer has joined the game!";
-			Color = Color3.fromRGB(255, 170, 0);
-			Font = Enum.Font.SourceSansBold;
-			FontSize = Enum.FontSize.Size24;
-		})
+		game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(`[GEH]: A staff member of the hub joined the server @{player.Name}`)
 	end
 	
 	assign(player)
