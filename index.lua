@@ -1656,7 +1656,7 @@ wait()
 getgenv().LocalPlayer.OnTeleport:Connect(function(State)
 	if (not getgenv().TeleportCheck) and getgenv().queueteleport then
 		getgenv().TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/ZacksEasyHubV2/refs/heads/main/retrieve_branch_version.lua')))()")
+		queueteleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/ZacksEasyHubV2/refs/heads/main/lua.txt')))()")
 	end
 end)
 wait(0.2)
