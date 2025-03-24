@@ -150,7 +150,7 @@ local function make_title(player, text, color, transparency)
 			BillboardGui.Parent = head
 			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 			BillboardGui.Active = true
-			BillboardGui.LightInfluence = 1.000
+			BillboardGui.LightInfluence = 0
 			BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
 			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
 
@@ -1056,116 +1056,6 @@ function connect_tp_tool()
 	end)
 end
 wait(0.1)
-if getgenv().AutomaticallyRunSystemBroken == true then
-	warn("Already ran System Broken automatically.")
-else
-	local fileName = "System_Broken_Setting.txt"
-
-	if isfile(fileName) then
-		local fileContent = readfile(fileName)
-		fileContent = fileContent:gsub("%s+", "")
-
-		if fileContent == "True" then
-			getgenv().AutomaticallyRunSystemBroken = true
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/SystemBrokenV2/refs/heads/main/lua.txt"))()
-		elseif fileContent == "False" then
-			getgenv().AutomaticallyRunSystemBroken = false
-			warn("Not enabled in Configuration.")
-		else
-			warn("Invalid file content: " .. fileContent)
-		end
-	else
-		writefile("System_Broken_Setting.txt", "False")
-	end
-end
-wait()
-if getgenv().AutomaticallyRunSystemBroken then
-	warn("User has already seen 'System Broken' screen.")
-elseif getgenv().AutomaticallyRunSystemBroken == false then
-	warn("User has already selected 'False'.")
-elseif getgenv().AutomaticallyRunSystemBroken == nil then
-	local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
-	local LocalPlayer = Players.LocalPlayer
-	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui") or LocalPlayer:FindFirstChildWhichIsA("PlayerGui")
-
-	local gui = Instance.new("ScreenGui")
-	gui.Parent = PlayerGui
-	gui.ResetOnSpawn = false
-
-	local frame = Instance.new("Frame")
-	frame.Size = UDim2.new(0, 400, 0, 200)
-	frame.Position = UDim2.new(0.5, -200, 0.5, -100)
-	frame.BackgroundTransparency = 0.3
-	frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	frame.BorderSizePixel = 0
-	frame.Parent = gui
-
-	local corner = Instance.new("UICorner")
-	corner.CornerRadius = UDim.new(0, 10)
-	corner.Parent = frame
-
-	local title = Instance.new("TextLabel")
-	title.Size = UDim2.new(1, 0, 0.3, 0)
-	title.Position = UDim2.new(0, 0, 0, 0)
-	title.BackgroundTransparency = 1
-	title.Text = "Would you like to automatically run System Broken when loading Golds Easy Hub?"
-	title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	title.TextScaled = true
-	title.Font = Enum.Font.GothamBold
-	title.Parent = frame
-
-	local yesButton = Instance.new("TextButton")
-	yesButton.Size = UDim2.new(0.4, 0, 0.3, 0)
-	yesButton.Position = UDim2.new(0.1, 0, 0.6, 0)
-	yesButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-	yesButton.Text = "Yes"
-	yesButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-	yesButton.Font = Enum.Font.GothamBold
-	yesButton.TextScaled = true
-	yesButton.Parent = frame
-
-	local yesCorner = Instance.new("UICorner")
-	yesCorner.CornerRadius = UDim.new(0, 8)
-	yesCorner.Parent = yesButton
-
-	local noButton = Instance.new("TextButton")
-	noButton.Size = UDim2.new(0.4, 0, 0.3, 0)
-	noButton.Position = UDim2.new(0.5, 0, 0.6, 0)
-	noButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-	noButton.Text = "No"
-	noButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-	noButton.Font = Enum.Font.GothamBold
-	noButton.TextScaled = true
-	noButton.Parent = frame
-
-	local user_selected_option = nil
-
-	local noCorner = Instance.new("UICorner")
-	noCorner.CornerRadius = UDim.new(0, 8)
-	noCorner.Parent = noButton
-
-	yesButton.MouseButton1Click:Connect(function()
-		getgenv().AutomaticallyRunSystemBroken = true
-		writefile("System_Broken_Setting.txt", "True")
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/SystemBrokenV2/refs/heads/main/lua.txt"))()
-		gui:Destroy()
-		wait(0.2)
-		user_selected_option = 1
-	end)
-
-	noButton.MouseButton1Click:Connect(function()
-		getgenv().AutomaticallyRunSystemBroken = false
-		writefile("System_Broken_Setting.txt", "False")
-		gui:Destroy()
-		wait(0.2)
-		user_selected_option = 2
-	end)
-
-	repeat wait() until user_selected_option ~= nil
-end
-wait(0.1)
-
-wait(0.1)
 local fileName = "TP_Tool_Setting.txt"
 
 if isfile(fileName) then
@@ -1215,9 +1105,7 @@ else
 end
 wait()
 if getgenv().Automatically_Run_TP_Tool then
-	warn("User has already seen 'System Broken' screen.")
 elseif getgenv().Automatically_Run_TP_Tool == false then
-	warn("User has already selected 'False'.")
 elseif getgenv().Automatically_Run_TP_Tool == nil then
 	local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 	local LocalPlayer = Players.LocalPlayer
@@ -12690,12 +12578,6 @@ create_Button(ZombieFEAnim, "(FE) Zombie Animation Package", function()
 	wait()
 	Animate.Disabled = false
 end)
-
-getgenv().SystemBroken = Tab5:CreateButton({
-	Name = "System Broken",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/SystemBrokenV2/main/lua.txt"))()
-	end,})
 wait()
 local Trip_Settings = {
 	Keybind_Trip = Enum.KeyCode.V,
@@ -13413,8 +13295,8 @@ getgenv().saved_settings = getgenv().saved_settings or {}
 local ez_folder_settings = "SettingsConfigs"
 
 local settings_list = {
-	"Clock Time GUI", "Use Custom Animation Packages", "Death On Load", "Infinite Yield Premium",
-	"Auto Execute System Broken", "Anti AFK", "Emote Keybinds", "Fully Loaded Message",
+	"Clock Time GUI", "Use Custom Animation Packages", "Death On Load", "Infinite Yield Premium", 
+	"Anti AFK", "Emote Keybinds", "Fully Loaded Message",
 	"Big Baseplate", "TP Tool", "Loading Screen", "Old Materials"
 }
 
