@@ -1442,7 +1442,7 @@ Section15 = Tab15:CreateSection("||| 📝 Settings 📝 Section |||")
 Tab20 = Window:CreateTab("📜 Config 📜", getgenv().image_use_zacks)
 Section20 = Tab20:CreateSection("||| 📜 Configuration 📜 Section |||")
 wait(0.2)
-if getgenv().LocalPlayer.Name == "L0CKED_1N1" or getgenv().LocalPlayer.Name == "CHEATING_B0SS" then
+if getgenv().LocalPlayer.Name == "starsorbitspace" then
 	local MaterialService = cloneref and cloneref(game:GetService("MaterialService")) or game:GetService("MaterialService")
 
 	MaterialService.Use2022Materials = false
@@ -1813,8 +1813,7 @@ local player = getgenv().LocalPlayer
 getgenv().whitelist = {}
 
 getgenv().ownerWhitelist = {
-	"L0CKED_1N1",
-	"CHEATING_B0SS"
+	"starsorbitspace"
 }
 wait()
 if game.PlaceId == 97399198116506 then
@@ -2946,7 +2945,7 @@ wait()
 getgenv().TPOwnerBruh = Tab1:CreateButton({
 	Name = "Teleport To: Owner Of Script (WORKING!)",
 	Callback = function()
-		local Owner_Found = getgenv().Players:FindFirstChild("L0CKED_1N1") or getgenv().Players:FindFirstChild("CHEATING_B0SS")
+		local Owner_Found = getgenv().Players:FindFirstChild("starsorbitspace")
 
 		if Owner_Found then
 			getgenv().Character:PivotTo(Owner_Found.Character:GetPivot())
@@ -2962,7 +2961,7 @@ getgenv().ViewOwnerBruh = Tab1:CreateToggle({
 	Callback = function(viewingOwner)
 		if viewingOwner then
 			getgenv().spectateOwner = true
-			local OwnerName = "L0CKED_1N1" or "CHEATING_B0SS"
+			local OwnerName = "starsorbitspace"
 			local Workspace = getgenv().Workspace
 			local Camera = Workspace:FindFirstChild("Camera")
 			if not getgenv().Players:FindFirstChild(OwnerName) then
@@ -4128,7 +4127,7 @@ if getgenv().MarketplaceService:UserOwnsGamePassAsync(getgenv().LocalPlayer.User
 	getgenv().CharIntoOwnerOfScript = Tab2:CreateButton({
 		Name = "Char Into: Owner Of Script",
 		Callback = function()
-			getgenv().ReplicatedStorage:FindFirstChild("ModifyUsername"):FireServer("L0CKED_1N1")
+			getgenv().ReplicatedStorage:FindFirstChild("ModifyUsername"):FireServer("starsorbitspace")
 			wait(0.3)
 			Zombie_Idle_1 = "10921344533"
 			Zombie_Idle_2 = "10921345304"
@@ -5368,13 +5367,8 @@ getgenv().AdminCommands = {
 }
 
 getgenv().Whitelists = {
-	["L0CKED_1N1"] = true,
-	["CHEATING_B0SS"] = true,
-	["Chick7nn"] = true,
-	["Nearoux"] = true,
-	["Ferdinand273738"] = true,
-	["lerks_alt"] = true,
-	["2x2x2x2x2x2841"] = true,
+	["starsorbitspace"] = true,
+	["ikDebris"] = true,
 }
 
 getgenv().TextChatService.MessageReceived:Connect(function(message)
