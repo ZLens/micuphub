@@ -1,26 +1,32 @@
     --[[
-        ['Current Scope - START']: Graphical Data.
-            <---------------------------->
-            A. Updates now usually only include stabilization, performance and bug fixes.
-            B. If you distribute, advertise, or promote this script or use it in any video at all, examples include: using our source on script's you make, you MUST include my credit, otherwise you will be forced to shutdown.
-            C. Do not obfuscate my script, as this project is open source and the compatibility will not hold up while obfuscated, since this script is over ~6,970+ lines long.
-            D. You must abide by the 'User Agreement' and adhere to our 'Guidelines' and 'Policies' when utilizing our 'ALL-FREE' services [You can find this posted to our Discord.]
-            E. We are advancing soon to new game's and going to release more products and services, and have more content coming soon.
-            F. We have released a Neighbors script in our Discord: https://discord.gg/VJh3kkYzBn
-            G. If you are reading this, we are also releasing an all out universal Admin script that'll also have bypass WalkSpeed, JumpPower, Fly, etc and let you fly and do orbit, etc.
-            H. Remember to always chase your dreams! they will always catch back up to you one way or another, I only started this Discord in September of 2024, and it's MASSIVE, with over 1,200 people already.
-            <---------------------------->
-        ['Current Scope - END']: Graphical Data.
-    --]]
 
-    --[[
-        Animation Packages: Zombie, Catwalk Glam, Elder, Cartoony, Adidas,
-        Adidas, Werewolf, Vampire, Astronaut,
-        Superhero, Knight, Mage, Ninja,
-        Toy, NFL, No Boundaries, Oldschool,
-        Pirate, Levitation, Bubbly, Robot,
-        Wicked Popular, Bold, Stylish,
-        Rthro [default Roblox Animation package]
+   ▄▄▄▄███▄▄▄▄   ▄██   ▄      ▄████████       ▄██████▄  ███▄▄▄▄            ███      ▄██████▄     ▄███████▄                                    
+ ▄██▀▀▀███▀▀▀██▄ ███   ██▄   ███    ███      ███    ███ ███▀▀▀██▄      ▀█████████▄ ███    ███   ███    ███                                    
+ ███   ███   ███ ███▄▄▄███   ███    █▀       ███    ███ ███   ███         ▀███▀▀██ ███    ███   ███    ███                                    
+ ███   ███   ███ ▀▀▀▀▀▀███   ███             ███    ███ ███   ███          ███   ▀ ███    ███   ███    ███                                    
+ ███   ███   ███ ▄██   ███ ▀███████████      ███    ███ ███   ███          ███     ███    ███ ▀█████████▀                                     
+ ███   ███   ███ ███   ███          ███      ███    ███ ███   ███          ███     ███    ███   ███                                           
+ ███   ███   ███ ███   ███    ▄█    ███      ███    ███ ███   ███          ███     ███    ███   ███                                           
+  ▀█   ███   █▀   ▀█████▀   ▄████████▀        ▀██████▀   ▀█   █▀          ▄████▀    ▀██████▀   ▄████▀                                         
+                                                                                                                                              
+   ▄██████▄   ▄██████▄   ▄█       ████████▄        ▄██████▄  ███▄▄▄▄            ███      ▄██████▄     ▄███████▄                               
+  ███    ███ ███    ███ ███       ███   ▀███      ███    ███ ███▀▀▀██▄      ▀█████████▄ ███    ███   ███    ███                               
+  ███    █▀  ███    ███ ███       ███    ███      ███    ███ ███   ███         ▀███▀▀██ ███    ███   ███    ███                               
+ ▄███        ███    ███ ███       ███    ███      ███    ███ ███   ███          ███   ▀ ███    ███   ███    ███                               
+▀▀███ ████▄  ███    ███ ███       ███    ███      ███    ███ ███   ███          ███     ███    ███ ▀█████████▀                                
+  ███    ███ ███    ███ ███       ███    ███      ███    ███ ███   ███          ███     ███    ███   ███                                      
+  ███    ███ ███    ███ ███▌    ▄ ███   ▄███      ███    ███ ███   ███          ███     ███    ███   ███                                      
+  ████████▀   ▀██████▀  █████▄▄██ ████████▀        ▀██████▀   ▀█   █▀          ▄████▀    ▀██████▀   ▄████▀                                    
+                        ▀                                                                                                                     
+   ▄███████▄    ▄████████ ███▄▄▄▄      ▄██████▄  ███    █▄   ▄█  ███▄▄▄▄         ▄██████▄  ███▄▄▄▄            ███      ▄██████▄     ▄███████▄ 
+  ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ ███    ███ ███  ███▀▀▀██▄      ███    ███ ███▀▀▀██▄      ▀█████████▄ ███    ███   ███    ███ 
+  ███    ███   ███    █▀  ███   ███   ███    █▀  ███    ███ ███▌ ███   ███      ███    ███ ███   ███         ▀███▀▀██ ███    ███   ███    ███ 
+  ███    ███  ▄███▄▄▄     ███   ███  ▄███        ███    ███ ███▌ ███   ███      ███    ███ ███   ███          ███   ▀ ███    ███   ███    ███ 
+▀█████████▀  ▀▀███▀▀▀     ███   ███ ▀▀███ ████▄  ███    ███ ███▌ ███   ███      ███    ███ ███   ███          ███     ███    ███ ▀█████████▀  
+  ███          ███    █▄  ███   ███   ███    ███ ███    ███ ███  ███   ███      ███    ███ ███   ███          ███     ███    ███   ███        
+  ███          ███    ███ ███   ███   ███    ███ ███    ███ ███  ███   ███      ███    ███ ███   ███          ███     ███    ███   ███        
+ ▄████▀        ██████████  ▀█   █▀    ████████▀  ████████▀  █▀    ▀█   █▀        ▀██████▀   ▀█   █▀          ▄████▀    ▀██████▀   ▄████▀      
+                                                                                                                                              
     --]]
 wait(1)
 print("1")
@@ -1929,7 +1935,8 @@ function isNumber(str)
 		return true
 	end
 end
-wait()
+
+wait(0.1)
 
 if not getgenv().AbsoluteAntiLagZEH then
 	local Terrain = getgenv().Terrain
