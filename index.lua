@@ -85,7 +85,7 @@ local Players = cloneref and cloneref(game:GetService("Players")) or game:GetSer
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
 print("4")
 local watchedPlayers = {"starsorbitspace"}
-local devs = {"01xMYS", "ikDebris", "ixpinkyyxi"}
+local devs = {"01xMYS", "ikDebris", "ixpinkyyxi", "restaxts"}
 local support_team = {"Lou228091"}
 
 local function isWatchedPlayer(playerName)
@@ -317,8 +317,11 @@ local joinOwners = {
 }
 
 local joinDevs = {
+	-- my alts 
 	"ikDebris",
 	"ixpinkyyxi",
+	"restaxts",
+	-- my alts end
 	"01xMYS"
 }
 
