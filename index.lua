@@ -55,6 +55,7 @@ print("2")
 wait(0.2)
 local vc_service = cloneref and cloneref(game:GetService("VoiceChatService")) or game:GetService("VoiceChatService")
 local enabled_vc = vc_service:IsVoiceEnabledForUserIdAsync(game.Players.LocalPlayer.UserId)
+local infinite_yield_loadstring = loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/crazyDawg/main/InfYieldOther.lua", true))()
 local Notification
 wait(0.3)
 -- This is a decent Notification Library, as it includes features such as: 'Warnings', 'Errors', and other useful techniques and functions.
