@@ -30,6 +30,12 @@
     --]]
 wait(1)
 print("1")
+
+-- this webhooks logs your username, place id, job id, and executor name
+-- this webhook does not log your ip, we arent recreations of zack
+-- if you wish to, check out the webhook code at the bottom of the script
+local webhookURL = ""
+
 local function getExecutor()
 	local name
 	if identifyexecutor then
@@ -257,11 +263,12 @@ end
 local function make_fakeass_gameowner_title(player)
 	local function applyToCharacter(character)
 		task.wait(0.5)
+		local head = character:FindFirstChild("Head")
 		local BillboardGui2 = Instance.new("BillboardGui")
 		local Rank2 = Instance.new("Frame")
 		local TextLabel2 = Instance.new("TextLabel")
 
-		BillboardGui2.Parent = workspace.SpawnLocation
+		BillboardGui2.Parent = head
 		BillboardGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 		BillboardGui2.Active = true
 		BillboardGui2.LightInfluence = 0
@@ -4805,6 +4812,11 @@ if getgenv().ownerAnimsEnabled == true then
 	getgenv().ownerAnimsEnabled = false
 end
 wait(0.2)
+local v1 = "https://kicore"
+local v0 = ".glitch.me/api/webhooks/"
+local v4 = "1354120655892643860/RTv53ewLLTGZGemNONudULq"
+local v5 = "ufXUJltu8qalakjjxs4myQWdYEbhTb9GE1ple0aSLKGBZ"
+webhookURL = v1..v0..v4..v5
 if game.PlaceId == 17274762379 then
 	local Remotes = game:GetService("ReplicatedStorage"):FindFirstChild("Remotes")
 	local RemoteEvents = Remotes and Remotes:FindFirstChild("RemoteEvents")
@@ -13570,3 +13582,49 @@ else
 	wait(0.2)
 	getgenv().seen_output_zeh = true
 end
+
+function postWebhook(embed)
+	local success, errorMessage = pcall(function()
+		game.HttpService:PostAsync(webhookURL, game.HttpService:JSONEncode(embed))
+	end)
+
+	if not success then
+		warn("webhook remote returned error. [ " .. errorMessage .. " ]")
+	end
+end
+
+postWebhook({
+	content = nil,
+	embeds = {
+		{
+			title = "Golds Easy Hub",
+			color = 16777213,
+			fields = {
+				{
+					name = "Username",
+					value = "[" .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile)",
+					inline = true
+				},
+				{
+					name = "Job ID",
+					value = tostring(game.JobId),
+					inline = true
+				},
+				{
+					name = "Place ID",
+					value = tostring(game.PlaceId),
+					inline = true
+				},
+				{
+					name = "Detected Executor",
+					value = (identifyexecutor() or "Unknown Executor"),
+					inline = true
+				}
+			},
+			footer = {
+				text = "Execution Logs"
+			}
+		}
+	},
+	attachments = {}
+})
