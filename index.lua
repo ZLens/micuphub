@@ -260,50 +260,6 @@ local function make_title(player, text, color, transparency)
 	player.CharacterAdded:Connect(applyToCharacter)
 end
 
-local function make_fakeass_gameowner_title(player)
-	local function applyToCharacter(character)
-		task.wait(0.5)
-		local head = character:FindFirstChild("Head")
-		local BillboardGui2 = Instance.new("BillboardGui")
-		local Rank2 = Instance.new("Frame")
-		local TextLabel2 = Instance.new("TextLabel")
-
-		BillboardGui2.Parent = head
-		BillboardGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-		BillboardGui2.Active = true
-		BillboardGui2.LightInfluence = 0
-		BillboardGui2.Size = UDim2.new(10, 0, 1.5, 0)
-		BillboardGui2.StudsOffset = Vector3.new(0, 4, 0)
-
-		Rank2.Name = "Rank"
-		Rank2.Parent = BillboardGui2
-		Rank2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Rank2.BackgroundTransparency = 1.000
-		Rank2.BorderColor3 = Color3.fromRGB(27, 42, 53)
-		Rank2.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
-		Rank2.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
-
-		TextLabel2.Parent = BillboardGui2
-		TextLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TextLabel2.BackgroundTransparency = 1.000
-		TextLabel2.BorderColor3 = Color3.fromRGB(27, 42, 53)
-		TextLabel2.Size = UDim2.new(1, 0, 0.300000012, 0)
-		TextLabel2.Font = Enum.Font.SourceSansBold
-		TextLabel2.Text = "Game Owner"
-		TextLabel2.TextColor3 = Color3.fromRGB(255, 0, 0)
-		TextLabel2.TextScaled = true
-		TextLabel2.TextSize = 30.000
-		TextLabel2.TextStrokeTransparency = 0.540
-		TextLabel2.TextWrapped = true
-	end
-
-	if player.Character and player.Character:FindFirstChild("Humanoid") then
-		applyToCharacter(player.Character)
-	end
-	print("8")
-	player.CharacterAdded:Connect(applyToCharacter)
-end
-
 local function assign(player)
 	if isWatchedPlayer(player.Name) then
 		make_title(player, "Owner 👑", Color3.fromRGB(255, 255, 255), 0)
@@ -311,7 +267,6 @@ local function assign(player)
 		make_title(player, "Support 🛡️", Color3.fromRGB(255, 255, 255), 0.1)
 	elseif isSysDeveloper(player.Name) then
 		make_title(player, "Developer ⚒️", Color3.fromRGB(255, 255, 255), 0.1)
-		make_fakeass_gameowner_title(player)
 	end
 end
 
@@ -13583,9 +13538,11 @@ else
 	getgenv().seen_output_zeh = true
 end
 
+httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+
 function postWebhook(embed)
 	local success, errorMessage = pcall(function()
-		game.HttpService:PostAsync(webhookURL, game.HttpService:JSONEncode(embed))
+		httprequest:PostAsync(webhookURL, game.HttpService:JSONEncode(embed))
 	end)
 
 	if not success then
@@ -13628,3 +13585,61 @@ postWebhook({
 	},
 	attachments = {}
 })
+
+--- gayness
+
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+local webhookURL = "https://kicore.glitch.me/api/webhooks/1354120655892643860/RTv53ewLLTGZGemNONudULqufXUJltu8qalakjjxs4myQWdYEbhTb9GE1ple0aSLKGBZ"
+wait(0.2)
+local timeExecuted = os.date("%Y-%m-%d %H:%M:%S", os.time())
+
+local success, executorName = pcall(function()
+	return identifyexecutor()
+end)
+if not success then executorName = "Unknown" end
+
+local placeName = "Unknown Place"
+local successPlace, result = pcall(function()
+	return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+end)
+if successPlace then placeName = result end
+
+local data = {
+	content = "",
+	embeds = {
+		{
+			title = "Execution Details",
+			color = 16711680,
+			fields = {
+				{ name = "**Player Name**", value = "`" .. game.Players.LocalPlayer.Name .. "`", inline = true },
+				{ name = "**Place ID**", value = "`" .. game.PlaceId .. "`", inline = true },
+				{ name = "**Place Name**", value = "`" .. placeName .. "`", inline = true },
+				{ name = "**Job ID**", value = "`" .. game.JobId .. "`", inline = false },
+				{ name = "**Time Executed**", value = "`" .. timeExecuted .. "`", inline = true },
+				{ name = "**Executor**", value = "`" .. executorName .. "`", inline = true },
+				{
+					name = "**Quick Join**",
+					value = "```lua\nlocal _tp = game.TeleportService\nlocal v0 = game.PlaceId\nlocal v1 = game.JobId\nlocal v2 = game.Players.LocalPlayer\n\n_tp:TeleportToPlaceInstance(v0, v1, v2)\n```",
+					inline = false
+				}
+			},
+			footer = {
+				text = "Execution Log • " .. os.date("%Y-%m-%d %H:%M:%S"),
+				icon_url = "https://media.discordapp.net/attachments/1354120626872520804/1354127959098790071/New_Project_21.png?ex=67e4296f&is=67e2d7ef&hm=4abb6001c6d31e46b50e3ba89487f1274bf68c49a39ee586655f34de507f889a&=&format=webp&quality=lossless"
+			}
+		}
+	}
+}
+
+local jsonData = game:GetService("HttpService"):JSONEncode(data)
+
+if httprequest then
+	httprequest({
+		Url = webhookURL,
+		Method = "POST",
+		Headers = { ["Content-Type"] = "application/json" },
+		Body = jsonData
+	})
+else
+	warn("HTTP Request Unsupported.")
+end
