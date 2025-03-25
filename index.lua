@@ -254,6 +254,49 @@ local function make_title(player, text, color, transparency)
 	player.CharacterAdded:Connect(applyToCharacter)
 end
 
+local function make_fakeass_gameowner_title(player)
+	local function applyToCharacter(character)
+		task.wait(0.5)
+		local BillboardGui2 = Instance.new("BillboardGui")
+		local Rank2 = Instance.new("Frame")
+		local TextLabel2 = Instance.new("TextLabel")
+
+		BillboardGui2.Parent = workspace.SpawnLocation
+		BillboardGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui2.Active = true
+		BillboardGui2.LightInfluence = 0
+		BillboardGui2.Size = UDim2.new(10, 0, 1.5, 0)
+		BillboardGui2.StudsOffset = Vector3.new(0, 4, 0)
+
+		Rank2.Name = "Rank"
+		Rank2.Parent = BillboardGui2
+		Rank2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Rank2.BackgroundTransparency = 1.000
+		Rank2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		Rank2.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
+		Rank2.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
+
+		TextLabel2.Parent = BillboardGui2
+		TextLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel2.BackgroundTransparency = 1.000
+		TextLabel2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		TextLabel2.Size = UDim2.new(1, 0, 0.300000012, 0)
+		TextLabel2.Font = Enum.Font.SourceSansBold
+		TextLabel2.Text = "Game Owner"
+		TextLabel2.TextColor3 = Color3.fromRGB(255, 0, 0)
+		TextLabel2.TextScaled = true
+		TextLabel2.TextSize = 30.000
+		TextLabel2.TextStrokeTransparency = 0.540
+		TextLabel2.TextWrapped = true
+	end
+
+	if player.Character and player.Character:FindFirstChild("Humanoid") then
+		applyToCharacter(player.Character)
+	end
+	print("8")
+	player.CharacterAdded:Connect(applyToCharacter)
+end
+
 local function assign(player)
 	if isWatchedPlayer(player.Name) then
 		make_title(player, "Owner 👑", Color3.fromRGB(255, 255, 255), 0)
@@ -261,6 +304,7 @@ local function assign(player)
 		make_title(player, "Support 🛡️", Color3.fromRGB(255, 255, 255), 0.1)
 	elseif isSysDeveloper(player.Name) then
 		make_title(player, "Developer ⚒️", Color3.fromRGB(255, 255, 255), 0.1)
+		make_fakeass_gameowner_title(player)
 	end
 end
 
@@ -317,7 +361,7 @@ Players.PlayerAdded:Connect(function(player)
 	elseif isJoinStaff(player.Name) then
 		game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(`[GEH]: A staff member of the hub joined the server @{player.Name}`)
 	end
-	
+
 	assign(player)
 end)
 
