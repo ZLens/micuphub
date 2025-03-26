@@ -2628,9 +2628,9 @@ local function create_frame()
 	if not getgenv().Rayfield.Main.Elements:FindFirstChild("\240\159\167\141 LocalPlayer \240\159\167\141"):FindFirstChild("Anti Void BasePlate Transparency") then
 		warn("Not detected Frame's yet.")
 	else
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Transparency"].Visible = true
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Color"].Visible = true
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Rainbow Anti Void Baseplate"].Visible = true
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = true
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = true
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Rainbow Anti Void Baseplate"].Visible = true
 	end
 end
 
@@ -2638,20 +2638,20 @@ local function remove_frame()
 	if not getgenv().Rayfield.Main.Elements:FindFirstChild("\240\159\167\141 LocalPlayer \240\159\167\141"):FindFirstChild("Anti Void BasePlate Transparency") then
 		warn("Not detected Frame's yet.")
 	else
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Transparency"].Visible = false
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Color"].Visible = false
-		getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Rainbow Anti Void Baseplate"].Visible = false
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = false
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = false
+		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Rainbow Anti Void Baseplate"].Visible = false
 	end
 end
 
 if getgenv().Baseplate_Exists == false then
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Transparency"].Visible = false
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Color"].Visible = false
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Rainbow Anti Void Baseplate"].Visible = false
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = false
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = false
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Rainbow Anti Void Baseplate"].Visible = false
 elseif getgenv().Baseplate_Exists or getgenv().Baseplate_Exists == true then
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Transparency"].Visible = true
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Anti Void BasePlate Color"].Visible = true
-	getgenv().Rayfield.Main.Elements["\240\159\167\141 LocalPlayer \240\159\167\141"]["Rainbow Anti Void Baseplate"].Visible = true
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = true
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = true
+	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Rainbow Anti Void Baseplate"].Visible = true
 end
 wait()
 local function check_anti_void_part()
