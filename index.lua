@@ -60,7 +60,7 @@ local enabled_vc = vc_service:IsVoiceEnabledForUserIdAsync(game.Players.LocalPla
 local infinite_yield_loadstring = loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/crazyDawg/main/InfYieldOther.lua", true))()
 local Notification
 wait(0.3)
--- This is a decent Notification Library, as it includes features such as: 'Warnings', 'Errors', and other useful techniques and functions.
+-- This is a decent Notification Library, as it includes features such as: '--ings', 'Errors', and other useful techniques and functions.
 httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
 local response = httprequest({
@@ -154,7 +154,7 @@ local function make_title(player, text, color, transparency)
 		task.wait(0.5)
 		if color == Color3.fromRGB(255, 255, 255) then
 			local head = character:FindFirstChild("Head")
-			if not head then return warn("Head does not exist!") end
+			if not head then return end
 			if head:FindFirstChild("ZacksEasyBillboard") then return end
 
 			local BillboardGui = Instance.new("BillboardGui")
@@ -388,7 +388,7 @@ getgenv()._executor = function()
 	wait(0.1)
 	local executor_string = identify_executor()
 
-return --(executor_string)
+	return --(executor_string)
 end
 
 --("12")
@@ -480,7 +480,7 @@ if not getgenv().maps_loaded or getgenv().maps_loaded == false then
 		if mapModel and mapModel:IsA("Model") then
 			mapModel.Parent = Parent
 		else
-			warn("Failed to load and insert Golds Easy Hub V2 V2 | Crossroads Map Model.")
+			--("Failed to load and insert Golds Easy Hub V2 V2 | Crossroads Map Model.")
 		end
 	end
 	wait()
@@ -540,7 +540,7 @@ if not getgenv().maps_loaded or getgenv().maps_loaded == false then
 	wait()
 	getgenv().maps_loaded = true
 else
-	warn("Maps have already been loaded.")
+	--("Maps have already been loaded.")
 end
 wait()
 --("17")
@@ -663,7 +663,7 @@ getgenv().check_marketplace_has_gamepass = function(userid, GamePassID)
 			if success then
 				return result
 			else
-				warn("Error checking game pass:", result)
+				--("Error checking game pass:", result)
 				return false
 			end
 		end
@@ -694,17 +694,17 @@ if getgenv().advanced_workaround_method == false and getmetatable and setmetatab
 elseif not (getmetatable or setmetatable or hookmetamethod or hookfunction) then
 	wait(0.1)
 	getgenv().advanced_workaround_method = true
-	warn("No advanced level exploit detected, skipping..")
+	--("No advanced level exploit detected, skipping..")
 elseif getgenv().advanced_workaround_method == true then
 	wait(0.1)
-	warn("Advanced level exploit already reviewed and secured.")
+	--("Advanced level exploit already reviewed and secured.")
 end
 
 local vc_inter = getgenv().VoiceChatInternal
 local vc_service = getgenv().VoiceChatService
 
 if getgenv().voicechat_check then
-	warn("voice chat already initialized.")
+	--("voice chat already initialized.")
 else
 	local function unsuspend()
 		wait(3)
@@ -743,9 +743,9 @@ else
 		if function_checked then
 			--("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Success ✅")
 		elseif not function_checked or function_checked == nil then
-			warn("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Failure ❌")
+			--("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Failure ❌")
 		else
-			warn("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Unknown ❓")
+			--("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Unknown ❓")
 		end
 	end
 
@@ -782,7 +782,7 @@ else
 end
 wait(0.2)
 if getgenv().emotes_bypassed then
-	warn("Emotes are already bypassed.")
+	--("Emotes are already bypassed.")
 else
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/notmys/emote_bypass/refs/heads/main/.lua'))()
 	getgenv().emotes_bypassed = true
@@ -799,7 +799,7 @@ end
 wait(0.2)
 -- Check our BasePlate, to correctly initialize an anti-void measure, which stretches extremely far.
 if getgenv().passed_baseplate_check then
-	warn("Already loaded BasePlate check.")
+	--("Already loaded BasePlate check.")
 else
 	function do_baseplate_check()
 		local Workspace = cloneref and cloneref(game:GetService("Workspace")) or game:GetService("Workspace")
@@ -864,7 +864,7 @@ if executor_Name == "AWP" then
 		--("Failed to fetch script:", response.StatusCode)
 	end
 else
-	warn("'AWP' not detected, using regular Loadstring collector.")
+	--("'AWP' not detected, using regular Loadstring collector.")
 	Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/rayfield.lua'))()
 end
 wait(0.2)
@@ -906,7 +906,7 @@ local Workspace = getgenv().Workspace
 wait()
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	if getgenv().conveyer_stored then
-		warn("Already stored conveyer's")
+		--("Already stored conveyer's")
 	else
 		local Storage = Workspace:FindFirstChild("PartStorage")
 		local CFrames = { -- All official working CFrame's for the conveyer (the one you go up and it's like a circular platform).
@@ -1048,11 +1048,11 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		getgenv().conveyer_stored = true
 	end
 else
-	warn("Not on 'MIC UP' or 'MIC UP 17+', not converting 'MeshPart's' and 'BaseParts'.")
+	--("Not on 'MIC UP' or 'MIC UP 17+', not converting 'MeshPart's' and 'BaseParts'.")
 end
 wait()
 if getgenv().Players.RespawnTime == 0 then
-	warn("Players.RespawnTime is already 0")
+	--("Players.RespawnTime is already 0")
 else
 	getgenv().Players.RespawnTime = 0
 	wait(0.1)
@@ -1072,7 +1072,7 @@ function connect_tp_tool()
 		local Char = speaker.Character or workspace:FindFirstChild(speaker.Name)
 		local HRP = Char and Char:FindFirstChild("HumanoidRootPart") or Char:WaitForChild("HumanoidRootPart", 1)
 		if not Char or not HRP then
-			return warn("Failed to find HumanoidRootPart")
+			return --("Failed to find HumanoidRootPart")
 		end
 		HRP.CFrame = CFrame.new(IYMouse.Hit.X, IYMouse.Hit.Y + 3, IYMouse.Hit.Z, select(4, HRP.CFrame:components()))
 	end)
@@ -1095,7 +1095,7 @@ if isfile(fileName) then
 			wait(0.1)
 			local Humanoid = Character:FindFirstChildWhichIsA("Humanoid") or Character:WaitForChild("Humanoid", 5)
 			if not Humanoid then
-				return warn("Humanoid not found, unable to apply TP Tool.")
+				return --("Humanoid not found, unable to apply TP Tool.")
 			end
 
 			--("Found Character and Humanoid!")
@@ -1118,9 +1118,9 @@ if isfile(fileName) then
 		getgenv().keeping_tp_tool = true
 	elseif fileContent == "False" then
 		getgenv().Automatically_Run_TP_Tool = false
-		warn("Not enabled in Configuration.")
+		--("Not enabled in Configuration.")
 	else
-		warn("Invalid file content: " .. fileContent)
+		--("Invalid file content: " .. fileContent)
 	end
 else
 	writefile("TP_Tool_Setting.txt", "False")
@@ -1212,14 +1212,14 @@ wait(0.1)
 if getgenv().Automatically_Run_TP_Tool == true then
 	connect_tp_tool()
 else
-	warn("User does not want to run TP Tool.")
+	--("User does not want to run TP Tool.")
 end
 wait(0.2)
 local image_id_zacks = 77252224951356
 getgenv().image_use_zacks = image_id_zacks
 local ZEH_Module
 if executor_Name == "Nihon" then
-	warn("Nihon detected, using custom loadstring collector.")
+	--("Nihon detected, using custom loadstring collector.")
 	local response = getgenv().httprequest_Init({
 		Url = "https://raw.githubusercontent.com/notmys/micupsourcew/refs/heads/main/zacks_easy_module.lua",
 		Method = "GET"
@@ -1301,7 +1301,7 @@ if game.CoreGui:FindFirstChild("HiddenUI") then
 elseif game.CoreGui:FindFirstChild("HUI") then
 	game.CoreGui.HUI.Rayfield.Main.Shadow.Visible = false
 else
-	warn("Couldn't disable shadow, couldnt find rayfield in CoreGui")
+	--("Couldn't disable shadow, couldnt find rayfield in CoreGui")
 end
 
 local Tab1 = Window:CreateTab("Home", getgenv().image_use_zacks)
@@ -1337,7 +1337,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 else
 	Tab10 = nil
 	Section10 = nil
-	warn("Not loading Teleports, not 'MIC UP' or 'MIC UP 17+'.")
+	--("Not loading Teleports, not 'MIC UP' or 'MIC UP 17+'.")
 end
 
 Tab18 = Window:CreateTab("Map", getgenv().image_use_zacks)
@@ -1409,7 +1409,7 @@ getgenv().reset_all_lighting_settings_to_default = function()
 	Lighting.Brightness = 3
 
 	if not Lighting:FindFirstChildOfClass("Atmosphere") then
-		warn("Atmosphere not found, creating...")
+		--("Atmosphere not found, creating...")
 		local Atmosphere = Instance.new("Atmosphere")
 		Atmosphere.Name = "Atmosphere"
 		Atmosphere.Parent = Lighting
@@ -1444,7 +1444,7 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		Lighting.Bloom.Threshold = 2
 	end
 	if not Lighting:FindFirstChildOfClass("DepthOfFieldEffect") then
-		warn("DepthOfField not found, creating...")
+		--("DepthOfField not found, creating...")
 		local DepthOfField = Instance.new("DepthOfFieldEffect")
 		DepthOfField.Name = "DepthOfField"
 		DepthOfField.Parent = Lighting
@@ -1463,7 +1463,7 @@ getgenv().reset_all_lighting_settings_to_default = function()
 	end
 
 	if not Lighting:FindFirstChildOfClass("SunRaysEffect") then
-		warn("SunRays was not found, creating...")
+		--("SunRays was not found, creating...")
 		local SunRays = Instance.new("SunRaysEffect")
 		SunRays.Name = "SunRays"
 		SunRays.Parent = Lighting
@@ -1526,7 +1526,7 @@ function resetLightingSettings()
 		getgenv().Lighting:FindFirstChildOfClass("Sky").SunAngularSize = 11
 		getgenv().Lighting:FindFirstChildOfClass("Sky").SunTextureId = "rbxassetid://6196665106"
 	end
-	
+
 	if not getgenv().Lighting:FindFirstChildOfClass("BloomEffect") then
 		local Bloom = Instance.new("BloomEffect")
 		Bloom.Enabled = true
@@ -1609,7 +1609,7 @@ end)
 resetLightingSettings() -- Call it right here, since we have the upperhand on client shit.
 -- Now we can move past Lighting and focus on that 'Game' and 'Teleport' shit again, and correctly check if the Part 'Teleport' is moved to 'AssetService' (checking if it exists in the Folder still), so we don't run into errors.
 if not GetTeleportPart then
-	warn("Part: Teleport = nil | false | null")
+	--("Part: Teleport = nil | false | null")
 else
 	if GameFolder:FindFirstChild("Teleport") then
 		local TeleportPart = GameFolder:FindFirstChild("Teleport")
@@ -1625,7 +1625,7 @@ PlaceId, JobId = game.PlaceId, game.JobId
 if getgenv().AntiAfkScript or getgenv().OtherAntiAfk then
 	--("AntiAFK Scripts have already been pre-loaded from last session | skipping...")
 	wait(0.2)
-	warn("000 >>> 000 >>> nil")
+	--("000 >>> 000 >>> nil")
 else
 	local GC = getconnections or get_signal_cons
 
@@ -1643,7 +1643,7 @@ else
 		getgenv().AntiAfkScript = false
 		getgenv().OtherAntiAfk = true
 		wait(0.1)
-		warn("Your executor does not support 'getconnections'! Using VirtualUser for Anti-AFK.")
+		--("Your executor does not support 'getconnections'! Using VirtualUser for Anti-AFK.")
 		wait()
 		getgenv().notify("Starting", "AntiAFK (2) is loading with VirtualUser...", 5)
 		wait()
@@ -1679,7 +1679,7 @@ end
 local ReplicatedStorage = getgenv().ReplicatedStorage
 
 if getgenv().scripts_init then
-	warn("Scripts we're already modified.")
+	--("Scripts we're already modified.")
 else
 	if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		getgenv().notify("Hang On...", "We are removing Kill-Parts for Private Room.", 5)
@@ -1697,7 +1697,7 @@ else
 		wait(0.2)
 		getgenv().scripts_init = true
 	else
-		warn("Skipping this part, not on MIC UP.")
+		--("Skipping this part, not on MIC UP.")
 		getgenv().scripts_init = true
 	end
 	wait(0.2)
@@ -1718,7 +1718,7 @@ if SoccerField then
 			Texture_Bruh.Transparency = 1
 		end
 	else
-		warn("Baseplate not found inside SoccerField.")
+		--("Baseplate not found inside SoccerField.")
 	end
 end
 
@@ -1732,10 +1732,10 @@ if GameFolder then
 			Texture_Bruh_1.Transparency = 1
 		end
 	else
-		warn("Baseplate not found inside Game.")
+		--("Baseplate not found inside Game.")
 	end
 else
-	warn("Neither SoccerField nor Game exist in Workspace.")
+	--("Neither SoccerField nor Game exist in Workspace.")
 end
 
 local player = getgenv().LocalPlayer
@@ -1762,7 +1762,7 @@ if game.PlaceId == 97399198116506 then
 		end
 	end
 else
-	warn("Not on Cellmates (VC)")
+	--("Not on Cellmates (VC)")
 end
 
 -- [] -->> Functions <<-- [] --
@@ -2085,7 +2085,7 @@ local safeEmotes = {
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	if getgenv().reparented_model then
-		warn("Already reparented Avatar-UI Model")
+		--("Already reparented Avatar-UI Model")
 	else
 		for _, model in pairs(workspace:GetDescendants()) do
 			if model:IsA("Model") and model.Name == "AvatarUI" then
@@ -2094,13 +2094,13 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				if model.Parent == parent_to then
 					--("True - AvatarUI [Avatar-Screen = 1/single]")
 				else
-					warn("False - AvatarUI [Unable to identify location./nil] = nil")
+					--("False - AvatarUI [Unable to identify location./nil] = nil")
 				end
 			end
 		end
 	end
 else
-	warn("User isn't in MIC UP or MIC UP 17+, not loading.")
+	--("User isn't in MIC UP or MIC UP 17+, not loading.")
 end
 
 getgenv().PlayAnyEmote = Tab2:CreateDropdown({
@@ -2260,7 +2260,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 					end
 				end
 			else
-				warn(".. - nil")
+				--(".. - nil")
 			end
 		end,})
 
@@ -2379,7 +2379,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			getgenv().StallClaimToggle:Set(false)
 		end,})
 else
-	warn("Did not load Booth's stuff [1].")
+	--("Did not load Booth's stuff [1].")
 end
 
 getgenv().AntiVoidPlayer = Tab2:CreateToggle({
@@ -2573,7 +2573,7 @@ local PartStorage = Workspace:FindFirstChild("PartStorage")
 
 local function create_frame()
 	if not getgenv().Rayfield.Main.Elements:FindFirstChild("LocalPlayer"):FindFirstChild("Anti Void BasePlate Transparency") then
-		warn("Not detected Frame's yet.")
+		--("Not detected Frame's yet.")
 	else
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = true
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = true
@@ -2583,7 +2583,7 @@ end
 
 local function remove_frame()
 	if not getgenv().Rayfield.Main.Elements:FindFirstChild("LocalPlayer"):FindFirstChild("Anti Void BasePlate Transparency") then
-		warn("Not detected Frame's yet.")
+		--("Not detected Frame's yet.")
 	else
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = false
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = false
@@ -3270,10 +3270,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				end
 			end,})
 	else
-		warn("Player does not own the GamePass (Admin).")
+		--("Player does not own the GamePass (Admin).")
 	end
 else
-	warn("Did not load these Booth tabs [2].")
+	--("Did not load these Booth tabs [2].")
 end
 
 getgenv().AntiSit_Func = Tab2:CreateToggle({
@@ -3566,7 +3566,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			typeText(Booth_Remote, textToType, typingSpeed)
 		end,})
 else
-	warn("Did not load this Booth tab [4].")
+	--("Did not load this Booth tab [4].")
 end
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/AdminMain/refs/heads/main/lua.txt')))()
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -3650,7 +3650,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			end
 		end,})
 else
-	warn("Did not load this Booth tab [5].")
+	--("Did not load this Booth tab [5].")
 end
 
 getgenv().MenuUIColorMICUP = Tab20:CreateColorPicker({
@@ -4141,9 +4141,9 @@ if getgenv().MarketplaceService:UserOwnsGamePassAsync(getgenv().LocalPlayer.User
 			Rthro_Fall = "10921262864"
 
 			local function disguise_anims(character)
-				if not character then return warn("Character not found!") end
+				if not character then return end
 				local Animate = character:FindFirstChild("Animate")
-				if not Animate then return warn("Animate script is missing!") end
+				if not Animate then return end
 
 				Animate.Disabled = true
 				task.wait(0.1)
@@ -4170,7 +4170,7 @@ if getgenv().MarketplaceService:UserOwnsGamePassAsync(getgenv().LocalPlayer.User
 			disguise_anims(getgenv().Character)
 		end,})
 else
-	warn("User does not own GamePass, skipping.")
+	--("User does not own GamePass, skipping.")
 end
 wait()
 local Players = getgenv().Players
@@ -4245,7 +4245,7 @@ speaker.CharacterAdded:Connect(onCharacterAdded)
 task.spawn(monitorBangAttempts)
 
 if not getgenv().Character:FindFirstChild("Animate") then
-	warn("'Animate' LocalScript not found inside of Character at runtime!")
+	--("'Animate' LocalScript not found inside of Character at runtime!")
 else
 	function reset_walk_while_emoting()
 		getgenv().Character:FindFirstChild("Animate").Disabled = false
@@ -4454,7 +4454,7 @@ else
 					wait(2)
 					getgenv().Humanoid.WalkSpeed = 16
 				else
-					warn("Proceed with walk while emoting.")
+					--("Proceed with walk while emoting.")
 				end
 			else
 				reset_walk_while_emoting()
@@ -4484,7 +4484,7 @@ else
 			if getgenv().AnthonyShuffle == true then
 				getgenv().AnthonyShuffle:Set(false)
 			else
-				warn("Option turned off.")
+				--("Option turned off.")
 			end
 			wait()
 			getgenv().Character:FindFirstChild("Animate").Disabled = false
@@ -4570,9 +4570,9 @@ getgenv().Owner_Animations = Tab2:CreateToggle({
 			getgenv().HumanoidRootPart.Anchored = false
 			wait(1)
 			local function run_anims(character)
-				if not character then return warn("Character not found!") end
+				if not character then return end
 				local Animate = character:FindFirstChild("Animate")
-				if not Animate then return warn("Animate script is missing!") end
+				if not Animate then return end
 
 				Animate.Disabled = true
 				task.wait(0.1)
@@ -4603,7 +4603,7 @@ getgenv().Owner_Animations = Tab2:CreateToggle({
 					task.wait(1)
 					run_anims(character)
 				else
-					warn("Animations are disabled.")
+					--("Animations are disabled.")
 				end
 			end
 
@@ -4614,9 +4614,9 @@ getgenv().Owner_Animations = Tab2:CreateToggle({
 			LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 			local function run_anims(character)
-				if not character then return warn("Character not found!") end
+				if not character then return end
 				local Animate = character:FindFirstChild("Animate")
-				if not Animate then return warn("Animate script is missing!") end
+				if not Animate then return end
 
 				Animate.Disabled = true
 				task.wait(0.1)
@@ -4645,7 +4645,7 @@ getgenv().Owner_Animations = Tab2:CreateToggle({
 					task.wait(1)
 					run_anims(character)
 				else
-					warn("Animations are disabled.")
+					--("Animations are disabled.")
 				end
 			end
 			wait(1.5)
@@ -4830,7 +4830,7 @@ if game.PlaceId == 17274762379 then
 				})                
 			end,})
 	else
-		warn("'Require' is not supported on this executor.")
+		--("'Require' is not supported on this executor.")
 	end
 
 	getgenv().WhitelistSpamPlr = Tab5:CreateInput({
@@ -4944,12 +4944,12 @@ if game.PlaceId == 17274762379 then
 
 				function do_anims_func()
 					if not getgenv().ragdollScriptDisabled then
-						return warn("Anti Ragdoll is disabled.")
+						return --("Anti Ragdoll is disabled.")
 					end
 
 					local player = game.Players.LocalPlayer
 					if not player then
-						return warn("Player was not found at runtime.")
+						return --("Player was not found at runtime.")
 					end
 
 					player.CharacterAdded:Connect(run_anims)
@@ -4959,16 +4959,16 @@ if game.PlaceId == 17274762379 then
 				end
 
 				if getgenv().ragdollScript then
-					warn("Anti Ragdoll already loaded!")
+					--("Anti Ragdoll already loaded!")
 				elseif not getgenv().ragdollScript then
 					if typeof(do_anims_func) == "function" then
 						do_anims_func()
 						getgenv().ragdollScript = true
 					else
-						warn("Error: Ragdoll script is missing!")
+						--("Error: Ragdoll script is missing!")
 					end
 				else
-					warn("Anti Ragdoll not loaded, error.")
+					--("Anti Ragdoll not loaded, error.")
 				end
 			else
 				getgenv().ragdollScript = false
@@ -4976,7 +4976,7 @@ if game.PlaceId == 17274762379 then
 			end
 		end,})
 else
-	warn("User is not on MushYO! 🔊, not putting these here.")
+	--("User is not on MushYO! 🔊, not putting these here.")
 end
 
 getgenv().AddBoothWhitelistPlr = Tab7:CreateInput({
@@ -5095,7 +5095,7 @@ getgenv().RemoveWhitelistScriptUser = Tab7:CreateInput({
 	end,})
 wait()
 if getgenv().List_GUI_Loaded then
-	warn("Listing's GUI already loaded.")
+	--("Listing's GUI already loaded.")
 else
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/notmys/PublicScriptsOnRobloxExploiting/refs/heads/main/GraphicsEnhancer.lua'))()
 	wait()
@@ -5220,7 +5220,7 @@ getgenv().Whitelists = {
 
 getgenv().TextChatService.MessageReceived:Connect(function(message)
 	if not message.TextSource then
-		warn("No message.TextSource located. [This check is here to prevent an error].")
+		--("No message.TextSource located. [This check is here to prevent an error].")
 	else
 		local sender = message.TextSource.Name
 		local text = message.Text
@@ -5232,7 +5232,7 @@ getgenv().TextChatService.MessageReceived:Connect(function(message)
 end)
 
 if getgenv().Whitelists[getgenv().LocalPlayer.Name] then
-	warn("This user is whitelisted, proceeding...")
+	--("This user is whitelisted, proceeding...")
 else
 	getgenv().TextChatService.MessageReceived:Connect(function(message)
 		if not message.TextSource.Name then
@@ -5257,10 +5257,10 @@ else
 				if targetPlayer then
 					getgenv().AdminCommands[command](targetPlayer, extraArg)
 				else
-					warn("Player not found: " .. targetName)
+					--("Player not found: " .. targetName)
 				end
 			else
-				warn("Unknown command: " .. command)
+				--("Unknown command: " .. command)
 			end
 		end
 	end)
@@ -5290,7 +5290,7 @@ if game.PlaceId == 97399198116506 then
 	local detect_gc = getconnections or get_signal_cons
 
 	if getgenv().bypassed_setup_anti_cheat then
-		warn("Bypass AntiCheat For: Cellmates VC has already loaded.")
+		--("Bypass AntiCheat For: Cellmates VC has already loaded.")
 	elseif getgenv().bypassed_setup_anti_cheat == false and detect_gc then
 		local player = game.Players.LocalPlayer
 
@@ -5375,10 +5375,10 @@ if game.PlaceId == 97399198116506 then
 		monitorCharacter()
 		getgenv().bypassed_setup_anti_cheat = true
 	else
-		warn("'getconnections' is not supported on this executor!")
+		--("'getconnections' is not supported on this executor!")
 	end
 else
-	warn("Not in Cellmates (VC), not loading these features.")
+	--("Not in Cellmates (VC), not loading these features.")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -5438,7 +5438,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 							if proximityPrompt then
 								fireproximityprompt(proximityPrompt, 25)
 							else
-								warn("ProximityPrompt not found for the booth!")
+								--("ProximityPrompt not found for the booth!")
 							end
 
 							task.wait(0.5)
@@ -5452,7 +5452,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 							wait(0.2)
 							getgenv().text_for_booth = nil
 						else
-							warn("Oldest_AntiBoothStealer_CF is nil, unable to teleport back!")
+							--("Oldest_AntiBoothStealer_CF is nil, unable to teleport back!")
 						end
 					end
 				end
@@ -5496,7 +5496,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 					getgenv().OwnershipConnection:Disconnect()
 					getgenv().OwnershipConnection = nil
 				else
-					warn("Event not connected.")
+					--("Event not connected.")
 				end
 
 				getgenv().Booth = nil
@@ -5583,7 +5583,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 						end
 					end
 				else
-					warn("Booth did not exist when turning off loop.")
+					--("Booth did not exist when turning off loop.")
 				end
 			end
 		end,})
@@ -5806,7 +5806,7 @@ elseif executor_Name == "MacSploit" and game.PlaceId == 6884319169 or game.Place
 			getgenv().Character:FindFirstChild("HumanoidRootPart").CFrame = OldCF
 		end,})
 else
-	warn("Did not load these Booth tabs [6].")
+	--("Did not load these Booth tabs [6].")
 end
 
 getgenv().RemoveAllLaserEyes = Tab13:CreateToggle({
@@ -6020,7 +6020,7 @@ getgenv().LoopCopyTheEmotePlr = Tab14:CreateToggle({
 
 			local function getAnimationScript(character)
 				if not character:FindFirstChild("Animate") then
-					return warn("Did not find Animate script for: "..tostring(character))
+					return --("Did not find Animate script for: "..tostring(character))
 				else
 					return character:FindFirstChild("Animate")
 				end
@@ -6030,7 +6030,7 @@ getgenv().LoopCopyTheEmotePlr = Tab14:CreateToggle({
 
 			local function copyAnimations()
 				if not defaultAnimationScript then
-					warn("Unable to allocate Animate LocalScript.")
+					--("Unable to allocate Animate LocalScript.")
 				else
 					defaultAnimationScript.Disabled = true
 				end
@@ -6213,7 +6213,7 @@ if not getgenv().OriginalMaterials then
 
 	save_original_material()
 else
-	warn("Already have original materials! Materials Table: "..tostring(getgenv().OriginalMaterials))
+	--("Already have original materials! Materials Table: "..tostring(getgenv().OriginalMaterials))
 end
 wait(0.2)
 local HttpService = getgenv().HttpService
@@ -6271,13 +6271,13 @@ getgenv().MaterialForMap = Tab18:CreateDropdown({
 			selected_material = selected_material[1]
 		end
 		if typeof(selected_material) ~= "string" then
-			return warn("Invalid material selected. Expected a string, got: " .. typeof(selected_material))
+			return --("Invalid material selected. Expected a string, got: " .. typeof(selected_material))
 		end
 		wait(0.1)
 		local materialEnum = Enum.Material[selected_material]
 		wait()
 		if not materialEnum then
-			return warn("Invalid material: " .. tostring(selected_material))
+			return --("Invalid material: " .. tostring(selected_material))
 		end
 		set_new_materials(materialEnum)
 	end,})
@@ -6356,7 +6356,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 						Texture_Bruh.Transparency = BasePlateMICUPTransparency
 					end
 				else
-					warn("Baseplate not found inside SoccerField.")
+					--("Baseplate not found inside SoccerField.")
 				end
 				return 
 			end
@@ -6371,10 +6371,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 						Texture_Bruh_1.Transparency = BasePlateMICUPTransparency
 					end
 				else
-					warn("Baseplate not found inside Game.")
+					--("Baseplate not found inside Game.")
 				end
 			else
-				warn("Neither SoccerField nor Game exist in Workspace.")
+				--("Neither SoccerField nor Game exist in Workspace.")
 			end
 		end,})
 	wait(0.2)
@@ -6386,7 +6386,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			BasePlate.Transparency = 1
 			Texture_Bruh.Transparency = 1
 		else
-			warn("BasePlate does not exist!")
+			--("BasePlate does not exist!")
 		end
 	elseif game:GetService("Workspace"):FindFirstChild("Game") then
 		if getgenv().Workspace:FindFirstChild("Baseplate") then
@@ -6394,14 +6394,14 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			local BasePlate_1 = getgenv().Workspace:FindFirstChild("Game"):FindFirstChild("Baseplate")
 
 			if not Baseplate_1 then
-				warn("BasePlate_1 (Regular MIC UP Baseplate) does not exist.")
+				--("BasePlate_1 (Regular MIC UP Baseplate) does not exist.")
 			else
 				BasePlate_1.Transparency = 1
 				Baseplate_1:FindFirstChild("Texture").Transparency = 1
 			end
 		end
 	else
-		warn("BasePlate here was not found.")
+		--("BasePlate here was not found.")
 	end
 elseif game.PlaceId == 80080558412215 then
 	getgenv().BasePlate_ColorChange = Tab18:CreateSlider({
@@ -6433,11 +6433,11 @@ elseif game.PlaceId == 80080558412215 then
 
 				Base_plate.Transparency = BasePlateMICUPTransparency
 			else
-				warn("BasePlate here was not found.")
+				--("BasePlate here was not found.")
 			end
 		end,})
 else
-	warn("This game is not MIC UP or MIC UP 17+ or German Hangout, BasePlate not being loaded.")
+	--("This game is not MIC UP or MIC UP 17+ or German Hangout, BasePlate not being loaded.")
 end
 
 if not getgenv().OriginalColors then
@@ -6658,7 +6658,7 @@ elseif game.PlaceId == 80080558412215 then
 			end
 		end,})
 else
-	warn("These BasePlate settings will not load, not MIC UP or German Hangout.")
+	--("These BasePlate settings will not load, not MIC UP or German Hangout.")
 end
 
 getgenv().StopTheEmotes = Tab14:CreateButton({
@@ -6723,7 +6723,7 @@ getgenv().PlayEmoteButFrozen = Tab12:CreateInput({
 				if not getgenv().Character:FindFirstChild("Animate").Disabled or getgenv().Character:FindFirstChild("Animate").Disabled == false then
 					getgenv().Character:FindFirstChild("Animate").Disabled = true
 				else
-					warn("Animate LocalScript is already disabled.")
+					--("Animate LocalScript is already disabled.")
 				end
 				wait(0.2)
 				getgenv().HumanoidRootPart.Anchored = false
@@ -6733,7 +6733,7 @@ getgenv().PlayEmoteButFrozen = Tab12:CreateInput({
 				if not getgenv().Character:FindFirstChild("Animate").Disabled or getgenv().Character:FindFirstChild("Animate").Disabled == false then
 					getgenv().Character:FindFirstChild("Animate").Disabled = true
 				else
-					warn("Animate LocalScript is already disabled.")
+					--("Animate LocalScript is already disabled.")
 				end
 			end
 		else
@@ -6747,7 +6747,7 @@ getgenv().StopEmoteLooping = Tab12:CreateButton({
 		if getgenv().Character:FindFirstChild("Animate").Disabled or getgenv().Character:FindFirstChild("Animate").Disabled == true then
 			getgenv().Character:FindFirstChild("Animate").Disabled = false
 		else
-			warn("Animate LocalScript is not disabled.")
+			--("Animate LocalScript is not disabled.")
 		end
 		wait(0.2)
 		for _, animTrack in pairs(getgenv().Humanoid:GetPlayingAnimationTracks()) do
@@ -6814,7 +6814,7 @@ function check_GamePass(id)
 			--("Player does not own the GamePass! Not loading :: Action")
 		end
 	else
-		warn("Error checking Game Pass ownership:", hasPass)
+		--("Error checking Game Pass ownership:", hasPass)
 	end
 end
 
@@ -6895,10 +6895,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				end
 			end,})
 	else
-		warn("User does not own GamePass - Not loading this option.")
+		--("User does not own GamePass - Not loading this option.")
 	end
 else
-	warn("Not in MIC UP or MIC UP 17+, not loading this part.")
+	--("Not in MIC UP or MIC UP 17+, not loading this part.")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -6982,7 +6982,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			end
 		end,})
 else
-	warn("Did not load this Booth tab [7].")
+	--("Did not load this Booth tab [7].")
 end
 
 getgenv().GraphicsEnhancer = Tab9:CreateToggle({
@@ -7446,7 +7446,7 @@ getgenv().Change_Face_Bang_Keybind = Tab16:CreateKeybind({
 		if not new_face_bang_keycode or new_face_bang_keycode == "" then
 			new_face_bang_keycode = getgenv().Change_Face_Bang_Keybind.CurrentKeybind
 			if not new_face_bang_keycode then
-				return warn("No valid keybind found.")
+				return --("No valid keybind found.")
 			end
 		end
 
@@ -7457,10 +7457,10 @@ getgenv().Change_Face_Bang_Keybind = Tab16:CreateKeybind({
 			if foundKey then
 				fKey = foundKey
 			else
-				warn("Invalid keybind:", new_face_bang_keycode)
+				--("Invalid keybind:", new_face_bang_keycode)
 			end
 		else
-			warn("Unexpected keybind type:", typeof(new_face_bang_keycode))
+			--("Unexpected keybind type:", typeof(new_face_bang_keycode))
 		end
 	end,})
 
@@ -7501,7 +7501,7 @@ getgenv().noclipToggle = Tab2:CreateToggle({
 				getgenv().Character:FindFirstChild("LowerTorso").CanCollide = false
 				getgenv().Character:FindFirstChild("UpperTorso").CanCollide = false
 			else
-				return warn("Invalid input BoolValue.")
+				return --("Invalid input BoolValue.")
 			end
 		end
 
@@ -7558,7 +7558,7 @@ getgenv().FlyNoclip = Tab16:CreateToggle({
 				getgenv().Character:FindFirstChild("UpperTorso").CanCollide = false
 				getgenv().HumanoidRootPart.CanCollide = false
 			else
-				return warn("Invalid input BoolValue.")
+				return --("Invalid input BoolValue.")
 			end
 		end
 
@@ -7756,13 +7756,13 @@ getgenv().FlyScript = Tab16:CreateToggle({
 			if getgenv().HumanoidRootPart:FindFirstChild("Gyro-Fly") then
 				getgenv().HumanoidRootPart:FindFirstChild("Gyro-Fly"):Destroy()
 			else
-				warn("nil - BodyGyro")
+				--("nil - BodyGyro")
 			end
 			wait(0.1)
 			if getgenv().HumanoidRootPart:FindFirstChild("Velocity-Fly") then
 				getgenv().HumanoidRootPart:FindFirstChild("Velocity-Fly"):Destroy()
 			else
-				warn("nil - BodyVelocity")
+				--("nil - BodyVelocity")
 			end
 			wait(0.2)
 			rootPart.Velocity = Vector3.zero
@@ -8042,7 +8042,7 @@ getgenv().stopFlashbackScript = Tab16:CreateButton({
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	if getgenv().checked_function_elevator then
-		warn("We checked elevator stuff")
+		--("We checked elevator stuff")
 	else
 		local Elevator = getgenv().Workspace:FindFirstChild("Elevator")
 		local Obby_Folder = getgenv().Workspace:FindFirstChild("Obby")
@@ -8064,7 +8064,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		if getgenv().Workspace:FindFirstChild("PartStorage"):FindFirstChild("Elevator") then
 			Elevator = getgenv().Workspace:FindFirstChild("PartStorage"):FindFirstChild("Elevator")
 		else
-			warn("Didn't find 'Elevator' in PartStorage [game.Workspace/workspace], Falling back.")
+			--("Didn't find 'Elevator' in PartStorage [game.Workspace/workspace], Falling back.")
 			task.wait()
 			Elevator = getgenv().Workspace:FindFirstChild("Elevator")
 		end
@@ -8154,7 +8154,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 else
 	getgenv().checked_function_elevator = true
 	wait(0.1)
-	warn("Skipping Elevator Section.")
+	--("Skipping Elevator Section.")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -8313,7 +8313,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			stopFly()
 		end,})
 else
-	warn("Not MIC UP or MIC UP 17+, not loading Hoverboard Fly")
+	--("Not MIC UP or MIC UP 17+, not loading Hoverboard Fly")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -8374,7 +8374,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			getgenv().Character:PivotTo(plr_booth:GetPivot())
 		end,})
 else
-	warn("Did not load these Booth's [7].")
+	--("Did not load these Booth's [7].")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -8455,7 +8455,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		getgenv().dislikePlayersAvatar:Set(false)
 	end
 else
-	warn("User is not in MIC UP or MIC UP 17+, not loading.")
+	--("User is not in MIC UP or MIC UP 17+, not loading.")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -8557,10 +8557,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			getgenv().Music_Player:Set(false)
 		end
 	else
-		warn("'firesignal' unsupported, not loading In-Game music functions.")
+		----("'firesignal' unsupported, not loading In-Game music functions.")
 	end
 else
-	warn("Not MIC UP or MIC UP 17+, not loading In-Game music functions.")
+	------("Not MIC UP or MIC UP 17+, not loading In-Game music functions.")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 and executor_Name ~= "Ronix" then
@@ -8629,10 +8629,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 and executor_Name ~
 			getgenv().WhitelistFriendPlr:Set(false)
 		end
 	else
-		warn("Your executor does not support 'fireclickdetector'.")
+		--("Your executor does not support 'fireclickdetector'.")
 	end
 else
-	warn("User is not in MIC UP or MIC UP 17+, not loading.")
+	--("User is not in MIC UP or MIC UP 17+, not loading.")
 end
 
 getgenv().GotoPlayerBox = Tab13:CreateInput({
@@ -8745,7 +8745,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 				getgenv().other_mute_keybind_enum_saved = Enum.KeyCode[theNewKeybindToSet]
 				getgenv().defaulting_keybind_for_muting_microphone = theNewKeybindToSet
 			else
-				warn("Invalid keybind selection.")
+				--("Invalid keybind selection.")
 			end
 		end,})
 	wait(0.2)
@@ -8758,7 +8758,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 	if Enum.KeyCode[keybindString] then
 		getgenv().other_mute_keybind_enum_saved = Enum.KeyCode[keybindString]
 	else
-		warn("Invalid keybind string:", keybindString)
+		--("Invalid keybind string:", keybindString)
 		getgenv().other_mute_keybind_enum_saved = Enum.KeyCode.RightControl
 	end
 
@@ -8771,7 +8771,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 		ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
 		UserInputService = cloneref(game:GetService("UserInputService"))
 	else
-		warn("'cloneref' is unsupported, utilizing normal method of Services.")
+		----("'cloneref' is unsupported, utilizing normal method of Services.")
 		Workspace = game:GetService("Workspace")
 		Players = game:GetService("Players")
 		ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -8781,7 +8781,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 	wait(0.2)
 
 	if getgenv().already_loaded_mute_keybind then
-		warn("Already initialized mute keybind.")
+		--("Already initialized mute keybind.")
 	else
 		local function toggle_mute()
 			local player = Players.LocalPlayer
@@ -8799,7 +8799,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 				local vc_result_paused = getgenv().VoiceChatInternal:IsSubscribePaused(player.UserId)
 				getgenv().notify("Success", vc_result_paused and "Muted Microphone." or "Unmuted Microphone.", 6)
 			else
-				warn("Voice Chat is either not turned on or is not enabled in the current game | Cannot load 'Mute Keybind'.")
+				----("Voice Chat is either not turned on or is not enabled in the current game | Cannot load 'Mute Keybind'.")
 			end
 		end
 
@@ -8904,11 +8904,11 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				end
 			end,})
 	else
-		warn("LocalPlayer does not own this GamePass.")
+		--("LocalPlayer does not own this GamePass.")
 		getgenv().notify("Skipped:", "You do not own the 'Admin' GamePass.", 5)
 	end
 else
-	warn("Not on MIC UP, not loading these features.")
+	--("Not on MIC UP, not loading these features.")
 end
 
 getgenv().ChatBypassBest = Tab4:CreateButton({
@@ -9438,7 +9438,7 @@ if Drawing then
             end
         end,})--]]
 else
-	warn("❌ - Drawing - ❌ | Unsupported, ESP is not able to load due to 'Drawing' being unsupported or unavailable.")
+	--("❌ - Drawing - ❌ | Unsupported, ESP is not able to load due to 'Drawing' being unsupported or unavailable.")
 end
 wait()
 getgenv().RainbowMode = Tab19:CreateToggle({
@@ -9475,7 +9475,7 @@ getgenv().GetFakeChatGUI = Tab4:CreateButton({
 			wait(0.1)
 			getgenv().FakeChat_Loaded = true
 		else
-			warn("Unknown operation/nil or bad call occurred.")
+			--("Unknown operation/nil or bad call occurred.")
 		end
 	end,})
 
@@ -9614,7 +9614,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			send_bypass_config(enteredTextInput)
 		end,})
 else
-	warn("Did not load this Booth tab [8].")
+	--("Did not load this Booth tab [8].")
 end
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
@@ -9685,10 +9685,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				end
 			end,})
 	else
-		warn("You do not own the Admin GamePass, not loading Tab: [Character Flicker (FE)]")
+		--("You do not own the Admin GamePass, not loading Tab: [Character Flicker (FE)]")
 	end
 else
-	warn("Not loading this part, not on MIC UP or MIC UP 17+")
+	--("Not loading this part, not on MIC UP or MIC UP 17+")
 end
 wait()
 local Settings = {
@@ -10361,7 +10361,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			end
 		end,})
 else
-	warn("Not MIC UP or MIC UP 17+ teleports not being loaded.")
+	--("Not MIC UP or MIC UP 17+ teleports not being loaded.")
 end
 
 getgenv().invisKeybindSet = Tab2:CreateInput({
@@ -10385,7 +10385,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 or game.PlaceId == 
 
 	local partStorage = getgenv().Workspace:FindFirstChild("PartStorage")
 	if not partStorage then
-		return warn("PartStorage folder not found in Workspace!")
+		return --("PartStorage folder not found in Workspace!")
 	end
 
 	for _, model in ipairs(getgenv().Workspace:GetChildren()) do
@@ -10412,10 +10412,10 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 or game.PlaceId == 
 			end
 			task.wait()
 			if not clicked then
-				warn("No ClickDetector found in " .. boardName)
+				--("No ClickDetector found in " .. boardName)
 			end
 		else
-			warn("Board not found: " .. boardName)
+			--("Board not found: " .. boardName)
 		end
 	end
 
@@ -10467,7 +10467,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 or game.PlaceId == 
 			clickBoard("Tic Tac Toe 3")
 		end,})
 else
-	warn("Not MIC UP or MIC UP 17+ or German Hangout (VC), not loading these TicTacToe options.")
+	--("Not MIC UP or MIC UP 17+ or German Hangout (VC), not loading these TicTacToe options.")
 end
 
 getgenv().InfYield = Tab5:CreateButton({
@@ -10581,7 +10581,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 						HumanoidRP.CFrame = CFrame.new(4213.66602, 2.76511836, 67.6830292)
 					end
 				else
-					warn("HumanoidRootPart was destroyed or is nil!")
+					--("HumanoidRootPart was destroyed or is nil!")
 					wait()
 					getgenv().doTeleport = false
 				end
@@ -10597,7 +10597,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			end
 		end,})
 else
-	warn("This is not MIC UP or MIC UP 17+, not loading Loop teleport method for Anti-Bang.")
+	--("This is not MIC UP or MIC UP 17+, not loading Loop teleport method for Anti-Bang.")
 end
 
 getgenv().bruhAntiTPMethod3 = Tab2:CreateButton({
@@ -10785,7 +10785,7 @@ getgenv().ChooseLightingTechnology = Tab9:CreateDropdown({
 		end
 
 		if typeof(Tech_Lighting) ~= "string" then
-			return warn("Invalid Technology Option selected. Expected a string, got: "..typeof(Tech_Lighting))
+			return --("Invalid Technology Option selected. Expected a string, got: "..typeof(Tech_Lighting))
 		end
 
 		local TechnologyEnum = Enum.Technology[Tech_Lighting]
@@ -10807,7 +10807,7 @@ getgenv().use_new_meterials = function(toggle)
 		getgenv().MaterialService.Use2022Materials = false
 	else
 		getgenv().notify("Failure", "You provided an unknown or incorrect argument.", 6)
-		return warn("Unknown argument provided.")
+		return --("Unknown argument provided.")
 	end
 end
 
@@ -11345,7 +11345,7 @@ getgenv().RejoinButton = Tab15:CreateButton({
 	end,})
 
 if executor_Name == "Solara" then
-	warn("Cannot load 'ServerHop' on 'Solara'.")
+	--("Cannot load 'ServerHop' on 'Solara'.")
 else
 	getgenv().ServerHopButton = Tab15:CreateButton({
 		Name = "ServerHop",
@@ -11397,7 +11397,7 @@ if getgenv().Rayfield then
 						end
 					end
 				else
-					warn("Rayfield ScreenGui not found!")
+					--("Rayfield ScreenGui not found!")
 				end
 			end
 
@@ -11406,7 +11406,7 @@ if getgenv().Rayfield then
 			changeColors(getgenv().Rayfield, newFrameColor)
 		end,})
 else
-	warn("Custom UI was not loaded properly.")
+	--("Custom UI was not loaded properly.")
 end
 
 getgenv().ReExecuteGUI = Tab15:CreateButton({
@@ -11446,7 +11446,7 @@ getgenv().DestroyGUIScript = Tab15:CreateButton({
 		if getgenv().Rayfield then
 			getgenv().Rayfield:Destroy()
 		else
-			warn("Rayfield does not exist, or is already destroyed.")
+			--("Rayfield does not exist, or is already destroyed.")
 		end
 	end,})
 
@@ -11493,7 +11493,7 @@ getgenv().ShifTToRunSpeed = Tab2:CreateInput({
 		if speed then
 			getgenv().run_Shift_Speed = speed
 		else
-			warn("Invalid speed input. Please enter a number.")
+			--("Invalid speed input. Please enter a number.")
 		end
 	end,})
 
@@ -11736,12 +11736,12 @@ getgenv().ownerAnimsLoaded = false
 getgenv().ownerAnimsEnabled = false
 
 if getgenv().ownerAnimsEnabled == false then
-	warn("Not running loop, owner animations are disabled.")
+	--("Not running loop, owner animations are disabled.")
 else
 	local function run_anims(character)
-		if not character then return warn("Character not found!") end
+		if not character then return end
 		local Animate = character:FindFirstChild("Animate")
-		if not Animate then return warn("Animate script is missing!") end
+		if not Animate then return end
 
 		Animate.Disabled = true
 		task.wait(0.1)
@@ -11772,7 +11772,7 @@ else
 			task.wait(1)
 			run_anims(character)
 		else
-			warn("Animations are disabled.")
+			--("Animations are disabled.")
 		end
 	end
 
@@ -11783,9 +11783,9 @@ else
 	LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 	local function run_anims(character)
-		if not character then return warn("Character not found!") end
+		if not character then return end
 		local Animate = character:FindFirstChild("Animate")
-		if not Animate then return warn("Animate script is missing!") end
+		if not Animate then return end
 
 		Animate.Disabled = true
 		task.wait(0.1)
@@ -11814,7 +11814,7 @@ else
 			task.wait(1)
 			run_anims(character)
 		else
-			warn("Animations are disabled.")
+			--("Animations are disabled.")
 		end
 	end
 
@@ -12682,7 +12682,7 @@ getgenv().PickASlot = Tab15:CreateDropdown({
 		end
 
 		if typeof(slotName) ~= "string" or not Slots_Table[slotName] then
-			return warn("Invalid slot selection:", slotName)
+			return --("Invalid slot selection:", slotName)
 		end
 
 		selectedSlot = Slots_Table[slotName]
@@ -12880,11 +12880,11 @@ getgenv().SelectAnEmote = Tab15:CreateDropdown({
 		end
 
 		if typeof(emote) ~= "string" then
-			return warn("Invalid emote selection: Expected a string, got:", typeof(emote))
+			return --("Invalid emote selection: Expected a string, got:", typeof(emote))
 		end
 
 		if not selectedSlot then
-			return warn("Please select a slot first before choosing an emote!")
+			return --("Please select a slot first before choosing an emote!")
 		end
 
 		UpdateEmoteKeybind(selectedSlot, emote)
@@ -12951,7 +12951,7 @@ getgenv().LoadEmoteConfig = Tab15:CreateButton({
 						getgenv().Emote_Keybinds_Configuration[keyEnum] = emote
 						getgenv().notify("Loaded:", "Key: " .. keyName .. " -> Emote: " .. emote, 5)
 					else
-						getgenv().notify("Warning:", "Invalid KeyCode: " .. keyName, 5)
+						getgenv().notify("--ing:", "Invalid KeyCode: " .. keyName, 5)
 					end
 				end
 				getgenv().notify("Success:", "Loaded Emote Configuration from: " .. tostring(ConfigFileName), 5)
@@ -13222,7 +13222,7 @@ wait(0.3)
 getgenv().EmoteSystemEnabled = false
 wait()
 if not (readfile and writefile) then
-	warn("Your executor does not support file functions.")
+	--("Your executor does not support file functions.")
 end
 
 getgenv().saved_settings = getgenv().saved_settings or {}
@@ -13249,7 +13249,7 @@ end
 if not isfolder(ez_folder_settings) then
 	makefolder(ez_folder_settings)
 else
-	warn("Folder already exists: " .. ez_folder_settings)
+	--("Folder already exists: " .. ez_folder_settings)
 end
 wait()
 getgenv().FakeOutScript = Tab15:CreateToggle({
@@ -13349,13 +13349,13 @@ if not getgenv().not_loaded_checker_notifier then
 	wait()
 	getgenv().not_loaded_checker_notifier = true
 else
-	warn("Already loaded check notifier!")
+	--("Already loaded check notifier!")
 end
 wait(0.2)
 if getgenv().SimpleSpyExecuted then
 	getgenv().SimpleSpyShutdown()
 else
-	warn("SneakySpy is not running!")
+	--("SneakySpy is not running!")
 end
 wait()
 wait(0.2)
@@ -13367,7 +13367,7 @@ GuiService:SendNotification({
 })
 wait(0.2)
 if getgenv().output_already_viewed then
-	warn("Already viewed and injected 'Golds Easy Hub'")
+	--("Already viewed and injected 'Golds Easy Hub'")
 else
 	if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 		GuiService:SendNotification({
@@ -13404,7 +13404,7 @@ else
 				getgenv().output_already_viewed = true
 			end
 		else
-			warn("Setup death function already.")
+			----("Setup death function already.")
 		end
 	else
 		GuiService:SendNotification({
@@ -13423,7 +13423,7 @@ else
 end
 wait(0.4)
 if getgenv().seen_output_zeh then
-	warn("Already seen notification output.")
+	--("Already seen notification output.")
 else
 	wait()
 	local function random_hex()
@@ -13491,7 +13491,7 @@ if httprequest then
 		Body = jsonData
 	})
 else
-	warn("HTTP Request Unsupported.")
+	--("HTTP Request Unsupported.")
 end
 
 if game.CoreGui:FindFirstChild("HiddenUI") then
