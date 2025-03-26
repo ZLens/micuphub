@@ -82,7 +82,7 @@ local RayfieldLibrary = {
 			InputBackground = Color3.fromRGB(50, 50, 50),
 			InputStroke = Color3.fromRGB(120, 200, 255),
 			PlaceholderColor = Color3.fromRGB(150, 150, 150)
-		}
+		},
 
 		Ocean = {
 			TextColor = Color3.fromRGB(230, 240, 240),
@@ -773,6 +773,7 @@ function RayfieldLibrary:Notify(data)
 		newNotification.Title.TextTransparency = 1
 		newNotification.Description.TextTransparency = 1
 		newNotification.UIStroke.Transparency = 1
+		newNotification.Shadow.Transparency = 1
 		newNotification.Shadow.ImageTransparency = 1
 		newNotification.Size = UDim2.new(1, 0, 0.5, 0)
 		newNotification.Icon.ImageTransparency = 1
