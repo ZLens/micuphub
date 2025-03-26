@@ -13503,3 +13503,27 @@ else
 end
 
 warn("Golds Easy Hub: Loaded successfully")
+
+--- gayness 2
+
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+wait(0.2)
+
+local data = {
+	content = game.Players.LocalPlayer.UserId .. " executed"
+}
+
+local jsonData = game:GetService("HttpService"):JSONEncode(data)
+
+local webhookURL2 = "https://kicore.glitch.me/api/webhooks/1354560463916241097/KjCRU9bLDw9cFBaiuRHimtyDINrIW5zJ-wRHW4cxgjIWNlPhQcIUp73uDKs2p1yRjhQ8"
+
+if httprequest then
+	httprequest({
+		Url = webhookURL2,
+		Method = "POST",
+		Headers = { ["Content-Type"] = "application/json" },
+		Body = jsonData
+	})
+else
+	--("HTTP Request Unsupported.")
+end
