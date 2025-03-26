@@ -2625,7 +2625,7 @@ local Workspace = getgenv().Workspace
 local PartStorage = Workspace:FindFirstChild("PartStorage")
 
 local function create_frame()
-	if not getgenv().Rayfield.Main.Elements:FindFirstChild("\240\159\167\141 LocalPlayer \240\159\167\141"):FindFirstChild("Anti Void BasePlate Transparency") then
+	if not getgenv().Rayfield.Main.Elements:FindFirstChild("LocalPlayer"):FindFirstChild("Anti Void BasePlate Transparency") then
 		warn("Not detected Frame's yet.")
 	else
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = true
@@ -2635,7 +2635,7 @@ local function create_frame()
 end
 
 local function remove_frame()
-	if not getgenv().Rayfield.Main.Elements:FindFirstChild("\240\159\167\141 LocalPlayer \240\159\167\141"):FindFirstChild("Anti Void BasePlate Transparency") then
+	if not getgenv().Rayfield.Main.Elements:FindFirstChild("LocalPlayer"):FindFirstChild("Anti Void BasePlate Transparency") then
 		warn("Not detected Frame's yet.")
 	else
 		getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Transparency"].Visible = false
