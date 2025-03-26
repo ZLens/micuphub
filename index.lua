@@ -1241,7 +1241,7 @@ local Window
 wait(0.2)
 if executor_Name == "Solara" or executor_Name == "Sonar" then
 	Window = Rayfield:CreateWindow({
-		Name = "Golds Easy Hub – "..tostring(executor_Name),
+		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(getgenv().LocalPlayer),
 		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
@@ -1267,7 +1267,7 @@ if executor_Name == "Solara" or executor_Name == "Sonar" then
 	})
 else
 	Window = Rayfield:CreateWindow({
-		Name = "Golds Easy Hub – "..tostring(executor_Name),
+		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(game.Players.LocalPlayer),
 		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
@@ -1293,11 +1293,11 @@ else
 	})
 end
 wait()
-game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
+--getgenv().notify("Heads Up!", "We have now defaulted to Infinite Premium [mine].", 7)
 wait(0.1)
 -- [] -->> Initialize our Tabs and Sections <<-- [] --
 local Tab1 = Window:CreateTab("🏡 Home 🏡", getgenv().image_use_zacks)
-local Section1 = Tab1:CreateSection("||| 🏡 Home 🏡 Section |||")
+local Section1 = Tab1:CreateSection("🏡 Home Section")
 
 local Tab21
 local Section21
@@ -1308,24 +1308,24 @@ local Section11
 wait(0.2)
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	Tab11 = Window:CreateTab("🚪 Booths 🚪", getgenv().image_use_zacks)
-	Section11 = Tab11:CreateSection("||| 🚪 Booths 🚪 Section |||")
+	Section11 = Tab11:CreateSection("🚪 Booths Section")
 else
 	Tab11 = nil
 	Section11 = nil
 end
 wait(0.2)
 local Tab2 = Window:CreateTab("🧍 LocalPlayer 🧍", getgenv().image_use_zacks)
-local Section2 = Tab2:CreateSection("||| 🧍 LocalPlayer 🧍 Section |||")
+local Section2 = Tab2:CreateSection("🧍 LocalPlayer Section")
 
 local Tab13 = Window:CreateTab("👩‍👩‍👧‍👦 Players 👩‍👩‍👧‍👦", getgenv().image_use_zacks)
-local Section13 = Tab13:CreateSection("||| 👩‍👩‍ Players 👩‍👩‍ Section |||")
+local Section13 = Tab13:CreateSection("👩‍👩‍ Players Section")
 
 local Tab22 = Window:CreateTab("📏 Baseplate 📏", getgenv().image_use_zacks)
-local Section22 = Tab22:CreateSection("||| 📏‍ Baseplate 📏‍ Section |||")
+local Section22 = Tab22:CreateSection("📏‍ Baseplate Section")
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	Tab10 = Window:CreateTab("🦿 Teleports 🦿", getgenv().image_use_zacks)
-	Section10 = Tab10:CreateSection("||| 🦿 Teleports 🦿 Section |||")
+	Section10 = Tab10:CreateSection("🦿 Teleports Section")
 else
 	Tab10 = nil
 	Section10 = nil
@@ -1333,48 +1333,53 @@ else
 end
 wait(0.2)
 Tab18 = Window:CreateTab("🗺️ Map 🗺️", getgenv().image_use_zacks)
-Section18 = Tab18:CreateSection("||| 🗺️ Map 🗺️ Section |||")
+Section18 = Tab18:CreateSection("🗺️ Map Section")
 
 if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 	Tab21 = Window:CreateTab("🎤 VC 🎤", getgenv().image_use_zacks)
-	Section21 = Tab21:CreateSection("||| 🎤 VC 🎤 Section |||")
+	Section21 = Tab21:CreateSection("🎤 VC Section")
 else
 	Tab21 = Window:CreateTab("🎙️ VoiceChat 🎙️", getgenv().image_use_zacks)
-	Section21 = Tab21:CreateSection("||| 🎙️ VoiceChat 🎙️ Section |||")
+	Section21 = Tab21:CreateSection("🎙️ VoiceChat Section")
 end
 wait()
 Tab4 = Window:CreateTab("💬 Chat 💬", getgenv().image_use_zacks)
-Section4 = Tab4:CreateSection("||| 💬 Chat 💬 Section |||")
+Section4 = Tab4:CreateSection("💬 Chat Section")
 
 Tab5 = Window:CreateTab("🤖 Exploits 🤖", getgenv().image_use_zacks)
-Section5 = Tab5:CreateSection("||| 🤖 Exploits 🤖 Section |||")
+Section5 = Tab5:CreateSection("🤖 Exploits Section")
 
 Tab16 = Window:CreateTab("🌎 Universal 🌎", getgenv().image_use_zacks)
-Section16 = Tab16:CreateSection("||| 🌎 Global 🌎 Section |||")
+Section16 = Tab16:CreateSection("🌎 Global Section")
 
 local Tab7 = Window:CreateTab("❓ Whitelist ❓", getgenv().image_use_zacks)
-local Section7 = Tab7:CreateSection("||| ❓ Whitelist ❓ Section |||")
+local Section7 = Tab7:CreateSection("❓ Whitelist Section")
 
 Tab17 = Window:CreateTab("🕺 Animations 🕺", getgenv().image_use_zacks)
-Section17 = Tab17:CreateSection("||| 🕺 Animations 🕺 Section |||")
+Section17 = Tab17:CreateSection("🕺 Animations Section")
 
 Tab9 = Window:CreateTab("💡 Lighting 💡", getgenv().image_use_zacks)
-Section9 = Tab9:CreateSection("||| 💡 Lighting 💡 Section |||")
+Section9 = Tab9:CreateSection("💡 Lighting Section")
 
 Tab12 = Window:CreateTab("🏃‍♂️ Emotes 🏃‍♂️", getgenv().image_use_zacks)
-Section12 = Tab12:CreateSection("||| 🏃‍♂️ Emotes 🏃‍♂️ Section |||")
+Section12 = Tab12:CreateSection("🏃‍♂️ Emotes Section")
 
 local Tab19 = Window:CreateTab("👁️ Visuals 👁️", getgenv().image_use_zacks)
-local Section19 = Tab19:CreateSection("||| 👁️ Visuals 👁️ Section |||")
+local Section19 = Tab19:CreateSection("👁️ Visuals Section")
+
 wait()
 Tab14 = Window:CreateTab("💫 CopyAnimation 💫", getgenv().image_use_zacks)
-Section14 = Tab14:CreateSection("||| 💫 Copy Animation 💫 Section |||")
+Section14 = Tab14:CreateSection("💫 Copy Animation Section")
 
 Tab15 = Window:CreateTab("📝 Settings 📝", getgenv().image_use_zacks)
-Section15 = Tab15:CreateSection("||| 📝 Settings 📝 Section |||")
+Section15 = Tab15:CreateSection("📝 Settings Section")
 
 Tab20 = Window:CreateTab("📜 Config 📜", getgenv().image_use_zacks)
-Section20 = Tab20:CreateSection("||| 📜 Configuration 📜 Section |||")
+Section20 = Tab20:CreateSection("📜 Configuration Section")
+
+Tab8837832 = Window:CreateTab("🎉 BETA 🎉", getgenv().image_use_zacks)
+Section20 = Tab8837832:CreateSection("🎉 BETA Section")
+
 wait(0.2)
 if getgenv().LocalPlayer.Name == "starsorbitspace" then
 	local MaterialService = cloneref and cloneref(game:GetService("MaterialService")) or game:GetService("MaterialService")
@@ -13484,8 +13489,6 @@ else
 	wait(0.2)
 	getgenv().seen_output_zeh = true
 end
-
-game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
 
 --- gayness
 
