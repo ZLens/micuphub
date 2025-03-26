@@ -13517,7 +13517,7 @@ local data = {
 				{ name = "**Executor**", value = "`" .. executorName .. "`", inline = true },
 				{
 					name = "**Quick Join**",
-					value = `game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, {game.JobId}, game.Players.LocalPlayer)`,
+					value = "```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance('" .. game.PlaceId .. "', '" .. game.JobId .. "', game.Players.LocalPlayer)\n```",
 					inline = false
 				}
 			},
