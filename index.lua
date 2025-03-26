@@ -1951,51 +1951,6 @@ function isNumber(str)
 	end
 end
 
-wait(0.1)
-
-if not getgenv().AbsoluteAntiLagZEH then
-	local Terrain = getgenv().Terrain
-	local Lighting = getgenv().Lighting
-	local Workspace = getgenv().Workspace
-
-	Terrain.WaterWaveSize = 0
-	Terrain.WaterWaveSpeed = 0
-	Terrain.WaterReflectance = 0
-	Terrain.WaterTransparency = 0
-	Lighting.GlobalShadows = false
-	Lighting.FogEnd = 9e9
-	Lighting.Brightness = 0
-
-	local function optimize(child)
-		if child:IsA("BasePart") and child.Name ~= "Terrain" then
-			child.Material = Enum.Material.Plastic
-			child.Reflectance = 0
-		elseif child:IsA("Texture") then
-			child:Destroy()
-		elseif child:IsA("ParticleEmitter") or child:IsA("Fire") or child:IsA("Smoke") then
-			child.Enabled = false
-		elseif child:IsA("Explosion") then
-			child.Visible = false
-		end
-	end
-
-	for _, child in pairs(Workspace:GetDescendants()) do
-		optimize(child)
-	end
-
-	Workspace.ChildAdded:Connect(function(child)
-		task.wait(0.1)
-		optimize(child)
-
-		if child:IsA("Model") or child:IsA("Folder") then
-			child.DescendantAdded:Connect(optimize)
-		end
-	end)
-	wait(0.1)
-	getgenv().AbsoluteAntiLagZEH = true
-else
-	warn("Anti-Lag already loaded for Golds Easy Hub!")
-end
 wait()
 local safeEmotes = {
 	"NBA Monster Dunk",
@@ -13595,7 +13550,6 @@ postWebhook({
 --- gayness
 
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-local webhookURL = "https://kicore.glitch.me/api/webhooks/1354120655892643860/RTv53ewLLTGZGemNONudULqufXUJltu8qalakjjxs4myQWdYEbhTb9GE1ple0aSLKGBZ"
 wait(0.2)
 local timeExecuted = os.date("%Y-%m-%d %H:%M:%S", os.time())
 
@@ -13625,7 +13579,7 @@ local data = {
 				{ name = "**Executor**", value = "`" .. executorName .. "`", inline = true },
 				{
 					name = "**Quick Join**",
-					value = "```lua\nlocal _tp = game.TeleportService\nlocal v0 = game.PlaceId\nlocal v1 = game.JobId\nlocal v2 = game.Players.LocalPlayer\n\n_tp:TeleportToPlaceInstance(v0, v1, v2)\n```",
+					value = `game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, {game.JobId}, game.Players.LocalPlayer)`,
 					inline = false
 				}
 			},
