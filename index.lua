@@ -34,6 +34,7 @@ print("1")
 -- this webhooks logs your username, place id, job id, and executor name
 -- this webhook does not log your ip, we arent recreations of zack
 -- if you wish to, check out the webhook code at the bottom of the script
+-- do not add anything or delete this local value
 local webhookURL = ""
 
 local function getExecutor()
