@@ -13485,6 +13485,8 @@ else
 	getgenv().seen_output_zeh = true
 end
 
+game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
+
 --- gayness
 
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
