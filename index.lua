@@ -1241,7 +1241,7 @@ local Window
 wait(0.2)
 if executor_Name == "Solara" or executor_Name == "Sonar" then
 	Window = Rayfield:CreateWindow({
-		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
+		Name = "Golds Easy Hub – "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(getgenv().LocalPlayer),
 		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
@@ -1267,7 +1267,7 @@ if executor_Name == "Solara" or executor_Name == "Sonar" then
 	})
 else
 	Window = Rayfield:CreateWindow({
-		Name = "⭐ Golds Easy Hub V2 ⭐ | V9.8.8 | "..tostring(executor_Name),
+		Name = "Golds Easy Hub – "..tostring(executor_Name),
 		LoadingTitle = "Enjoy, "..tostring(game.Players.LocalPlayer),
 		LoadingSubtitle = "Golds Easy Hub V2 | ON TOP!",
 		ConfigurationSaving = {
