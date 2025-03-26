@@ -13184,7 +13184,7 @@ function load_ez_Config()
 		"Huge_Baseplate", "Animation_Fall", "System_Broken", "Emote_Keybinds",
 		"Animation_Climb", "Death_On_Load", "Custom_Animation_Package_System",
 		"Infinite_Yield_Premium", "Animation_Idle", "Old_Materials",
-		"Animation_Jump", "Anti_Suspend_VC", "Performance_Statistics",
+		"Animation_Jump", "Anti_Suspend_VC",
 		"Fully_Loaded_Message", "Fully_Loaded_Messaging", "Animation_Run", 
 		"Script_Clock_Time_GUI", "Animation_Walk", "keep_tp_tool", "AntiAFK"
 	}
@@ -13406,13 +13406,6 @@ else
 	warn("SneakySpy is not running!")
 end
 wait()
-if getgenv().performance_stats then
-	warn("Performance stats checked.")
-else
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/OrionLibraryReWrittenCelery/refs/heads/main/grab_file_performance"))()
-	wait(0.1)
-	getgenv().performance_stats = true
-end
 wait(0.2)
 local GuiService = cloneref and cloneref(game:GetService("GuiService")) or game:GetService("GuiService")
 
@@ -13468,13 +13461,6 @@ else
 		})
 		wait(0.8)
 		if setfpscap then
-			setfpscap(1)
-			wait(0.5)
-			print("Injecting Golds Easy Hub...")
-			wait(1)
-			getgenv().emoting_actions(0)
-			getgenv().emoting_actions(0)
-			wait(1)
 			getgenv().Is_ZEH_Attached = true
 			getgenv().Has_Died_Func = true
 			getgenv().output_already_viewed = true
