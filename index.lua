@@ -1293,7 +1293,7 @@ else
 	})
 end
 wait()
---getgenv().notify("Heads Up!", "We have now defaulted to Infinite Premium [mine].", 7)
+game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
 wait(0.1)
 -- [] -->> Initialize our Tabs and Sections <<-- [] --
 local Tab1 = Window:CreateTab("🏡 Home 🏡", getgenv().image_use_zacks)
