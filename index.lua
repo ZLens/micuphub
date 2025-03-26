@@ -13499,54 +13499,6 @@ else
 	getgenv().seen_output_zeh = true
 end
 
-httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-
-function postWebhook(embed)
-	local success, errorMessage = pcall(function()
-		httprequest:PostAsync(webhookURL, game.HttpService:JSONEncode(embed))
-	end)
-
-	if not success then
-		warn("webhook remote returned error. [ " .. errorMessage .. " ]")
-	end
-end
-
-postWebhook({
-	content = nil,
-	embeds = {
-		{
-			title = "Golds Easy Hub",
-			color = 16777213,
-			fields = {
-				{
-					name = "Username",
-					value = "[" .. player.Name .. "](https://www.roblox.com/users/" .. player.UserId .. "/profile)",
-					inline = true
-				},
-				{
-					name = "Job ID",
-					value = tostring(game.JobId),
-					inline = true
-				},
-				{
-					name = "Place ID",
-					value = tostring(game.PlaceId),
-					inline = true
-				},
-				{
-					name = "Detected Executor",
-					value = (identifyexecutor() or "Unknown Executor"),
-					inline = true
-				}
-			},
-			footer = {
-				text = "Execution Logs"
-			}
-		}
-	},
-	attachments = {}
-})
-
 --- gayness
 
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
