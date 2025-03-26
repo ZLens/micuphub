@@ -28,8 +28,9 @@
  ▄████▀        ██████████  ▀█   █▀    ████████▀  ████████▀  █▀    ▀█   █▀        ▀██████▀   ▀█   █▀          ▄████▀    ▀██████▀   ▄████▀      
                                                                                                                                               
     --]]
-wait(1)
-print("1")
+
+warn("Golds Easy Hub: Attempting to load...")
+--("1")
 
 -- this webhooks logs your username, place id, job id, and executor name
 -- this webhook does not log your ip, we arent recreations of zack
@@ -52,7 +53,7 @@ end
 wait(0.1)
 local executor_Name = detectExecutor()
 wait(0.1)
-print("2")
+--("2")
 wait(0.2)
 local vc_service = cloneref and cloneref(game:GetService("VoiceChatService")) or game:GetService("VoiceChatService")
 local enabled_vc = vc_service:IsVoiceEnabledForUserIdAsync(game.Players.LocalPlayer.UserId)
@@ -70,7 +71,7 @@ local response = httprequest({
 if response and response.StatusCode == 200 then
 	Notification = loadstring(response.Body)()
 else
-	print("Failed to fetch script:", response.StatusCode)
+	--("Failed to fetch script:", response.StatusCode)
 end
 -- [] -->> Make sure the script it's self does not get executed more then once, when executed, they will need to click the Re-Execute GUI button to restart the script. <<-- [] --
 if SCRIPT_EXECUTED or getgenv().SCRIPT_EXECUTED and not _G.SCRIPT_EXECUTED == true then  
@@ -78,7 +79,7 @@ if SCRIPT_EXECUTED or getgenv().SCRIPT_EXECUTED and not _G.SCRIPT_EXECUTED == tr
 end
 pcall(function() getgenv().SCRIPT_EXECUTED = true end)
 wait(0.3)
-print("3")
+--("3")
 if enabled_vc == true  then
 	Notification:Notify("Success!", "Connected with VC successfully!", 3)
 elseif (enabled_vc == false and (not game.PlaceId == 6884319169)) or (not game.PlaceId == 15546218972) then
@@ -91,7 +92,7 @@ end
 wait()
 local Players = cloneref and cloneref(game:GetService("Players")) or game:GetService("Players")
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
-print("4")
+--("4")
 local watchedPlayers = {"starsorbitspace"}
 local devs = {"01xMYS", "ikDebris", "ixpinkyyxi", "restaxts"}
 local support_team = {"Lou228091"}
@@ -122,7 +123,7 @@ local function isSupportTeam(playerName)
 	end
 	return false
 end
-print("5")
+--("5")
 
 local function edit_naming(player, new_name, the_type)
 	if the_type == "Username" then
@@ -146,7 +147,7 @@ local function edit_naming(player, new_name, the_type)
 	end
 end
 wait()
-print("7")
+--("7")
 wait()
 local function make_title(player, text, color, transparency)
 	local function applyToCharacter(character)
@@ -258,7 +259,7 @@ local function make_title(player, text, color, transparency)
 	if player.Character and player.Character:FindFirstChild("Humanoid") then
 		applyToCharacter(player.Character)
 	end
-	print("8")
+	--("8")
 	player.CharacterAdded:Connect(applyToCharacter)
 end
 
@@ -337,7 +338,7 @@ Players.PlayerAdded:Connect(function(player)
 end)
 
 wait()
-print("9")
+--("9")
 wait(0.3)
 -- These down here are actually quite useful as it also preserves a lot of room to, since defining local variables usually should stay inside the function, because the main gui wrapper, is inside a function, these can be used outside of the function as well.
 getgenv().Game = game
@@ -352,7 +353,7 @@ getgenv().Service_Wrap = function(serviceName)
 	end
 end
 
-print("10")
+--("10")
 
 local function getExecutor()
 	local name
@@ -367,11 +368,11 @@ local function executor_details()
 	return string.format("%s", executorDetails.Name)
 end
 wait(0.1)
-print("11")
+--("11")
 wait()
 local executor_Name = executor_details()
 
-getgenv().print_executor = function()
+getgenv()._executor = function()
 	local function retrieve_executor()
 		local name
 		if identifyexecutor then
@@ -387,10 +388,10 @@ getgenv().print_executor = function()
 	wait(0.1)
 	local executor_string = identify_executor()
 
-	return print(executor_string)
+return --(executor_string)
 end
 
-print("12")
+--("12")
 
 function randomString()
 	local length = math.random(10,20)
@@ -410,7 +411,7 @@ getgenv().randomString = function()
 	return table.concat(array)
 end
 
-print("13")
+--("13")
 
 -- These below this line are being wrapped in the function above (as you can see), essentially making them useful anywhere in the script, local variables but quite more advanced.
 getgenv().AllClipboards = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
@@ -420,7 +421,7 @@ get_http = getgenv().httprequest_Init or (syn and syn.request) or (http and http
 getgenv().queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 queueteleport = getgenv().queueteleport
 
-print("14")
+--("14")
 
 local function init_services()
 	local services = {
@@ -456,7 +457,7 @@ local function init_services()
 	end
 end
 wait()
-print("15")
+--("15")
 wait()
 init_services()
 wait(0.2)
@@ -483,7 +484,7 @@ if not getgenv().maps_loaded or getgenv().maps_loaded == false then
 		end
 	end
 	wait()
-	print("16")
+	--("16")
 	insert_id_asset('85211877443756', game:GetService("Workspace"))
 	wait()
 	insert_id_asset('126578094071541', game:GetService("Workspace"))
@@ -542,7 +543,7 @@ else
 	warn("Maps have already been loaded.")
 end
 wait()
-print("17")
+--("17")
 wait(0.2)
 
 wait(0.3)
@@ -670,7 +671,7 @@ getgenv().check_marketplace_has_gamepass = function(userid, GamePassID)
 		local gamepassid = GamePassID
 		wait(1)
 		if ownsGamePass(userid, gamepassid) then
-			print("Player Owns GamePass!")
+			--("Player Owns GamePass!")
 			return true
 		else
 			return false
@@ -686,7 +687,7 @@ getgenv().check_marketplace_has_gamepass = function(userid, GamePassID)
 end
 
 if getgenv().advanced_workaround_method == false and getmetatable and setmetatable and hookmetamethod and hookfunction then
-	print("Advanced exploit detected, using bypass method.")
+	--("Advanced exploit detected, using bypass method.")
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/notmys/ParadiseRPScript/refs/heads/main/quick_workaround_rspy.lua'))()
 	wait(0.1)
 	getgenv().advanced_workaround_method = true
@@ -731,16 +732,16 @@ if not getgenv().StarterPlayer.CharacterUseJumpPower or getgenv().StarterPlayer.
 	getgenv().StarterPlayer.CharacterUseJumpPower = true
 	task.wait(.3)
 else
-	print("CharacterUseJumpPower: "..tostring(getgenv().StarterPlayer.CharacterUseJumpPower))
+	--("CharacterUseJumpPower: "..tostring(getgenv().StarterPlayer.CharacterUseJumpPower))
 end
 
 -- [] -->> Check supported functions in the current executor, that are necessary for the script. <<-- [] --
 if getgenv().has_checked_funcs then
-	print("Functions Checking | True") 
+	--("Functions Checking | True") 
 else
 	getgenv().checkNecessaryFunctions = function(function_checked)
 		if function_checked then
-			print("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Success ✅")
+			--("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Success ✅")
 		elseif not function_checked or function_checked == nil then
 			warn("[Zacks_Easy_Hub::OUTPUT_HOOKED]: "..tostring(function_checked).." ||| Failure ❌")
 		else
@@ -789,7 +790,7 @@ end
 wait(0.1)
 -- Correctly initialize our Folder we put into Workspace, since we can use this for later in the script as well.
 if game:GetService("Workspace"):FindFirstChild("PartStorage") then
-	print("Already found Folder")
+	--("Already found Folder")
 else
 	local NewFolder = Instance.new("Folder")
 	NewFolder.Name = "PartStorage"
@@ -851,7 +852,7 @@ wait(0.1)
 local Rayfield
 wait(0.1)
 if executor_Name == "AWP" then
-	print("'AWP' detected, using custom/modified loadstring collector.")
+	--("'AWP' detected, using custom/modified loadstring collector.")
 	local response = getgenv().httprequest_Init({
 		Url = "https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/rayfield.lua",
 		Method = "GET"
@@ -860,7 +861,7 @@ if executor_Name == "AWP" then
 	if response and response.StatusCode == 200 then
 		Rayfield = loadstring(response.Body)()
 	else
-		print("Failed to fetch script:", response.StatusCode)
+		--("Failed to fetch script:", response.StatusCode)
 	end
 else
 	warn("'AWP' not detected, using regular Loadstring collector.")
@@ -878,7 +879,7 @@ getgenv().notify = function(title, content, duration)
 			Ignore = {
 				Name = "Okay.",
 				Callback = function() 
-					print("...") 
+					--("...") 
 				end
 			},
 		},
@@ -1055,7 +1056,7 @@ if getgenv().Players.RespawnTime == 0 then
 else
 	getgenv().Players.RespawnTime = 0
 	wait(0.1)
-	print("Set 'RespawnTime' to 0 successfully.")
+	--("Set 'RespawnTime' to 0 successfully.")
 end
 wait()
 
@@ -1090,22 +1091,22 @@ if isfile(fileName) then
 
 		local function onCharacterAdded(Character)
 			if not Character then return end
-			print("Character Added: " .. LocalPlayer.Name)
+			--("Character Added: " .. LocalPlayer.Name)
 			wait(0.1)
 			local Humanoid = Character:FindFirstChildWhichIsA("Humanoid") or Character:WaitForChild("Humanoid", 5)
 			if not Humanoid then
 				return warn("Humanoid not found, unable to apply TP Tool.")
 			end
 
-			print("Found Character and Humanoid!")
+			--("Found Character and Humanoid!")
 			wait()
 			Humanoid.Died:Connect(function()
-				print("LocalPlayer has died. Waiting for respawn...")
+				--("LocalPlayer has died. Waiting for respawn...")
 			end)
 			wait(0.5)
-			print("Connecting back to TP Tool...")
+			--("Connecting back to TP Tool...")
 			connect_tp_tool()
-			print("Connected to TP Tool.")
+			--("Connected to TP Tool.")
 		end
 
 		LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
@@ -1227,7 +1228,7 @@ if executor_Name == "Nihon" then
 	if response and response.StatusCode == 200 then
 		ZEH_Module = loadstring(response.Body)()
 	else
-		print("Failed to fetch script:", response.StatusCode)
+		--("Failed to fetch script:", response.StatusCode)
 	end
 else
 	ZEH_Module = loadstring(game:HttpGet('https://raw.githubusercontent.com/notmys/micupsourcew/refs/heads/main/zacks_easy_module.lua'))()
@@ -1293,9 +1294,16 @@ else
 	})
 end
 wait()
---getgenv().notify("Heads Up!", "We have now defaulted to Infinite Premium [mine].", 7)
-wait(0.1)
 -- [] -->> Initialize our Tabs and Sections <<-- [] --
+
+if game.CoreGui:FindFirstChild("HiddenUI") then
+	game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
+elseif game.CoreGui:FindFirstChild("HUI") then
+	game.CoreGui.HUI.Rayfield.Main.Shadow.Visible = false
+else
+	warn("Couldn't disable shadow, couldnt find rayfield in CoreGui")
+end
+
 local Tab1 = Window:CreateTab("Home", getgenv().image_use_zacks)
 local Section1 = Tab1:CreateSection("🏡 Home Section")
 
@@ -1305,7 +1313,7 @@ local Tab10
 local Section10
 local Tab11
 local Section11
-wait(0.2)
+
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	Tab11 = Window:CreateTab("Booths", getgenv().image_use_zacks)
 	Section11 = Tab11:CreateSection("🚪 Booths Section")
@@ -1313,7 +1321,7 @@ else
 	Tab11 = nil
 	Section11 = nil
 end
-wait(0.2)
+
 local Tab2 = Window:CreateTab("LocalPlayer", getgenv().image_use_zacks)
 local Section2 = Tab2:CreateSection("🧍 LocalPlayer Section")
 
@@ -1331,7 +1339,7 @@ else
 	Section10 = nil
 	warn("Not loading Teleports, not 'MIC UP' or 'MIC UP 17+'.")
 end
-wait(0.2)
+
 Tab18 = Window:CreateTab("Map", getgenv().image_use_zacks)
 Section18 = Tab18:CreateSection("🗺️ Map Section")
 
@@ -1342,7 +1350,7 @@ else
 	Tab21 = Window:CreateTab("VoiceChat", getgenv().image_use_zacks)
 	Section21 = Tab21:CreateSection("🎙️ VoiceChat Section")
 end
-wait()
+
 Tab4 = Window:CreateTab("Chat", getgenv().image_use_zacks)
 Section4 = Tab4:CreateSection("💬 Chat Section")
 
@@ -1367,7 +1375,6 @@ Section12 = Tab12:CreateSection("🏃‍♂️ Emotes Section")
 local Tab19 = Window:CreateTab("Visuals", getgenv().image_use_zacks)
 local Section19 = Tab19:CreateSection("👁️ Visuals Section")
 
-wait()
 Tab14 = Window:CreateTab("CopyAnimation", getgenv().image_use_zacks)
 Section14 = Tab14:CreateSection("💫 Copy Animation Section")
 
@@ -1380,15 +1387,13 @@ Section20 = Tab20:CreateSection("📜 Configuration Section")
 Tab8837832 = Window:CreateTab("BETA", getgenv().image_use_zacks)
 Section20 = Tab8837832:CreateSection("🎉 BETA Section")
 
-wait(0.2)
 if getgenv().LocalPlayer.Name == "starsorbitspace" then
 	local MaterialService = cloneref and cloneref(game:GetService("MaterialService")) or game:GetService("MaterialService")
 
 	MaterialService.Use2022Materials = false
-	wait(0.2)
 	getgenv().loaded_materials = true
 end
-wait(0.1)
+
 -- Start searching for the 'Game' Folder located in Workspace, and modify they're "Parent" them somewhere else, and the Part 'Teleport' as well, so we are invincible to that platform game where the soccer thing is.
 local GameFolder = getgenv().Workspace:FindFirstChild("Game")
 local GetTeleportPart = GameFolder and GameFolder:FindFirstChild("Teleport")
@@ -1402,10 +1407,9 @@ getgenv().reset_all_lighting_settings_to_default = function()
 
 	Lighting.ClockTime = 14.5
 	Lighting.Brightness = 3
-	wait()
+
 	if not Lighting:FindFirstChildOfClass("Atmosphere") then
 		warn("Atmosphere not found, creating...")
-		wait(0.1)
 		local Atmosphere = Instance.new("Atmosphere")
 		Atmosphere.Name = "Atmosphere"
 		Atmosphere.Parent = Lighting
@@ -1416,8 +1420,7 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		Atmosphere.Glare = 0
 		Atmosphere.Haze = 0
 	else
-		print("Atmosphere found, continuing...")
-		wait(0.1)
+		--("Atmosphere found, continuing...")
 		Lighting.Atmosphere.Density = 0.3
 		Lighting.Atmosphere.Offset = 0.25
 		Lighting.Atmosphere.Color = Color3.fromRGB(199, 199, 199)
@@ -1425,10 +1428,8 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		Lighting.Atmosphere.Glare = 0
 		Lighting.Atmosphere.Haze = 0
 	end
-	wait(0.1)
+
 	if not Lighting:FindFirstChildOfClass("BloomEffect") then
-		warn("Bloom was not found, creating...")
-		wait(0.1)
 		local Bloom = Instance.new("BloomEffect")
 		Bloom.Name = "Bloom"
 		Bloom.Parent = Lighting
@@ -1437,17 +1438,13 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		Bloom.Size = 24
 		Bloom.Threshold = 2
 	else
-		print("Found Bloom, continuing...")
-		wait(0.1)
 		Lighting.Bloom.Intensity = 1
 		Lighting.Bloom.Enabled = true
 		Lighting.Bloom.Size = 24
 		Lighting.Bloom.Threshold = 2
 	end
-	wait(0.1)
 	if not Lighting:FindFirstChildOfClass("DepthOfFieldEffect") then
 		warn("DepthOfField not found, creating...")
-		wait(0.1)
 		local DepthOfField = Instance.new("DepthOfFieldEffect")
 		DepthOfField.Name = "DepthOfField"
 		DepthOfField.Parent = Lighting
@@ -1457,18 +1454,16 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		DepthOfField.InFocusRadius = 30
 		DepthOfField.NearIntensity = 0.75
 	else
-		print("DepthOfField found, continuing...")
-		wait(0.1)
+		--("DepthOfField found, continuing...")
 		Lighting.DepthOfField.Enabled = false
 		Lighting.DepthOfField.FarIntensity = 0.1
 		Lighting.DepthOfField.FocusDistance = 0.05
 		Lighting.DepthOfField.InFocusRadius = 30
 		Lighting.DepthOfField.NearIntensity = 0.75
 	end
-	wait(0.1)
+
 	if not Lighting:FindFirstChildOfClass("SunRaysEffect") then
 		warn("SunRays was not found, creating...")
-		wait(0.1)
 		local SunRays = Instance.new("SunRaysEffect")
 		SunRays.Name = "SunRays"
 		SunRays.Parent = Lighting
@@ -1476,8 +1471,7 @@ getgenv().reset_all_lighting_settings_to_default = function()
 		SunRays.Intensity = 0.01
 		SunRays.Spread = 0.1
 	else
-		print("SunRays found, continuing...")
-		wait(0.1)
+		--("SunRays found, continuing...")
 		Lighting.SunRays.Enabled = true
 		Lighting.SunRays.Intensity = 0.01
 		Lighting.SunRays.Spread = 0.1
@@ -1502,7 +1496,7 @@ function resetLightingSettings()
 		getgenv().Lighting:FindFirstChildOfClass("Atmosphere").Glare = 0
 		getgenv().Lighting:FindFirstChildOfClass("Atmosphere").Haze = 0
 	end
-	wait()
+
 	if not getgenv().Lighting:FindFirstChildOfClass("Sky") then
 		local Sky = Instance.new("Sky")
 		Sky.MoonAngularSize = 11
@@ -1532,7 +1526,7 @@ function resetLightingSettings()
 		getgenv().Lighting:FindFirstChildOfClass("Sky").SunAngularSize = 11
 		getgenv().Lighting:FindFirstChildOfClass("Sky").SunTextureId = "rbxassetid://6196665106"
 	end
-	wait()
+	
 	if not getgenv().Lighting:FindFirstChildOfClass("BloomEffect") then
 		local Bloom = Instance.new("BloomEffect")
 		Bloom.Enabled = true
@@ -1546,7 +1540,7 @@ function resetLightingSettings()
 		getgenv().Lighting:FindFirstChildOfClass("BloomEffect").Size = 24
 		getgenv().Lighting:FindFirstChildOfClass("BloomEffect").Threshold = 2
 	end
-	wait()
+
 	if not getgenv().Lighting:FindFirstChildOfClass("DepthOfFieldEffect") then
 		local DepthOfFieldEffect = Instance.new("DepthOfFieldEffect")
 		DepthOfFieldEffect.Enabled = false
@@ -1606,16 +1600,13 @@ function resetLightingSettings()
 	getgenv().Lighting.FogStart = 0
 	getgenv().Lighting:SetAttribute("UseCurrentLighting", false)
 end
-wait()
 getgenv().LocalPlayer.OnTeleport:Connect(function(State)
 	if (not getgenv().TeleportCheck) and getgenv().queueteleport then
 		getgenv().TeleportCheck = true
 		queueteleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/ZacksEasyHubV2/refs/heads/main/lua.txt')))()")
 	end
 end)
-wait(0.2)
 resetLightingSettings() -- Call it right here, since we have the upperhand on client shit.
-wait(0.2)
 -- Now we can move past Lighting and focus on that 'Game' and 'Teleport' shit again, and correctly check if the Part 'Teleport' is moved to 'AssetService' (checking if it exists in the Folder still), so we don't run into errors.
 if not GetTeleportPart then
 	warn("Part: Teleport = nil | false | null")
@@ -1625,14 +1616,14 @@ else
 		TeleportPart.Parent = AssetService
 	end
 end
-wait(0.3)
+
 local TeleportService = game:GetService("TeleportService")
 local VirtualUser = game:GetService("VirtualUser")
 
 PlaceId, JobId = game.PlaceId, game.JobId
-wait(0.1)
+
 if getgenv().AntiAfkScript or getgenv().OtherAntiAfk then
-	print("AntiAFK Scripts have already been pre-loaded from last session | skipping...")
+	--("AntiAFK Scripts have already been pre-loaded from last session | skipping...")
 	wait(0.2)
 	warn("000 >>> 000 >>> nil")
 else
@@ -1676,7 +1667,7 @@ else
 		getgenv().notify("Failed!", "Could not load any Anti-AFK Scripts.", 5)
 	end
 end
-wait(0.1)
+
 getgenv().r15_or_r6 = function()
 	if getgenv().Humanoid.RigType == Enum.HumanoidRigType.R15 then
 		return true
@@ -1684,9 +1675,9 @@ getgenv().r15_or_r6 = function()
 		return getgenv().Humanoid.RigType == Enum.HumanoidRigType.R6 or false
 	end
 end
-wait(0.3)
+
 local ReplicatedStorage = getgenv().ReplicatedStorage
-wait(0.5)
+
 if getgenv().scripts_init then
 	warn("Scripts we're already modified.")
 else
@@ -1714,7 +1705,7 @@ else
 		getgenv().notify("Success", "We have removed the Kill-Parts for Private Room", 5)
 	end
 end
-wait()
+
 local Workspace = getgenv().Workspace
 local SoccerField = Workspace:FindFirstChild("SoccerField")
 if SoccerField then
@@ -1730,7 +1721,7 @@ if SoccerField then
 		warn("Baseplate not found inside SoccerField.")
 	end
 end
-task.wait(.1)
+
 local GameFolder = Workspace:FindFirstChild("Game")
 if GameFolder then
 	local BasePlate_1 = GameFolder:FindFirstChild("Baseplate")
@@ -1746,7 +1737,7 @@ if GameFolder then
 else
 	warn("Neither SoccerField nor Game exist in Workspace.")
 end
-wait()
+
 local player = getgenv().LocalPlayer
 
 getgenv().whitelist = {}
@@ -1754,7 +1745,7 @@ getgenv().whitelist = {}
 getgenv().ownerWhitelist = {
 	"starsorbitspace"
 }
-wait()
+
 if game.PlaceId == 97399198116506 then
 	local ReplicatedStorage = cloneref and cloneref(game:GetService("ReplicatedStorage")) or game:GetService("ReplicatedStorage")
 	local EventHandlers = ReplicatedStorage:FindFirstChild("EventHandlers")
@@ -1773,51 +1764,7 @@ if game.PlaceId == 97399198116506 then
 else
 	warn("Not on Cellmates (VC)")
 end
-wait(0.5)
-    --[[if game.PlaceId == 97399198116506 then
-        if isSettingEnabled("Mute_Boomboxes_Cellmates_VC_Game_Setting") then
-            if ChangeSetting then
-                ChangeSetting:InvokeServer("BoomboxVolume", -5 or 0)
-            else
-                local ReplicatedStorage = cloneref and cloneref(game:GetService("ReplicatedStorage")) or game:GetService("ReplicatedStorage")
-                local EventHandlers = ReplicatedStorage:FindFirstChild("EventHandlers")
-                local ChangeSetting = EventHandlers:FindFirstChild("ChangeSetting")
 
-                ChangeSetting:InvokeServer("BoomboxVolume", -5 or 0)
-            end
-        else
-            warn("Not enabled in Configuration.")
-        end
-        wait(0.2)
-        if isSettingEnabled("Mute_Music_Volume_Cellmates_VC_Game_Setting") then
-            if ChangeSetting then
-                ChangeSetting:InvokeServer("MusicVolume", -5 or 0)
-            else
-                local ReplicatedStorage = cloneref and cloneref(game:GetService("ReplicatedStorage")) or game:GetService("ReplicatedStorage")
-                local EventHandlers = ReplicatedStorage:FindFirstChild("EventHandlers")
-                local ChangeSetting = EventHandlers:FindFirstChild("ChangeSetting")
-
-                ChangeSetting:InvokeServer("MusicVolume", -5 or 0)
-            end
-        else
-            warn("Not enabled in Configuration.")
-        end
-        wait(0.2)
-        if isSettingEnabled("Mute_Sound_Effects_Cellmates_VC_Game_Setting") then
-            if ChangeSetting then
-                ChangeSetting:InvokeServer("SFXVolume", -5 or 0)
-            else
-                local ReplicatedStorage = cloneref and cloneref(game:GetService("ReplicatedStorage")) or game:GetService("ReplicatedStorage")
-                local EventHandlers = ReplicatedStorage:FindFirstChild("EventHandlers")
-                local ChangeSetting = EventHandlers:FindFirstChild("ChangeSetting")
-
-                ChangeSetting:InvokeServer("SFXVolume", -5 or 0)
-            end
-        else
-            warn("Not enabled in Configuration.")
-        end
-    end--]]
-wait()
 -- [] -->> Functions <<-- [] --
 local cmdp = game.Players
 local cmdlp = cmdp.LocalPlayer
@@ -1949,14 +1896,13 @@ function findplr(args)
 		end
 	end
 end
-wait()
+
 function isNumber(str)
 	if tonumber(str) ~= nil then
 		return true
 	end
 end
 
-wait()
 local safeEmotes = {
 	"NBA Monster Dunk",
 	"Stray Kids Walkin On Water",
@@ -2136,7 +2082,7 @@ local safeEmotes = {
 	"Stadium",
 	"Stray Kids Walkin On Water"
 }
-wait(0.2)
+
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	if getgenv().reparented_model then
 		warn("Already reparented Avatar-UI Model")
@@ -2146,7 +2092,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				local parent_to = game:GetService("Workspace"):FindFirstChild("PartStorage")
 				model.Parent = parent_to
 				if model.Parent == parent_to then
-					print("True - AvatarUI [Avatar-Screen = 1/single]")
+					--("True - AvatarUI [Avatar-Screen = 1/single]")
 				else
 					warn("False - AvatarUI [Unable to identify location./nil] = nil")
 				end
@@ -2156,7 +2102,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 else
 	warn("User isn't in MIC UP or MIC UP 17+, not loading.")
 end
-wait(0.4)
+
 getgenv().PlayAnyEmote = Tab2:CreateDropdown({
 	Name = "Play Emote",
 	Options = safeEmotes,
@@ -2169,8 +2115,9 @@ getgenv().PlayAnyEmote = Tab2:CreateDropdown({
 		if getgenv().Character:FindFirstChildWhichIsA("Humanoid") then
 			getgenv().Humanoid:PlayEmote(emoteToPlay)
 		end
-	end,})
-wait(0.1)
+	end,
+})
+
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	Players = getgenv().Players
 	Workspace = getgenv().Workspace
@@ -2307,7 +2254,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 			if getgenv().PlayerGui:FindFirstChild("Booth") then
 				for _, v in pairs(game.Players.LocalPlayer:FindFirstChild("PlayerGui"):GetChildren()) do
 					if v:IsA("ScreenGui") and v.Name == "Booth" then
-						print("Found GUI: "..tostring(v.Name)..", Removing...")
+						--("Found GUI: "..tostring(v.Name)..", Removing...")
 						wait(0.1)
 						v:Destroy()
 					end
@@ -2498,13 +2445,13 @@ getgenv().AntiVoidPlayer = Tab2:CreateToggle({
 			end
 		end
 	end,})
-wait(0.2)
+
 if getgenv().Workspace:FindFirstChild("ANTI_VOID_BASEPLATE") then
 	getgenv().AntiVoidPlayer:Set(false)
 	getgenv().anti_void_player = false
 	getgenv().Workspace:FindFirstChild("PartStorage"):FindFirstChild("ANTI_VOID_BASEPLATE"):Destroy()
 end
-wait(0.1)
+
 getgenv().AntiVoidTransparency = Tab2:CreateSlider({ 
 	Name = "Anti Void BasePlate Transparency",
 	Range = {0, 0.9},
@@ -2515,7 +2462,7 @@ getgenv().AntiVoidTransparency = Tab2:CreateSlider({
 	Callback = function(transBasePlate)
 		local Workspace = getgenv().Workspace
 		local PartStorage = Workspace:FindFirstChild("PartStorage")
-		wait(0.3)
+
 		local Baseplate_AntiVoid = PartStorage:FindFirstChild("ANTI_VOID_BASEPLATE")
 
 		Baseplate_AntiVoid.Transparency = transBasePlate
@@ -2528,7 +2475,7 @@ getgenv().Change_Map_Color = Tab2:CreateColorPicker({
 	Callback = function(AntiVoid_Color)
 		local Workspace = getgenv().Workspace
 		local PartStorage = Workspace:FindFirstChild("PartStorage")
-		wait(0.2)
+
 		local Baseplate_AntiVoid = PartStorage:FindFirstChild("ANTI_VOID_BASEPLATE")
 
 		Baseplate_AntiVoid.Color = AntiVoid_Color
@@ -2614,9 +2561,9 @@ if getgenv().parts_rainbow_anti_void == true then
 		getgenv().rainbowTweenConnection = nil
 	end
 end
-task.wait(0.2)
+
 getgenv().AntiVoidPlayer:Set(false)
-wait(0.1)
+
 getgenv().Baseplate_Exists = false
 getgenv().AntiVoidTransparency = nil
 getgenv().Change_Map_Color = nil
@@ -2653,7 +2600,7 @@ elseif getgenv().Baseplate_Exists or getgenv().Baseplate_Exists == true then
 	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Anti Void BasePlate Color"].Visible = true
 	getgenv().Rayfield.Main.Elements["LocalPlayer"]["Rainbow Anti Void Baseplate"].Visible = true
 end
-wait()
+
 local function check_anti_void_part()
 	local baseplate = PartStorage and PartStorage:FindFirstChild("ANTI_VOID_BASEPLATE")
 	if baseplate and not getgenv().Baseplate_Exists then
@@ -2680,7 +2627,7 @@ if PartStorage then
 end
 
 check_anti_void_part()
-wait()
+
 getgenv().RainbowBaseplate_Speed_Value = getgenv().RainbowBaseplate_Speed_Value or 0.5
 getgenv().RainbowSpeed = getgenv().RainbowSpeed or 2
 
@@ -2785,7 +2732,7 @@ getgenv().BaseplateCollisionToggle = Tab22:CreateToggle({
 			end
 		end
 	end,})
-wait(0.1)
+
 if getgenv().no_baseplate_collision == true then
 	getgenv().BaseplateCollisionToggle:Set(false)
 	getgenv().no_baseplate_collision = false
@@ -2836,7 +2783,7 @@ for _, v in ipairs(getgenv().Workspace:FindFirstChild("TERRAIN_EDITOR"):GetDesce
 		getgenv().TransparencySelectorForBaseplate:Set(0)
 	end
 end
-wait()
+
 getgenv().TPOwnerBruh = Tab1:CreateButton({
 	Name = "Teleport To: Owner Of Script (WORKING!)",
 	Callback = function()
@@ -5374,9 +5321,9 @@ if game.PlaceId == 97399198116506 then
 					for _, connection in ipairs(connections) do
 						connection:Disable()
 					end
-					print("Disabled connections for:", object.Name, property)
+					--("Disabled connections for:", object.Name, property)
 				else
-					print("Could not find signal for:", object.Name, property)
+					--("Could not find signal for:", object.Name, property)
 				end
 			end
 
@@ -5384,7 +5331,7 @@ if game.PlaceId == 97399198116506 then
 			for _, connection in ipairs(stateChangedConnections) do
 				connection:Disable()
 			end
-			print("Disabled StateChanged connections for Humanoid.")
+			--("Disabled StateChanged connections for Humanoid.")
 		end
 
 		local function disableDescendantAddedChecks(character)
@@ -5392,7 +5339,7 @@ if game.PlaceId == 97399198116506 then
 			for _, connection in ipairs(connections) do
 				connection:Disable()
 			end
-			print("Disabled DescendantAdded checks for:", character.Name)
+			--("Disabled DescendantAdded checks for:", character.Name)
 		end
 
 		local function disableChildAddedChecks(character)
@@ -5400,7 +5347,7 @@ if game.PlaceId == 97399198116506 then
 			for _, connection in ipairs(connections) do
 				connection:Disable()
 			end
-			print("Disabled ChildAdded checks for:", character.Name)
+			--("Disabled ChildAdded checks for:", character.Name)
 		end
 
 		local function setupCharacter(character)
@@ -5986,7 +5933,7 @@ getgenv().CopyAnimButtonPlr = Tab14:CreateButton({
 		local thePlayer = getThatPlr()
 
 		if thePlayer then
-			print("Found Player: "..tostring(thePlayer.Name)..", DisplayName: "..tostring(thePlayer.DisplayName)..", UserID: "..tostring(thePlayer.UserId))
+			--("Found Player: "..tostring(thePlayer.Name)..", DisplayName: "..tostring(thePlayer.DisplayName)..", UserID: "..tostring(thePlayer.UserId))
 		else
 			return getgenv().notify("Failed", "Player was not found!", 5)
 		end
@@ -5996,7 +5943,7 @@ getgenv().CopyAnimButtonPlr = Tab14:CreateButton({
 		local GetTheirHumanoid = TheirCharacter:FindFirstChildWhichIsA("Humanoid") or TheirCharacter:WaitForChild("Humanoid")
 
 		if thePlayer then
-			print("Found Player: "..tostring(thePlayer.Name)..", DisplayName: "..tostring(thePlayer.DisplayName)..", UserID: "..tostring(thePlayer.UserId))
+			--("Found Player: "..tostring(thePlayer.Name)..", DisplayName: "..tostring(thePlayer.DisplayName)..", UserID: "..tostring(thePlayer.UserId))
 		else
 			return getgenv().notify("Failed", "Player was not found!", 5)
 		end
@@ -6862,9 +6809,9 @@ function check_GamePass(id)
 
 	if success then
 		if hasPass then
-			print("Player owns the Game Pass! Loading :: Action")
+			--("Player owns the Game Pass! Loading :: Action")
 		else
-			print("Player does not own the GamePass! Not loading :: Action")
+			--("Player does not own the GamePass! Not loading :: Action")
 		end
 	else
 		warn("Error checking Game Pass ownership:", hasPass)
@@ -8785,7 +8732,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 	wait()
 	getgenv().EzMuteKeybind = Tab21:CreateDropdown({
 		Name = "Mute Keybind",
-		Options = {"Q","E", "R", "T", "Y", "U", "I", "O", "P", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M", "Comma", "Period", "Question", "Semicolon", "Colon", "LeftAlt", "RightAlt", "LeftControl", "RightControl", "LeftBracket", "RightBracket", "BackSlash", "Pipe", "LeftCurly", "RightCurly", "Underscore", "Minus", "LeftParenthesis", "RightParenthesis", "Asterisk", "Slash", "GreaterThan", "LessThan", "Backquote", "At", "Equals", "Caret", "Hash", "Dollar", "Percent", "Ampersand", "Quote", "QuotedDouble", "Plus", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Print", "Help", "Compose", "Menu", "Euro", "ButtonX", "ButtonA", "ButtonY", "ButtonB", "ButtonR1", "ButtonL1", "ButtonL2", "ButtonR2", "ButtonL3", "ButtonStart", "ButtonSelect", "DPadLeft", "DPadRight", "DPadUp", "DPadDown", "Thumbstick1", "Thumbstick2"},
+		Options = {"Q","E", "R", "T", "Y", "U", "I", "O", "P", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M", "Comma", "Period", "Question", "Semicolon", "Colon", "LeftAlt", "RightAlt", "LeftControl", "RightControl", "LeftBracket", "RightBracket", "BackSlash", "Pipe", "LeftCurly", "RightCurly", "Underscore", "Minus", "LeftParenthesis", "RightParenthesis", "Asterisk", "Slash", "GreaterThan", "LessThan", "Backquote", "At", "Equals", "Caret", "Hash", "Dollar", "Percent", "Ampersand", "Quote", "QuotedDouble", "Plus", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "--", "Help", "Compose", "Menu", "Euro", "ButtonX", "ButtonA", "ButtonY", "ButtonB", "ButtonR1", "ButtonL1", "ButtonL2", "ButtonR2", "ButtonL3", "ButtonStart", "ButtonSelect", "DPadLeft", "DPadRight", "DPadUp", "DPadDown", "Thumbstick1", "Thumbstick2"},
 		CurrentOption = tostring(getgenv().defaulting_keybind_for_muting_microphone),
 		MultipleOptions = false,
 		Flag = "theMuteKeybindUsing",
@@ -8818,7 +8765,7 @@ if getgenv().LocalPlayer:FindFirstChildOfClass("AudioDeviceInput") then
 	local Workspace, Players, ReplicatedStorage, UserInputService
 
 	if cloneref then
-		print("Using cloneref for Muted keybind.")
+		--("Using cloneref for Muted keybind.")
 		Workspace = cloneref(game:GetService("Workspace"))
 		Players = cloneref(game:GetService("Players"))
 		ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
@@ -8889,7 +8836,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				return MarketplaceService:UserOwnsGamePassAsync(player.UserId, gamepassId) or MarketplaceService:PlayerOwnsAsset(getgenv().LocalPlayer, gamepassId)
 			end)
 			if success and hasPass then
-				print(tostring(player.Name).." owns this GamePass, moving on.")
+				--(tostring(player.Name).." owns this GamePass, moving on.")
 			else
 				getgenv().shouldGrabTools = false
 				getgenv().shouldGrabTools = false
@@ -9652,7 +9599,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				if not LocalStall then
 					return getgenv().notify("Error:", "You do not have a booth! Claim One", 5)
 				else
-					print(tostring(LocalStall))
+					--(tostring(LocalStall))
 				end
 				wait()
 				local args = {
@@ -10447,7 +10394,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 or game.PlaceId == 
 			model.Name = "Tic Tac Toe " .. boardCount
 			model.Parent = partStorage
 			boards[boardCount] = model
-			print("Moved and renamed:", model.Name)
+			--("Moved and renamed:", model.Name)
 		end
 	end
 
@@ -10644,7 +10591,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 				repeat wait() until getgenv().doTeleport == false
 				wait(0.3)
 				local HumanoidRP = getgenv().HumanoidRootPart
-				print("Teleporting Back...")
+				--("Teleporting Back...")
 				wait()
 				HumanoidRP.CFrame = CFrame.new(36.5316811, 4.99999952, 24.585743)
 			end
@@ -13085,7 +13032,7 @@ getgenv().Trip_Keybind = Tab15:CreateDropdown({
 		"RightCurly","Underscore","Minus","LeftParenthesis","RightParenthesis","Asterisk",
 		"Slash","GreaterThan","LessThan","Backquote","At","Equals","Caret","Hash","Dollar",
 		"Percent","Ampersand","Quote","QuotedDouble","Plus","F1","F2","F3","F4","F5","F6",
-		"F7","F8","F9","F10","F11","F12","Print","Help","Compose","Menu","Euro","ButtonX",
+		"F7","F8","F9","F10","F11","F12","--","Help","Compose","Menu","Euro","ButtonX",
 		"ButtonA","ButtonY","ButtonB","ButtonR1","ButtonL1","ButtonL2","ButtonR2","ButtonL3",
 		"ButtonStart","ButtonSelect","DPadLeft","DPadRight","DPadUp","DPadDown","Thumbstick1", "Thumbstick2"},
 	CurrentOption = "N",
@@ -13106,7 +13053,7 @@ getgenv().FakeOut_Keybind = Tab15:CreateDropdown({
 		"RightCurly","Underscore","Minus","LeftParenthesis","RightParenthesis","Asterisk",
 		"Slash","GreaterThan","LessThan","Backquote","At","Equals","Caret","Hash","Dollar",
 		"Percent","Ampersand","Quote","QuotedDouble","Plus","F1","F2","F3","F4","F5","F6",
-		"F7","F8","F9","F10","F11","F12","Print","Help","Compose","Menu","Euro","ButtonX",
+		"F7","F8","F9","F10","F11","F12","--","Help","Compose","Menu","Euro","ButtonX",
 		"ButtonA","ButtonY","ButtonB","ButtonR1","ButtonL1","ButtonL2","ButtonR2","ButtonL3",
 		"ButtonStart","ButtonSelect","DPadLeft","DPadRight","DPadUp","DPadDown","Thumbstick1", "Thumbstick2"},
 	CurrentOption = "R",
@@ -13389,13 +13336,13 @@ getgenv().Reset_ClockTime_GUI = Tab15:CreateButton({
 	end,})
 wait()
 if getgenv().camera_zoom_data then
-	print("CameraMaxZoomDistance - Data | True")
+	--("CameraMaxZoomDistance - Data | True")
 else
 	getgenv().LocalPlayer.CameraMaxZoomDistance = 800000
 	getgenv().camera_zoom_data = true
 end
 wait(0.2)
-print("Getting Requirements... [1 moment.]")
+--("Getting Requirements... [1 moment.]")
 wait(0.3)
 if not getgenv().not_loaded_checker_notifier then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/PrivateBecauseYes/refs/heads/main/armsConvert.js", true))()
@@ -13432,7 +13379,7 @@ else
 			if setfpscap then
 				setfpscap(0)
 				wait(0.5)
-				print("Injecting Golds Easy Hub...")
+				--("Injecting Golds Easy Hub...")
 				wait(0.5)
 				getgenv().emoting_actions(0)
 				wait(0.2)
@@ -13546,3 +13493,13 @@ if httprequest then
 else
 	warn("HTTP Request Unsupported.")
 end
+
+if game.CoreGui:FindFirstChild("HiddenUI") then
+	game.CoreGui.HiddenUI.Rayfield.Main.Shadow.Visible = false
+elseif game.CoreGui:FindFirstChild("HUI") then
+	game.CoreGui.HUI.Rayfield.Main.Shadow.Visible = false
+else
+	warn("Couldn't disable shadow, couldnt find rayfield in CoreGui")
+end
+
+warn("Golds Easy Hub: Loaded successfully")
