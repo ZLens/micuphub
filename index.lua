@@ -853,7 +853,7 @@ wait(0.1)
 if executor_Name == "AWP" then
 	print("'AWP' detected, using custom/modified loadstring collector.")
 	local response = getgenv().httprequest_Init({
-		Url = "https://raw.githubusercontent.com/notmys/MicUpSource/refs/heads/main/GetUILibrary",
+		Url = "https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/rayfield.lua",
 		Method = "GET"
 	})
 
@@ -864,7 +864,7 @@ if executor_Name == "AWP" then
 	end
 else
 	warn("'AWP' not detected, using regular Loadstring collector.")
-	Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/notmys/MicUpSource/refs/heads/main/GetUILibrary'))()
+	Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/rayfield.lua'))()
 end
 wait(0.2)
 -- This can be used anytime while using the script by executing the following: getgenv().notify("Welcome", "Your content here.", 6)
@@ -1282,13 +1282,13 @@ else
 		},
 		KeySystem = false,
 		KeySettings = {
-			Title = "Zacks Easy Key System",
+			Title = "Golds Easy Key System",
 			Subtitle = "Welcome, "..tostring(getgenv().LocalPlayer),
 			Note = "This key is easy (No pun intended).",
 			FileName = "ZEH_Admin_Key",
 			SaveKey = true,
 			GrabKeyFromSite = false,
-			Key = {"ZACKSEASYHUB_2025"}
+			Key = {"GOLDSEASYHUB_2025"}
 		}
 	})
 end
