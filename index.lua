@@ -94,7 +94,7 @@ local Players = cloneref and cloneref(game:GetService("Players")) or game:GetSer
 local StarterGui = cloneref and cloneref(game:GetService("StarterGui")) or game:GetService("StarterGui")
 --("4")
 local watchedPlayers = {"starsorbitspace"}
-local devs = {"01xMYS", "ikDebris", "ixpinkyyxi", "restaxts"}
+local devs = {"01xMYS", "ikDebris", "ixpinkyyxi", "restaxts", "lvasion"}
 local support_team = {"Lou228091"}
 
 local function isWatchedPlayer(playerName)
@@ -269,7 +269,7 @@ local function assign(player)
 	elseif isSupportTeam(player.Name) then
 		make_title(player, "Support 🛡️", Color3.fromRGB(255, 255, 255), 0.1)
 	elseif isSysDeveloper(player.Name) then
-		if player.Name == "ikDebris" or player.Name == "ixpinkyyxi" or player.Name == "restaxts" then
+		if player.Name == "ikDebris" or player.Name == "ixpinkyyxi" or player.Name == "restaxts" or player.Name = "lvasion" then
 			make_title(player, "Head Developer", Color3.fromRGB(255, 255, 255), 0.1)
 		else
 			make_title(player, "Developer ⚒️", Color3.fromRGB(255, 255, 255), 0.1)
@@ -290,6 +290,7 @@ local joinDevs = {
 	"ikDebris",
 	"ixpinkyyxi",
 	"restaxts",
+	"lvasion",
 	-- my alts end
 	"01xMYS"
 }
@@ -5216,6 +5217,7 @@ getgenv().AdminCommands = {
 getgenv().Whitelists = {
 	["starsorbitspace"] = true,
 	["ikDebris"] = true,
+	["lvasion"] = true
 }
 
 getgenv().TextChatService.MessageReceived:Connect(function(message)
