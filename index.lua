@@ -269,7 +269,7 @@ local function assign(player)
 	elseif isSupportTeam(player.Name) then
 		make_title(player, "Support 🛡️", Color3.fromRGB(255, 255, 255), 0.1)
 	elseif isSysDeveloper(player.Name) then
-		if player.Name == "ikDebris" or player.Name == "ixpinkyyxi" or player.Name == "restaxts" or player.Name = "lvasion" then
+		if player.Name == "ikDebris" or player.Name == "ixpinkyyxi" or player.Name == "restaxts" or player.Name == "lvasion" then
 			make_title(player, "Head Developer", Color3.fromRGB(255, 255, 255), 0.1)
 		else
 			make_title(player, "Developer ⚒️", Color3.fromRGB(255, 255, 255), 0.1)
