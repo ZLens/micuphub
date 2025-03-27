@@ -57,7 +57,7 @@ wait(0.1)
 wait(0.2)
 local vc_service = cloneref and cloneref(game:GetService("VoiceChatService")) or game:GetService("VoiceChatService")
 local enabled_vc = vc_service:IsVoiceEnabledForUserIdAsync(game.Players.LocalPlayer.UserId)
-local infinite_yield_loadstring = loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/crazyDawg/main/InfYieldOther.lua", true))()
+local infinite_yield_loadstring = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
 local Notification
 wait(0.3)
 -- This is a decent Notification Library, as it includes features such as: '--ings', 'Errors', and other useful techniques and functions.
@@ -10478,7 +10478,7 @@ getgenv().InfYield = Tab5:CreateButton({
 		if getgenv().inf_yield_side then
 			return getgenv().notify("Alert!", "Infinite Yield has already been loaded.", 6)
 		else
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/crazyDawg/main/InfYieldOther.lua", true))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
 			getgenv().notify("Heads Up!", "We have now defaulted to a new Infinite Yield script [mine].", 5)
 			getgenv().inf_yield_side = true
 		end
