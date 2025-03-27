@@ -6349,7 +6349,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
   if KeepInfYield and (not TeleportCheck) and queueteleport then
      TeleportCheck = true
-     queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/crazyDawg/main/InfYieldOther.lua'))()")
+     queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/index.lua'))()")
   end
 end)
 
@@ -8446,10 +8446,6 @@ addcmd("fakeout", {}, function(args, speaker)
    wait(1)
    root.CFrame = oldpos
    workspace.FallenPartsDestroyHeight = OrgDestroyHeight
-end)
-
-addcmd("SystemBroken", {}, function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/EnterpriseExperience/SystemBroken/refs/heads/main/source"))()
 end)
 
 addcmd("rainbowUI", {}, function()
