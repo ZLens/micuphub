@@ -5,6 +5,8 @@ end
 _G.GEH_Running = true
 warn("Golds Easy Hub: currently loading")
 
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua'))()
+
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
