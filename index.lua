@@ -5349,12 +5349,14 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 
 	localPlayer_Menu.AntiSit.Templates.Execute.MouseButton1Click:Connect(function()
 		if antiSitEnabled then
+				antiSitEnabled = false
 			for _,v in pairs(game.Workspace:GetDescendants()) do
 				if v:IsA("Seat") then
 					v.Disabled = false
 				end
 			end
 		else
+				antiSitEnabled = true
 			for _,v in pairs(game.Workspace:GetDescendants()) do
 				if v:IsA("Seat") then
 					v.Disabled = true
