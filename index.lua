@@ -5,8 +5,6 @@ end
 _G.GEH_Running = true
 warn("Golds Easy Hub: currently loading")
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua'))()
-
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
@@ -2316,6 +2314,15 @@ Converted["_InfiniteYield"].Size = UDim2.new(0, 439, 0, 40)
 Converted["_InfiniteYield"].Name = "InfiniteYield"
 Converted["_InfiniteYield"].Parent = Converted["_Universal"]
 
+Converted["_DanceScriptBtn"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_DanceScriptBtn"].BackgroundTransparency = 0.8999999761581421
+Converted["_DanceScriptBtn"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DanceScriptBtn"].BorderSizePixel = 0
+Converted["_DanceScriptBtn"].Position = UDim2.new(0, 0, 0.270000011, 0)
+Converted["_DanceScriptBtn"].Size = UDim2.new(0, 439, 0, 40)
+Converted["_DanceScriptBtn"].Name = "DanceScriptBtn"
+Converted["_DanceScriptBtn"].Parent = Converted["_Universal"]
+
 Converted["_UICorner50"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner50"].Parent = Converted["_InfiniteYield"]
 
@@ -2337,6 +2344,20 @@ Converted["_BoxTitle14"].Position = UDim2.new(0.0261959005, 0, 0, 0)
 Converted["_BoxTitle14"].Size = UDim2.new(0, 215, 0, 40)
 Converted["_BoxTitle14"].Name = "BoxTitle"
 Converted["_BoxTitle14"].Parent = Converted["_InfiniteYield"]
+
+Converted["_DanceScriptTxt"].Font = Enum.Font.MontserratMedium
+Converted["_DanceScriptTxt"].Text = "Execute dances script"
+Converted["_DanceScriptTxt"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_DanceScriptTxt"].TextSize = 15
+Converted["_DanceScriptTxt"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_DanceScriptTxt"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_DanceScriptTxt"].BackgroundTransparency = 1
+Converted["_DanceScriptTxt"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_DanceScriptTxt"].BorderSizePixel = 0
+Converted["_DanceScriptTxt"].Position = UDim2.new(0.0261959005, 0, 0, 0)
+Converted["_DanceScriptTxt"].Size = UDim2.new(0, 215, 0, 40)
+Converted["_DanceScriptTxt"].Name = "BoxTitle"
+Converted["_DanceScriptTxt"].Parent = Converted["_DanceScriptBtn"]
 
 Converted["_Templates12"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Templates12"].BackgroundTransparency = 1
@@ -4595,8 +4616,8 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 	local exe = getExecutor()
 	getExecutorname = exe.Name
 
-	getMainUI.MainFrame.TopBar.Executor.Text = `– {tostring(getExecutorname)}`
-	getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
+	getMainUI.MainFrame.TopBar.Executor.Text = "– " .. tostring(getExecutorname)
+	getMainUI.Version.version.Text = "Gold's Easy Hub, Version " .. version
 
 	task.spawn(function()
 		local lastUpdate = 0
@@ -4605,7 +4626,7 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 
 		while task.wait() do
 			local currentTime = tick()
-			frameCount += 1
+			frameCount =  frameCount + 1
 
 			if currentTime - lastUpdate >= 0.5 then
 				local fps = math.floor(frameCount / (currentTime - lastUpdate))
@@ -4766,20 +4787,20 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			end
 		end
 	end
-	
+
 	headtag(game.Players.LocalPlayer)
 
 	game.Players.LocalPlayer.CharacterAdded:Connect(function()
 		task.wait()
 		headtag(game.Players.LocalPlayer)
 	end)
-	
+
 	for _,v in pairs(game.Players:GetPlayers()) do
 		if v.Character then
 			headtag(v)
 		end
 	end
-	
+
 	game.Players.PlayerAdded:Connect(function(p)
 		p.CharacterAdded:Connect(function()
 			headtag(p)
@@ -5193,6 +5214,10 @@ local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.Univer
 	unv_menu.InfiniteYield.Templates.Execute.MouseButton1Click:Connect(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
 	end)
+	
+	unv_menu.DanceScriptBtn.Templates.Execute.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/dancescript.lua", true))()
+	end)
 
 	print("Universals loaded")
 end
@@ -5351,14 +5376,12 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 
 	localPlayer_Menu.AntiSit.Templates.Execute.MouseButton1Click:Connect(function()
 		if antiSitEnabled then
-				antiSitEnabled = false
 			for _,v in pairs(game.Workspace:GetDescendants()) do
 				if v:IsA("Seat") then
 					v.Disabled = false
 				end
 			end
 		else
-				antiSitEnabled = true
 			for _,v in pairs(game.Workspace:GetDescendants()) do
 				if v:IsA("Seat") then
 					v.Disabled = true
