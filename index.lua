@@ -244,7 +244,6 @@ local Converted = {
 	["_UIListLayout10"] = Instance.new("UIListLayout");
 	["_UIPadding22"] = Instance.new("UIPadding");
 	["_InfiniteYield"] = Instance.new("Frame");
-	["_DanceScriptBtn"] = Instance.new("Frame");
 	["_UICorner50"] = Instance.new("UICorner");
 	["_UIStroke49"] = Instance.new("UIStroke");
 	["_BoxTitle14"] = Instance.new("TextLabel");
@@ -2315,15 +2314,6 @@ Converted["_InfiniteYield"].Size = UDim2.new(0, 439, 0, 40)
 Converted["_InfiniteYield"].Name = "InfiniteYield"
 Converted["_InfiniteYield"].Parent = Converted["_Universal"]
 
-Converted["_DanceScriptBtn"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_DanceScriptBtn"].BackgroundTransparency = 0.8999999761581421
-Converted["_DanceScriptBtn"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_DanceScriptBtn"].BorderSizePixel = 0
-Converted["_DanceScriptBtn"].Position = UDim2.new(0, 0, 0.270000011, 0)
-Converted["_DanceScriptBtn"].Size = UDim2.new(0, 439, 0, 40)
-Converted["_DanceScriptBtn"].Name = "DanceScriptBtn"
-Converted["_DanceScriptBtn"].Parent = Converted["_Universal"]
-
 Converted["_UICorner50"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner50"].Parent = Converted["_InfiniteYield"]
 
@@ -2345,20 +2335,6 @@ Converted["_BoxTitle14"].Position = UDim2.new(0.0261959005, 0, 0, 0)
 Converted["_BoxTitle14"].Size = UDim2.new(0, 215, 0, 40)
 Converted["_BoxTitle14"].Name = "BoxTitle"
 Converted["_BoxTitle14"].Parent = Converted["_InfiniteYield"]
-
-Converted["_DanceScriptTxt"].Font = Enum.Font.MontserratMedium
-Converted["_DanceScriptTxt"].Text = "Execute dances script"
-Converted["_DanceScriptTxt"].TextColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_DanceScriptTxt"].TextSize = 15
-Converted["_DanceScriptTxt"].TextXAlignment = Enum.TextXAlignment.Left
-Converted["_DanceScriptTxt"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_DanceScriptTxt"].BackgroundTransparency = 1
-Converted["_DanceScriptTxt"].BorderColor3 = Color3.fromRGB(0, 0, 0)
-Converted["_DanceScriptTxt"].BorderSizePixel = 0
-Converted["_DanceScriptTxt"].Position = UDim2.new(0.0261959005, 0, 0, 0)
-Converted["_DanceScriptTxt"].Size = UDim2.new(0, 215, 0, 40)
-Converted["_DanceScriptTxt"].Name = "BoxTitle"
-Converted["_DanceScriptTxt"].Parent = Converted["_DanceScriptBtn"]
 
 Converted["_Templates12"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Templates12"].BackgroundTransparency = 1
@@ -4710,6 +4686,7 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			BillboardGui.Active = true
 			BillboardGui.Name = "GEH_OHT"
 			BillboardGui.LightInfluence = 0
+			BillboardGui.AlwaysOnTop = true
 			BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
 			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
 
@@ -5214,10 +5191,6 @@ local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.Univer
 
 	unv_menu.InfiniteYield.Templates.Execute.MouseButton1Click:Connect(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
-	end)
-	
-	unv_menu.DanceScriptBtn.Templates.Execute.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/dancescript.lua", true))()
 	end)
 
 	print("Universals loaded")
