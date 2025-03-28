@@ -244,6 +244,7 @@ local Converted = {
 	["_UIListLayout10"] = Instance.new("UIListLayout");
 	["_UIPadding22"] = Instance.new("UIPadding");
 	["_InfiniteYield"] = Instance.new("Frame");
+	["_DanceScriptBtn"] = Instance.new("Frame");
 	["_UICorner50"] = Instance.new("UICorner");
 	["_UIStroke49"] = Instance.new("UIStroke");
 	["_BoxTitle14"] = Instance.new("TextLabel");
