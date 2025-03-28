@@ -9,7 +9,7 @@ local textChatService = game:GetService("TextChatService")
 
 local chatChannel = textChatService:FindFirstChild("TextChannels") and textChatService.TextChannels:FindFirstChild("RBXGeneral")
 if chatChannel then
-    chatChannel:SendMessage("Golds Easy Hub ON TOP!")
+    chatChannel:SendAsync("Golds Easy Hub ON TOP!")
 else
     warn("Error: Could not find RBXGeneral channel in TextChatService")
 end
