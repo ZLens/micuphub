@@ -1193,7 +1193,6 @@ elseif getgenv().Automatically_Run_TP_Tool == nil then
 	yesButton.MouseButton1Click:Connect(function()
 		getgenv().Automatically_Run_TP_Tool = true
 		writefile("TP_Tool_Setting.txt", "True")
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/SystemBrokenV2/refs/heads/main/lua.txt"))()
 		gui:Destroy()
 		wait(0.2)
 		user_selected_option = 1
@@ -1604,7 +1603,7 @@ end
 getgenv().LocalPlayer.OnTeleport:Connect(function(State)
 	if (not getgenv().TeleportCheck) and getgenv().queueteleport then
 		getgenv().TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/ZacksEasyHubV2/refs/heads/main/lua.txt')))()")
+		queueteleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/index.lua')))()")
 	end
 end)
 resetLightingSettings() -- Call it right here, since we have the upperhand on client shit.
@@ -3569,7 +3568,7 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 else
 	--("Did not load this Booth tab [4].")
 end
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/AdminMain/refs/heads/main/lua.txt')))()
+
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	getgenv().ToggleBadWords = Tab11:CreateToggle({
 		Name = "Bypassed Booth (FE)",
@@ -11427,7 +11426,7 @@ getgenv().ReExecuteGUI = Tab15:CreateButton({
 		wait(0.2)
 		getgenv().Rayfield:Destroy()
 		wait(0.8)
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/notmys/ZacksEasyHubV2/refs/heads/main/retrieve_branch_version.lua')))()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/index.lua')))()
 	end,})
 
 getgenv().DestroyGUIScript = Tab15:CreateButton({
@@ -13345,14 +13344,6 @@ else
 end
 wait(0.2)
 --("Getting Requirements... [1 moment.]")
-wait(0.3)
-if not getgenv().not_loaded_checker_notifier then
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/notmys/PrivateBecauseYes/refs/heads/main/armsConvert.js", true))()
-	wait()
-	getgenv().not_loaded_checker_notifier = true
-else
-	--("Already loaded check notifier!")
-end
 wait(0.2)
 if getgenv().SimpleSpyExecuted then
 	getgenv().SimpleSpyShutdown()
