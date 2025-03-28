@@ -449,11 +449,11 @@ else
 		Rayfield.Parent = hiddenUI()
 	elseif syn and syn.protect_gui then 
 		syn.protect_gui(Rayfield)
-		Rayfield.Parent = CoreGui
+		Rayfield.Parent = game.Players.LocalPlayer.PlayerGui
 	elseif not useStudio and CoreGui:FindFirstChild("RobloxGui") then
 		Rayfield.Parent = CoreGui:FindFirstChild("RobloxGui")
 	elseif not useStudio then
-		Rayfield.Parent = CoreGui
+		Rayfield.Parent = game.Players.LocalPlayer.PlayerGui
 	end
 end
 
