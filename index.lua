@@ -5,6 +5,13 @@ end
 _G.GEH_Running = true
 warn("Golds Easy Hub: currently loading")
 
+	local chatChannel = textChatService:FindFirstChild("TextChannels") and textChatService.TextChannels:FindFirstChild("RBXGeneral")
+	if chatChannel then
+	chatChannel:SendAsync("Golds Easy Hub ON TOP!")
+	else
+	getgenv().notify("Error:", "Could not find RBXGeneral channel in TextChatService", 6)
+	end
+
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
