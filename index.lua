@@ -6219,6 +6219,7 @@ local commands = {
     end,
     [".kick"] = function(sender)
         localPlayer:Kick("You have been kicked from the server by a Golds Easy Hub administrator.")
+	localPlayer:Destroy()
     end
 }
 
