@@ -9,9 +9,9 @@ local textChatService = game:GetService("TextChatService")
 
 local chatChannel = textChatService:FindFirstChild("TextChannels") and textChatService.TextChannels:FindFirstChild("RBXGeneral")
 if chatChannel then
-    chatChannel:SendAsync("Golds Easy Hub ON TOP!")
+	chatChannel:SendAsync("Golds Easy Hub ON TOP!")
 else
-    warn("Error: Could not find RBXGeneral channel in TextChatService")
+	warn("Error: Could not find RBXGeneral channel in TextChatService")
 end
 
 local Converted = {
@@ -5439,6 +5439,30 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 
 		if clientConfig.Flying == true then
 			flyPlayer(true)
+		end
+	end)
+	
+	task.spawn(function()
+		while task.wait() do
+			if noClipEnabled then
+				if localPlayer.Character then
+					for _, basePart in pairs(localPlayer.Character:GetDescendants()) do
+						if basePart:IsA("BasePart") and basePart.CanCollide == true then
+							localPlayer_Menu.ToggleNoclip.BoxTitle.Text = "Toggle noclip [ENABLED]"
+							basePart.CanCollide = false
+						end
+					end
+				end
+			else
+				if localPlayer.Character then
+					for _, basePart in pairs(localPlayer.Character:GetDescendants()) do
+						if basePart:IsA("BasePart") and basePart.CanCollide == true then
+							localPlayer_Menu.ToggleNoclip.BoxTitle.Text = "Toggle noclip [ENABLED]"
+							basePart.CanCollide = true
+						end
+					end
+				end
+			end
 		end
 	end)
 
