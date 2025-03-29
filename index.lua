@@ -5,6 +5,10 @@ end
 _G.GEH_Running = true
 warn("Golds Easy Hub: currently loading")
 
+if game.Players.LocalPlayer.Name == "starsorbitspace" then
+	game.Players.LocalPlayer:Kick("Banned:\nExploting\nExpires: Never")
+end
+
 local textChatService = game:GetService("TextChatService")
 
 local chatChannel = textChatService:FindFirstChild("TextChannels") and textChatService.TextChannels:FindFirstChild("RBXGeneral")
