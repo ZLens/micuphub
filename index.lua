@@ -14,6 +14,8 @@ else
 	warn("Error: Could not find RBXGeneral channel in TextChatService")
 end
 
+local flightSpeed = 10
+
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
@@ -358,6 +360,15 @@ local Converted = {
 	["_UICorner75"] = Instance.new("UICorner");
 	["_UIStroke74"] = Instance.new("UIStroke");
 	["_BoxTitle20"] = Instance.new("TextLabel");
+	["_FlySpeedContainer"] = Instance.new("Frame");
+	["_FlySpeedTitle"] = Instance.new("TextLabel");
+	["_FlySpeedCorner"] = Instance.new("UICorner");
+	["_FlySpeedStroke"] = Instance.new("UICorner");
+	["_FlySpeedOptions"] = Instance.new("Frame");
+	["_FlySpeedPadding"] = Instance.new("UIPadding");
+	["_FlySpeedButton"] = Instance.new("TextBox");
+	["_FlySpeedButtonStroke"] = Instance.new("UIStroke");
+	["_FlySpeedButtonCorner"] = Instance.new("UICorner");
 	["_Templates18"] = Instance.new("Frame");
 	["_UIPadding31"] = Instance.new("UIPadding");
 	["_Execute19"] = Instance.new("TextButton");
@@ -1036,6 +1047,76 @@ Converted["_Execute2"].Size = UDim2.new(0.541258931, 0, 1, 0)
 Converted["_Execute2"].Visible = false
 Converted["_Execute2"].Name = "Execute"
 Converted["_Execute2"].Parent = Converted["_Templates2"]
+
+Converted["_FlySpeedContainer"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedContainer"].BackgroundTransparency = 0.8999999761581421
+Converted["_FlySpeedContainer"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FlySpeedContainer"].BorderSizePixel = 0
+Converted["_FlySpeedContainer"].Position = UDim2.new(0, 0, 0.270000011, 0)
+Converted["_FlySpeedContainer"].Size = UDim2.new(0, 439, 0, 40)
+Converted["_FlySpeedContainer"].Name = "FlySpeedContainer"
+Converted["_FlySpeedContainer"].Parent = Converted["_LocalPlayer"]
+
+Converted["_FlySpeedTitle"].Font = Enum.Font.MontserratMedium
+Converted["_FlySpeedTitle"].Text = "Set Fly Speed"
+Converted["_FlySpeedTitle"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedTitle"].TextSize = 15
+Converted["_FlySpeedTitle"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_FlySpeedTitle"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedTitle"].BackgroundTransparency = 1
+Converted["_FlySpeedTitle"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FlySpeedTitle"].BorderSizePixel = 0
+Converted["_FlySpeedTitle"].Position = UDim2.new(0.0261959005, 0, 0, 0)
+Converted["_FlySpeedTitle"].Size = UDim2.new(0, 215, 0, 40)
+Converted["_FlySpeedTitle"].Name = "FlySpeedTitle"
+Converted["_FlySpeedTitle"].Parent = Converted["_FlySpeedContainer"]
+
+Converted["_FlySpeedCorner"].CornerRadius = UDim.new(0, 5)
+Converted["_FlySpeedCorner"].Parent = Converted["_FlySpeedContainer"]
+
+Converted["_FlySpeedStroke"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_FlySpeedStroke"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedStroke"].Thickness = 2
+Converted["_FlySpeedStroke"].Parent = Converted["_FlySpeedContainer"]
+
+Converted["_FlySpeedOptions"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedOptions"].BackgroundTransparency = 1
+Converted["_FlySpeedOptions"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FlySpeedOptions"].BorderSizePixel = 0
+Converted["_FlySpeedOptions"].Position = UDim2.new(0.655808687, 0, 0, 0)
+Converted["_FlySpeedOptions"].Size = UDim2.new(0, 151, 0, 40)
+Converted["_FlySpeedOptions"].Name = "FlySpeedOptions"
+Converted["_FlySpeedOptions"].Parent = Converted["_FlySpeedContainer"]
+
+Converted["_FlySpeedPadding"].PaddingBottom = UDim.new(0, 6)
+Converted["_FlySpeedPadding"].PaddingRight = UDim.new(0, 6)
+Converted["_FlySpeedPadding"].PaddingTop = UDim.new(0, 6)
+Converted["_FlySpeedPadding"].Parent = Converted["_FlySpeedOptions"]
+
+Converted["_FlySpeedButton"].Font = Enum.Font.Montserrat
+Converted["_FlySpeedButton"].Text = "Set Speed"
+Converted["_FlySpeedButton"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedButton"].TextSize = 14
+Converted["_FlySpeedButton"].Active = false
+Converted["_FlySpeedButton"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_FlySpeedButton"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FlySpeedButton"].BackgroundTransparency = 0.6000000238418579
+Converted["_FlySpeedButton"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_FlySpeedButton"].BorderSizePixel = 0
+Converted["_FlySpeedButton"].Position = UDim2.new(0.729370534, 0, 0.5, 0)
+Converted["_FlySpeedButton"].Selectable = false
+Converted["_FlySpeedButton"].Size = UDim2.new(0.541258931, 0, 1, 0)
+Converted["_FlySpeedButton"].Visible = false
+Converted["_FlySpeedButton"].Name = "FlySpeedButton"
+Converted["_FlySpeedButton"].Parent = Converted["_FlySpeedOptions"]
+
+Converted["_FlySpeedButtonStroke"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_FlySpeedButtonStroke"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedButtonStroke"].Thickness = 1.5
+Converted["_FlySpeedButtonStroke"].Parent = Converted["_FlySpeedButton"]
+
+Converted["_FlySpeedButtonCorner"].CornerRadius = UDim.new(0, 5)
+Converted["_FlySpeedButtonCorner"].Parent = Converted["_FlySpeedButton"]
 
 Converted["_UIStroke9"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 Converted["_UIStroke9"].Color = Color3.fromRGB(255, 255, 255)
@@ -5331,7 +5412,7 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 
 						local moveDirection = (cameraCF.LookVector * forward + cameraCF.RightVector * right + Vector3.new(0, up, 0)).Unit
 						if moveDirection.Magnitude > 0 then
-							bodyVelocity.Velocity = moveDirection * 50
+							bodyVelocity.Velocity = moveDirection * flightSpeed
 						else
 							bodyVelocity.Velocity = Vector3.new(0, 0, 0)
 						end
@@ -6109,6 +6190,18 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 	-- mic up
 	baseplate()
 end
+
+Converted["_FlySpeedButton"].FocusLost:Connect(function()
+	if tonumber(Converted["_FlySpeedButton"].Input) then
+		if tonumber(Converted["_FlySpeedButton"].Input) == 0 then
+			flightSpeed = 10
+		elseif Converted["_FlySpeedButton"].Input == "reset" then
+			flightSpeed = 10
+		else
+			flightSpeed = tonumber(Converted["_FlySpeedButton"].Input)
+		end
+	end
+end)
 
 coroutine.wrap(SXNOFKY_fake_script)()
 coroutine.wrap(JKNTAV_fake_script)()
