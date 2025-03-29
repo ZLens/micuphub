@@ -363,7 +363,7 @@ local Converted = {
 	["_FlySpeedContainer"] = Instance.new("Frame");
 	["_FlySpeedTitle"] = Instance.new("TextLabel");
 	["_FlySpeedCorner"] = Instance.new("UICorner");
-	["_FlySpeedStroke"] = Instance.new("UICorner");
+	["_FlySpeedStroke"] = Instance.new("UIStroke");
 	["_FlySpeedOptions"] = Instance.new("Frame");
 	["_FlySpeedPadding"] = Instance.new("UIPadding");
 	["_FlySpeedButton"] = Instance.new("TextBox");
@@ -1094,8 +1094,9 @@ Converted["_FlySpeedPadding"].PaddingTop = UDim.new(0, 6)
 Converted["_FlySpeedPadding"].Parent = Converted["_FlySpeedOptions"]
 
 Converted["_FlySpeedButton"].Font = Enum.Font.Montserrat
-Converted["_FlySpeedButton"].Text = "Set Speed"
+Converted["_FlySpeedButton"].Text = ""
 Converted["_FlySpeedButton"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_FlySpeedButton"].PlaceholderText = "Input"
 Converted["_FlySpeedButton"].TextSize = 14
 Converted["_FlySpeedButton"].Active = false
 Converted["_FlySpeedButton"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1106,7 +1107,7 @@ Converted["_FlySpeedButton"].BorderSizePixel = 0
 Converted["_FlySpeedButton"].Position = UDim2.new(0.729370534, 0, 0.5, 0)
 Converted["_FlySpeedButton"].Selectable = false
 Converted["_FlySpeedButton"].Size = UDim2.new(0.541258931, 0, 1, 0)
-Converted["_FlySpeedButton"].Visible = false
+Converted["_FlySpeedButton"].Visible = true
 Converted["_FlySpeedButton"].Name = "FlySpeedButton"
 Converted["_FlySpeedButton"].Parent = Converted["_FlySpeedOptions"]
 
@@ -6192,14 +6193,15 @@ if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
 end
 
 Converted["_FlySpeedButton"].FocusLost:Connect(function()
-	if tonumber(Converted["_FlySpeedButton"].Input) then
-		if tonumber(Converted["_FlySpeedButton"].Input) == 0 then
-			flightSpeed = 10
-		elseif Converted["_FlySpeedButton"].Input == "reset" then
-			flightSpeed = 10
+	if tonumber(Converted["_FlySpeedButton"].Text) then
+		if tonumber(Converted["_FlySpeedButton"].Text) == 0 then
+			flightSpeed = 30
+		elseif Converted["_FlySpeedButton"].Text == "reset" then
+			flightSpeed = 30
 		else
-			flightSpeed = tonumber(Converted["_FlySpeedButton"].Input)
+			flightSpeed = tonumber(Converted["_FlySpeedButton"].Text)
 		end
+		Converted["_FlySpeedButton"].Text = ""
 	end
 end)
 
