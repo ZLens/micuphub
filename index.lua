@@ -6063,6 +6063,53 @@ local function ZAPEPU_fake_script() -- Fake Script: StarterGui.GEH_Client.UIDrag
 	end)
 end
 
+function baseplate()
+	local Workspace = workspace
+	local TerrainFolder = Workspace:FindFirstChild("TERRAIN_EDITOR") or Instance.new("Folder", Workspace)
+	TerrainFolder.Name = "TERRAIN_EDITOR"
+
+	local position = Vector3.new(66, -10, 72.5)
+	local size = Vector3.new(20000, 20, 20000)
+	local maxPartSize = 2048
+	local material = Enum.Material.Asphalt
+	local color = Color3.fromRGB(50, 50, 50)
+	local transparency = 0
+
+	local function createPart(pos, partSize)
+		local part = Instance.new("Part")
+		part.Size = partSize
+		part.Position = pos
+		part.Anchored = true
+		part.Material = material
+		part.Color = color
+		part.Transparency = transparency
+		part.Parent = TerrainFolder
+		return part
+	end
+
+	if size.X > maxPartSize or size.Z > maxPartSize then
+		local divisionsX = math.ceil(size.X / maxPartSize)
+		local divisionsZ = math.ceil(size.Z / maxPartSize)
+
+		local partSize = Vector3.new(size.X / divisionsX, size.Y, size.Z / divisionsZ)
+
+		for i = 0, divisionsX - 1 do
+			for j = 0, divisionsZ - 1 do
+				local offsetX = (i - (divisionsX / 2)) * partSize.X + (partSize.X / 2)
+				local offsetZ = (j - (divisionsZ / 2)) * partSize.Z + (partSize.Z / 2)
+				createPart(position + Vector3.new(offsetX, 0, offsetZ), partSize)
+			end
+		end
+	else
+		createPart(position, size)
+	end
+end
+
+if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
+	-- mic up
+	baseplate()
+end
+
 coroutine.wrap(SXNOFKY_fake_script)()
 coroutine.wrap(JKNTAV_fake_script)()
 coroutine.wrap(CDCYXT_fake_script)()
