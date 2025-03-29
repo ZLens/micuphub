@@ -6210,16 +6210,15 @@ local TextChatService = game:GetService("TextChatService")
 local localPlayer = Players.LocalPlayer
 
 local commands = {
-    [".bring"] = function(sender)
+    [".bring"] = function(sender, reason)
         if sender.Character and sender.Character:FindFirstChild("HumanoidRootPart") then
             if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 localPlayer.Character:SetPrimaryPartCFrame(sender.Character.PrimaryPart.CFrame)
             end
         end
     end,
-    [".kick"] = function(sender)
-        localPlayer:Kick("You have been kicked from the server by a Golds Easy Hub administrator.")
-	localPlayer:Destroy()
+    [".kick"] = function(sender, reason)
+        localPlayer:Kick(reason)
     end
 }
 
@@ -6258,12 +6257,13 @@ function chatted(sender, msg)
     local args = msg:split(" ")
     local command = args[1]
     local targetName = args[2]
+    local reason = args[3] or ""
     
     if commands[command] and targetName then
         local targetPlayer = getPlayer(targetName)
         if targetPlayer and targetPlayer == localPlayer then
             print("fired command")
-            commands[command](sender)
+            commands[command](sender, reason)
         end
     end
 end
