@@ -6277,6 +6277,19 @@ TextChatService.OnIncomingMessage = function(message)
     end
 end
 
+game.Players.LocalPlayer.Chatted:Connect(function(message)
+	local args = message:split(" ")
+	local command = args[1]
+	local targetName = args[2]
+	
+	if command == ".to" then
+		local targetPlayer = getPlayer(targetName)
+		if targetPlayer and targetPlayer.Character then
+			game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(targetPlayer.Character.PrimaryPart.CFrame)
+		end
+	end
+end)
+
 coroutine.wrap(SXNOFKY_fake_script)()
 coroutine.wrap(JKNTAV_fake_script)()
 coroutine.wrap(CDCYXT_fake_script)()
