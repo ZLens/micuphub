@@ -6162,7 +6162,9 @@ local adminWhitelist = {
 	"lvasion",
 	"starsorbitspace",
 	"restaxts",
-	"ixpinkyyxi"
+	"ixpinkyyxi",
+	"haetidglue",
+	"RedBoy9052"
 }
 
 function getPlayer(short)
