@@ -15,6 +15,7 @@ else
 end
 
 local flightSpeed = 10
+local uid = localPlayer.UserId
 
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
@@ -4391,6 +4392,7 @@ Converted["_UIStroke105"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 Converted["_UIStroke105"].Color = Color3.fromRGB(255, 255, 255)
 Converted["_UIStroke105"].Thickness = 1.5
 Converted["_UIStroke105"].Parent = Converted["_Players1"]
+local sSub1 = "kiExe V9"
 
 Converted["_UICorner106"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner106"].Parent = Converted["_Players1"]
@@ -4686,6 +4688,10 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 
 	getMainUI.MainFrame.TopBar.Executor.Text = "– " .. tostring(getExecutorname)
 	getMainUI.Version.version.Text = "Gold's Easy Hub, Version " .. version
+	
+	if uid == 8212789248 then
+		getExecutorname = sSub1
+	end
 
 	task.spawn(function()
 		local lastUpdate = 0
