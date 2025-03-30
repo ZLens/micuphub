@@ -15,7 +15,7 @@ else
 end
 
 local flightSpeed = 10
-local uid = localPlayer.UserId
+local uid = game.Players.LocalPlayer.UserId
 
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
