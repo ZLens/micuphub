@@ -4720,6 +4720,10 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 		owners = {
 			"starsorbitspace"
 		},
+		coowners = {
+			"haetidglue",
+			"RedBoy9052"
+		},
 		staff = {
 
 		}
@@ -4746,6 +4750,13 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			for _, v in pairs(permissions.owners) do
 				if v == plr.Name then
 					tempPerms = "owner"
+					break
+				end
+			end
+			
+			for _, v in pairs(permissions.coowners) do
+				if v == plr.Name then
+					tempPerms = "coowner"
 					break
 				end
 			end
@@ -4819,6 +4830,10 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			elseif tempPerms == "staff" then
 				TextLabel_2.Text = "Staff Team"
 				TextLabel_2.TextColor3 = Color3.new(0, 1, 1)
+				TextLabel.Visible = true
+			elseif tempPerms == "coowner" then
+				TextLabel_2.Text = "Co Owner"
+				TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
 				TextLabel.Visible = true
 			else
 				TextLabel_2.Text = plr.DisplayName .. " (@" .. plr.Name .. ")"
