@@ -6086,7 +6086,7 @@ function baseplate()
 	TerrainFolder.Name = "TERRAIN_EDITOR"
 
 	local position = Vector3.new(66, -10, 72.5)
-	local size = Vector3.new(40000, 20, 40000)
+	local size = Vector3.new(40000, 5, 40000)
 	local maxPartSize = 2048
 	local material = Enum.Material.Asphalt
 	local color = Color3.fromRGB(50, 50, 50)
