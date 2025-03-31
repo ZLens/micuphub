@@ -247,22 +247,22 @@ local fake_module_scripts = {}
 -- Fake Local Scripts:
 
 local function GIQOO_fake_script() -- Fake Script: StarterGui.RobloxGui.LocalScript
-    local script = Instance.new("LocalScript")
-    script.Name = "LocalScript"
-    script.Parent = Converted["_RobloxGui"]
-    local req = require
-    local require = function(obj)
-        local fake = fake_module_scripts[obj]
-        if fake then
-            return fake()
-        end
-        return req(obj)
-    end
+	local script = Instance.new("LocalScript")
+	script.Name = "LocalScript"
+	script.Parent = Converted["_RobloxGui"]
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
 
 	script.Parent.AccurateBlur.Parent = game.Lighting
-	
+
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
-	
+
 	task.wait(10)
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 17
 	game.Lighting.AccurateBlur:Destroy()
@@ -275,17 +275,17 @@ task.wait(15)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
-            for _, descendant in pairs(workspace:GetDescendants()) do
-                if descendant:IsA("Script") and descendant.Name == "Kill" then
-                    local parent = descendant.Parent
-                    local touchInterest = parent:FindFirstChild("TouchInterest")
-                    if touchInterest then
-                        touchInterest:Destroy()
-                    end
-                    descendant:Destroy()
-                end
-            end
-        end
+	for _, descendant in pairs(workspace:GetDescendants()) do
+		if descendant:IsA("Script") and descendant.Name == "Kill" then
+			local parent = descendant.Parent
+			local touchInterest = parent:FindFirstChild("TouchInterest")
+			if touchInterest then
+				touchInterest:Destroy()
+			end
+			descendant:Destroy()
+		end
+	end
+end
 
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
@@ -337,6 +337,13 @@ local Converted = {
 	["_Input"] = Instance.new("TextBox");
 	["_UICorner4"] = Instance.new("UICorner");
 	["_UIStroke3"] = Instance.new("UIStroke");
+	["_facefuck"] = Instance.new("Frame");
+	["_facefuckcorner"] = Instance.new("UICorner");
+	["_facefuckcorner2"] = Instance.new("UIStroke");
+	["_facefucktitle"] = Instance.new("TextLabel");
+	["_facefucktemplates"] = Instance.new("Frame");
+	["_facefuckpadding"] = Instance.new("UIPadding");
+	["_facefuckexe"] = Instance.new("TextButton");
 	["_ToggleNoclip"] = Instance.new("Frame");
 	["_UICorner5"] = Instance.new("UICorner");
 	["_UIStroke4"] = Instance.new("UIStroke");
@@ -2418,6 +2425,67 @@ Converted["_Input10"].Size = UDim2.new(0.541000009, 0, 1, 0)
 Converted["_Input10"].Visible = false
 Converted["_Input10"].Name = "Input"
 Converted["_Input10"].Parent = Converted["_Templates10"]
+
+Converted["_facefuck"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_facefuck"].BackgroundTransparency = 0.8999999761581421
+Converted["_facefuck"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_facefuck"].BorderSizePixel = 0
+Converted["_facefuck"].Position = UDim2.new(0, 0, 0.270000011, 0)
+Converted["_facefuck"].Size = UDim2.new(0, 439, 0, 40)
+Converted["_facefuck"].Name = "FaceFuck"
+Converted["_facefuck"].Parent = Converted["_Universal"]
+
+Converted["_facefuckcorner"].CornerRadius = UDim.new(0, 5)
+Converted["_facefuckcorner"].Parent = Converted["_facefuck"]
+
+Converted["_facefuckcorner2"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_facefuckcorner2"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_facefuckcorner2"].Thickness = 2
+Converted["_facefuckcorner2"].Parent = Converted["_facefuck"]
+
+Converted["_facefucktitle"].Font = Enum.Font.MontserratMedium
+Converted["_facefucktitle"].Text = "Execute face fuck (Z)"
+Converted["_facefucktitle"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_facefucktitle"].TextSize = 15
+Converted["_facefucktitle"].TextXAlignment = Enum.TextXAlignment.Left
+Converted["_facefucktitle"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_facefucktitle"].BackgroundTransparency = 1
+Converted["_facefucktitle"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_facefucktitle"].BorderSizePixel = 0
+Converted["_facefucktitle"].Position = UDim2.new(0.0261959005, 0, 0, 0)
+Converted["_facefucktitle"].Size = UDim2.new(0, 215, 0, 40)
+Converted["_facefucktitle"].Name = "BoxTitle"
+Converted["_facefucktitle"].Parent = Converted["_facefuck"]
+
+Converted["_facefucktemplates"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_facefucktemplates"].BackgroundTransparency = 1
+Converted["_facefucktemplates"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_facefucktemplates"].BorderSizePixel = 0
+Converted["_facefucktemplates"].Position = UDim2.new(0.655808687, 0, 0, 0)
+Converted["_facefucktemplates"].Size = UDim2.new(0, 151, 0, 40)
+Converted["_facefucktemplates"].Name = "Templates"
+Converted["_facefucktemplates"].Parent = Converted["_facefuck"]
+
+Converted["_facefuckpadding"].PaddingBottom = UDim.new(0, 6)
+Converted["_facefuckpadding"].PaddingRight = UDim.new(0, 6)
+Converted["_facefuckpadding"].PaddingTop = UDim.new(0, 6)
+Converted["_facefuckpadding"].Parent = Converted["_Templates12"]
+
+Converted["_facefuckexe"].Font = Enum.Font.Montserrat
+Converted["_facefuckexe"].Text = "Execute"
+Converted["_facefuckexe"].TextColor3 = Color3.fromRGB(255, 255, 255)
+Converted["_facefuckexe"].TextSize = 14
+Converted["_facefuckexe"].Active = false
+Converted["_facefuckexe"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_facefuckexe"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_facefuckexe"].BackgroundTransparency = 0.6000000238418579
+Converted["_facefuckexe"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_facefuckexe"].BorderSizePixel = 0
+Converted["_facefuckexe"].Position = UDim2.new(0.729370534, 0, 0.5, 0)
+Converted["_facefuckexe"].Selectable = false
+Converted["_facefuckexe"].Size = UDim2.new(0.541258931, 0, 1, 0)
+Converted["_facefuckexe"].Name = "Execute"
+Converted["_facefuckexe"].Parent = Converted["_Templates12"]
 
 Converted["_UICorner44"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner44"].Parent = Converted["_Input10"]
@@ -5027,7 +5095,7 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 					break
 				end
 			end
-			
+
 			for _, v in pairs(permissions.coowners) do
 				if v == plr.Name then
 					tempPerms = "coowner"
@@ -5547,6 +5615,11 @@ local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.Univer
 
 	unv_menu.InfiniteYield.Templates.Execute.MouseButton1Click:Connect(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
+	end)
+	
+
+	unv_menu.FaceFuck.Templates.Execute.MouseButton1Click:Connect(function()
+		warn("waiting for loadstring")
 	end)
 
 	print("Universals loaded")
