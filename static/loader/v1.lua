@@ -180,7 +180,6 @@ Converted["_ButtonLayout"].Name = "ButtonLayout"
 Converted["_ButtonLayout"].Parent = Converted["_ButtonArea"]
 
 Converted["_LeaveButton"].Image = "rbxasset://textures/ui/ErrorPrompt/PrimaryButton.png"
-Converted["_LeaveButton"].ImageContent = Content
 Converted["_LeaveButton"].ScaleType = Enum.ScaleType.Slice
 Converted["_LeaveButton"].SliceCenter = Rect.new(8, 8, 9, 9)
 Converted["_LeaveButton"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -215,7 +214,6 @@ Converted["_ShimmerFrame"].Name = "ShimmerFrame"
 Converted["_ShimmerFrame"].Parent = Converted["_LeaveButton"]
 
 Converted["_Shimmer"].Image = "rbxasset://textures/ui/LuaApp/graphic/shimmer_darkTheme.png"
-Converted["_Shimmer"].ImageContent = Content
 Converted["_Shimmer"].BackgroundTransparency = 1
 Converted["_Shimmer"].BorderColor3 = Color3.fromRGB(27.000002190470695, 42.000001296401024, 53.000004440546036)
 Converted["_Shimmer"].BorderSizePixel = 0
@@ -227,7 +225,6 @@ Converted["_Shimmer"].Parent = Converted["_ShimmerFrame"]
 
 Converted["_ShimmerOverlay"].Image = "rbxasset://textures/ui/ErrorPrompt/ShimmerOverlay.png"
 Converted["_ShimmerOverlay"].ImageColor3 = Color3.fromRGB(57.00000040233135, 59.00000028312206, 61.00000016391277)
-Converted["_ShimmerOverlay"].ImageContent = Content
 Converted["_ShimmerOverlay"].ScaleType = Enum.ScaleType.Slice
 Converted["_ShimmerOverlay"].SliceCenter = Rect.new(8, 8, 9, 9)
 Converted["_ShimmerOverlay"].BackgroundTransparency = 1
