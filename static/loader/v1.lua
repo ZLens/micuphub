@@ -1,3 +1,5 @@
+--upd:// live channel
+
 if _G.GEH_Running then
 	return warn("Script already running")
 end
