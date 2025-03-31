@@ -624,6 +624,8 @@ local Converted = {
 	["_BoxTitle19"] = Instance.new("TextLabel");
 	["_Templates17"] = Instance.new("Frame");
 	["_UIPadding30"] = Instance.new("UIPadding");
+	["_facefuckstroke9"] = Instance.new("UIStroke");
+	["_facefuckcorner9"] = Instance.new("UICorner");
 	["_Execute18"] = Instance.new("TextButton");
 	["_UIStroke71"] = Instance.new("UIStroke");
 	["_UICorner72"] = Instance.new("UICorner");
@@ -2487,6 +2489,14 @@ Converted["_facefuckexe"].Selectable = false
 Converted["_facefuckexe"].Size = UDim2.new(0.541258931, 0, 1, 0)
 Converted["_facefuckexe"].Name = "Execute"
 Converted["_facefuckexe"].Parent = Converted["_facefucktemplates"]
+
+Converted["_facefuckstroke9"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_facefuckstroke9"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_facefuckstroke9"].Thickness = 1.5
+Converted["_facefuckstroke9"].Parent = Converted["_facefuckexe"]
+
+Converted["_facefuckcorner9"].CornerRadius = UDim.new(0, 5)
+Converted["_facefuckcorner9"].Parent = Converted["_facefuckexe"]
 
 Converted["_UICorner44"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner44"].Parent = Converted["_Input10"]
