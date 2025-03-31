@@ -270,6 +270,7 @@ local function GIQOO_fake_script() -- Fake Script: StarterGui.RobloxGui.LocalScr
 end
 
 coroutine.wrap(GIQOO_fake_script)()
+task.wait(15)
 --end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 
