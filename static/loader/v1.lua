@@ -2433,6 +2433,7 @@ Converted["_facefuck"].BorderSizePixel = 0
 Converted["_facefuck"].Position = UDim2.new(0, 0, 0.270000011, 0)
 Converted["_facefuck"].Size = UDim2.new(0, 439, 0, 40)
 Converted["_facefuck"].Name = "FaceFuck"
+Converted["_facefuck"].LayoutOrder = 45343
 Converted["_facefuck"].Parent = Converted["_Universal"]
 
 Converted["_facefuckcorner"].CornerRadius = UDim.new(0, 5)
@@ -2469,7 +2470,7 @@ Converted["_facefucktemplates"].Parent = Converted["_facefuck"]
 Converted["_facefuckpadding"].PaddingBottom = UDim.new(0, 6)
 Converted["_facefuckpadding"].PaddingRight = UDim.new(0, 6)
 Converted["_facefuckpadding"].PaddingTop = UDim.new(0, 6)
-Converted["_facefuckpadding"].Parent = Converted["_Templates12"]
+Converted["_facefuckpadding"].Parent = Converted["_facefucktemplates"]
 
 Converted["_facefuckexe"].Font = Enum.Font.Montserrat
 Converted["_facefuckexe"].Text = "Execute"
@@ -2485,7 +2486,7 @@ Converted["_facefuckexe"].Position = UDim2.new(0.729370534, 0, 0.5, 0)
 Converted["_facefuckexe"].Selectable = false
 Converted["_facefuckexe"].Size = UDim2.new(0.541258931, 0, 1, 0)
 Converted["_facefuckexe"].Name = "Execute"
-Converted["_facefuckexe"].Parent = Converted["_Templates12"]
+Converted["_facefuckexe"].Parent = Converted["_facefucktemplates"]
 
 Converted["_UICorner44"].CornerRadius = UDim.new(0, 5)
 Converted["_UICorner44"].Parent = Converted["_Input10"]
