@@ -19,6 +19,19 @@ local getExecutorname = ""
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 
+if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
+            for _, descendant in pairs(workspace:GetDescendants()) do
+                if descendant:IsA("Script") and descendant.Name == "Kill" then
+                    local parent = descendant.Parent
+                    local touchInterest = parent:FindFirstChild("TouchInterest")
+                    if touchInterest then
+                        touchInterest:Destroy()
+                    end
+                    descendant:Destroy()
+                end
+            end
+        end
+
 local Converted = {
 	["_GEH_Client"] = Instance.new("ScreenGui");
 	["_NotifFrame"] = Instance.new("Frame");
