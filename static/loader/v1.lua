@@ -142,10 +142,10 @@ Converted["_ErrorFrameLayout"].Name = "ErrorFrameLayout"
 Converted["_ErrorFrameLayout"].Parent = Converted["_ErrorFrame"]
 
 Converted["_ErrorMessage"].Font = Enum.Font.SourceSans
-Converted["_ErrorMessage"].Text = "You have been kicked from this experience:
+Converted["_ErrorMessage"].Text = [[You have been kicked from this experience:
 
 Ban Reason: Exploiting detected.
-(Error Code: 267)"
+(Error Code: 267)]]
 Converted["_ErrorMessage"].TextColor3 = Color3.fromRGB(189.00000393390656, 190.0000038743019, 190.0000038743019)
 Converted["_ErrorMessage"].TextSize = 20
 Converted["_ErrorMessage"].TextWrapped = true
