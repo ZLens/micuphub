@@ -5065,7 +5065,6 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 		developers = {
 			"ikDebris",
 			"ixpinkyyxi",
-			"restaxts"
 		},
 		headdevs = {
 			"lvasion"
@@ -5080,6 +5079,9 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 		staff = {
 
 		}
+		ihaveagirlfriend = {
+			"restaxts"
+		}
 	}
 
 	function headtag(plr)
@@ -5089,6 +5091,13 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			for _, v in pairs(permissions.developers) do
 				if v == plr.Name then
 					tempPerms = "developer"
+					break
+				end
+			end
+
+			for _, v in pairs(permissions.ihaveagirlfriend) do
+				if v == plr.Name then
+					tempPerms = "ihaveagirlfriend"
 					break
 				end
 			end
@@ -5187,6 +5196,10 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			elseif tempPerms == "coowner" then
 				TextLabel_2.Text = "Co Owner"
 				TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+				TextLabel.Visible = true
+			elseif tempPerms == "ihaveagirlfriend" then
+				TextLabel_2.Text = "i have a girlfriend"
+				TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
 				TextLabel.Visible = true
 			else
 				TextLabel_2.Text = plr.DisplayName .. " (@" .. plr.Name .. ")"
