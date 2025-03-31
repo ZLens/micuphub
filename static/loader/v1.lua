@@ -5630,7 +5630,7 @@ local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.Univer
 	
 
 	unv_menu.FaceFuck.Templates.Execute.MouseButton1Click:Connect(function()
-		warn("waiting for loadstring")
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/bruhlolw/refs/heads/main/face_bang_script.lua'))()
 	end)
 
 	print("Universals loaded")
