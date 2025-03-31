@@ -5079,7 +5079,17 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			"RedBoy9052"
 		},
 		staff = {
-
+			"Goodhelper12345",
+			"Sophieloveuu",
+			"auralinker",
+			"bliblu1099",
+			"bliblu10999",
+			"prfctz",
+			"kursedmes",
+			"ToshiroHina",
+			"captainalex1678",
+			"kittycatmad0",
+			"SlayersXoff"
 		},
 		ihaveagirlfriend = {
 			"restaxts"
