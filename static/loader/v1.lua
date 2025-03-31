@@ -17,6 +17,7 @@ end
 local flightSpeed = 10
 local getExecutorname = ""
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/static/infyield.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 
 if game.PlaceId == 6884319169 or game.PlaceId == 15546218972 then
