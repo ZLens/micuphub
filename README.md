@@ -13,7 +13,7 @@
 1. Open an Executer of your Choise
 2. Copy the following String:
     ```lua
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/index.lua'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/static/loader/v1.lua'))()
     ```
 3. Join any Roblox Game
 4. *(if needed)* hook into Roblox
