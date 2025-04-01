@@ -4907,7 +4907,7 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			local TextLabel = Instance.new("TextLabel")
 			local TextLabel_2 = Instance.new("TextLabel")
 
-			BillboardGui.Parent = plr.Character.Head
+			BillboardGui.Parent = plr.Character:WaitForChild("Head")
 			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 			BillboardGui.Active = true
 			BillboardGui.Name = "GEH_OHT"
