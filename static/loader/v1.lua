@@ -4843,6 +4843,9 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 		},
 		ihaveagirlfriend = {
 			"restaxts"
+		},
+		phoebe = {
+			"pandaphoebe6760"
 		}
 	}
 
@@ -4860,6 +4863,13 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			for _, v in pairs(permissions.ihaveagirlfriend) do
 				if v == plr.Name then
 					tempPerms = "ihaveagirlfriend"
+					break
+				end
+			end
+
+			for _, v in pairs(permissions.phoebe) do
+				if v == plr.Name then
+					tempPerms = "phoebe"
 					break
 				end
 			end
@@ -4961,6 +4971,10 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 				TextLabel.Visible = true
 			elseif tempPerms == "ihaveagirlfriend" then
 				TextLabel_2.Text = "i have a girlfriend"
+				TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
+				TextLabel.Visible = true
+			elseif tempPerms == "phoebe" then
+				TextLabel_2.Text = "Phoebe <3"
 				TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
 				TextLabel.Visible = true
 			else
