@@ -11,7 +11,7 @@ warn("Golds Easy Hub: currently loading")
 
 local textChatService = game:GetService("TextChatService")
 
-if not safemode then
+if safeMode == false then
 	local chatChannel = textChatService:FindFirstChild("TextChannels") and textChatService.TextChannels:FindFirstChild("RBXGeneral")
 	if chatChannel then
 		chatChannel:SendAsync("Golds Easy Hub ON TOP!")
@@ -4747,261 +4747,337 @@ for _,v in pairs(Converted["_GEH_Client"]:GetDescendants()) do
 	end
 end
 
--- Fake Module Scripts:
+-- UPDATED SCRIPT SECTION
 
-local fake_module_scripts = {}
+function getPlayer(short)
+	short = string.lower(short)
 
--- Fake Local Scripts:
+	local matchedPlayer = nil
 
-local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalHost
-	local script = Instance.new("LocalScript")
-	script.Name = "LocalHost"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
+	for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+		if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
+			matchedPlayer = player
+			break
 		end
-		return req(obj)
 	end
 
-	-- start config
-	local getMainUI = script.Parent
-	local localPlayer = game:GetService("Players").LocalPlayer
-	local userInputService = game:GetService("UserInputService")
-	local tweenService = game:GetService("TweenService")
-	local version = "2.0.0"
-	-- mod config
+	return matchedPlayer
+end
 
-	local function getExecutor()
-		local name
-		if identifyexecutor then
-			name = identifyexecutor()
+local getMainUI = Converted["_GEH_Client"]
+local localPlayer = game:GetService("Players").LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local tweenService = game:GetService("TweenService")
+local version = "2.0.0"
+
+local function getExecutor()
+	local name
+	if identifyexecutor then
+		name = identifyexecutor()
+	end
+	return { Name = name or "Unknown Executor"}
+end
+
+local exe = getExecutor()
+getExecutorname = exe.Name
+
+if localPlayer.UserId == 8212789248 then
+	getExecutorname = sSub1
+end
+
+getMainUI.MainFrame.TopBar.Executor.Text = "– " .. tostring(getExecutorname)
+getMainUI.Version.version.Text = "Gold's Easy Hub, Version " .. version
+
+task.spawn(function()
+	local lastUpdate = 0
+	local frameCount = 0
+	local lastTime = tick()
+
+	while task.wait() do
+		local currentTime = tick()
+		frameCount =  frameCount + 1
+
+		if currentTime - lastUpdate >= 0.5 then
+			local fps = math.floor(frameCount / (currentTime - lastUpdate))
+			getMainUI.Version.fps.Text = `FPS: {fps}`
+
+			lastUpdate = currentTime
+			frameCount = 0
 		end
-		return { Name = name or "Unknown Executor"}
 	end
+end)
 
-	local exe = getExecutor()
-	getExecutorname = exe.Name
+local permissions = {
+	developers = {
+		"ikDebris",
+		"ixpinkyyxi",
+	},
+	headdevs = {
+		"lvasion"
+	},
+	owners = {
+		"starsorbitspace"
+	},
+	coowners = {
+		"haetidglue",
+		"RedBoy9052"
+	},
+	staff = {
+		"Goodhelper12345",
+		"Sophieloveuu",
+		"auralinker",
+		"bliblu1099",
+		"bliblu10999",
+		"prfctz",
+		"kursedmes",
+		"ToshiroHina",
+		"captainalex1678",
+		"kittycatmad0",
+		"SlayersXoff"
+	},
+	ihaveagirlfriend = {
+		"restaxts"
+	},
+	phoebe = {
+		"pandaphoebe6760"
+	}
+}
 
-	if localPlayer.UserId == 8212789248 then
-		getExecutorname = sSub1
-	end
-
-	getMainUI.MainFrame.TopBar.Executor.Text = "– " .. tostring(getExecutorname)
-	getMainUI.Version.version.Text = "Gold's Easy Hub, Version " .. version
-
+function headtag(plr)
 	task.spawn(function()
-		local lastUpdate = 0
-		local frameCount = 0
-		local lastTime = tick()
+		local tempPerms = "normal"
 
-		while task.wait() do
-			local currentTime = tick()
-			frameCount =  frameCount + 1
-
-			if currentTime - lastUpdate >= 0.5 then
-				local fps = math.floor(frameCount / (currentTime - lastUpdate))
-				getMainUI.Version.fps.Text = `FPS: {fps}`
-
-				lastUpdate = currentTime
-				frameCount = 0
+		for _, v in pairs(permissions.developers) do
+			if v == plr.Name then
+				tempPerms = "developer"
+				break
 			end
+		end
+
+		for _, v in pairs(permissions.ihaveagirlfriend) do
+			if v == plr.Name then
+				tempPerms = "ihaveagirlfriend"
+				break
+			end
+		end
+
+		for _, v in pairs(permissions.phoebe) do
+			if v == plr.Name then
+				tempPerms = "phoebe"
+				break
+			end
+		end
+
+		for _, v in pairs(permissions.headdevs) do
+			if v == plr.Name then
+				tempPerms = "head_dev"
+				break
+			end
+		end
+
+		for _, v in pairs(permissions.owners) do
+			if v == plr.Name then
+				tempPerms = "owner"
+				break
+			end
+		end
+
+		for _, v in pairs(permissions.coowners) do
+			if v == plr.Name then
+				tempPerms = "coowner"
+				break
+			end
+		end
+
+		for _, v in pairs(permissions.staff) do
+			if v == plr.Name then
+				tempPerms = "staff"
+				break
+			end
+		end
+
+		while not plr.Character or not plr.Character:FindFirstChild("Head") do
+			task.wait()
+		end
+
+		local overheadSuccess = false
+		local BillboardGui = Instance.new("BillboardGui")
+		local Rank = Instance.new("Frame")
+		local TextLabel = Instance.new("TextLabel")
+		local TextLabel_2 = Instance.new("TextLabel")
+
+		BillboardGui.Parent = plr.Character
+		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui.Active = true
+		BillboardGui.Name = "GEH_OHT"
+		BillboardGui.LightInfluence = 0
+		BillboardGui.AlwaysOnTop = true
+		BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
+		BillboardGui.StudsOffset = Vector3.new(0, 4.5, 0)
+
+		Rank.Name = "Rank"
+		Rank.Parent = BillboardGui
+		Rank.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Rank.BackgroundTransparency = 1.000
+		Rank.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		Rank.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
+		Rank.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
+
+		TextLabel.Parent = BillboardGui
+		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.BackgroundTransparency = 1.000
+		TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		TextLabel.Size = UDim2.new(1, 0, 0.300000012, 0)
+		TextLabel.Font = Enum.Font.MontserratBold
+		TextLabel.Text = "Golds Easy Hub"
+		TextLabel.TextColor3 = Color3.fromRGB(255, 170, 0)
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 30.000
+		TextLabel.TextStrokeTransparency = 0.540
+		TextLabel.TextWrapped = true
+		TextLabel.Visible = false
+
+		if tempPerms == "developer" then
+			TextLabel_2.Text = "Developer"
+			TextLabel_2.TextColor3 = Color3.new(0.333333, 0.666667, 1)
+			TextLabel.Visible = true
+		elseif tempPerms == "head_dev" then
+			TextLabel_2.Text = "Head Developer"
+			TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+			TextLabel.Visible = true
+		elseif tempPerms == "owner" then
+			TextLabel_2.Text = "Owner"
+			TextLabel_2.TextColor3 = Color3.new(1, 0, 0)
+			TextLabel.Visible = true
+		elseif tempPerms == "staff" then
+			TextLabel_2.Text = "Staff Team"
+			TextLabel_2.TextColor3 = Color3.new(0, 1, 1)
+			TextLabel.Visible = true
+		elseif tempPerms == "coowner" then
+			TextLabel_2.Text = "Co Owner"
+			TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+			TextLabel.Visible = true
+		elseif tempPerms == "ihaveagirlfriend" then
+			TextLabel_2.Text = "i have a girlfriend"
+			TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
+			TextLabel.Visible = true
+		elseif tempPerms == "phoebe" then
+			TextLabel_2.Text = "Phoebe <3"
+			TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
+			TextLabel.Visible = true
+		else
+			TextLabel_2.Text = plr.DisplayName .. " (@" .. plr.Name .. ")"
+			TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
+		end
+
+		TextLabel_2.Parent = BillboardGui
+		TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel_2.BackgroundTransparency = 1.000
+		TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+		TextLabel_2.Position = UDim2.new(0.25, 0, 0.300000012, 0)
+		TextLabel_2.Size = UDim2.new(0.5, 0, 0.300000012, 0)
+		TextLabel_2.Font = Enum.Font.MontserratMedium
+		TextLabel_2.TextScaled = true
+		TextLabel_2.TextSize = 30.000
+		TextLabel_2.TextStrokeTransparency = 0.540
+		TextLabel_2.TextWrapped = true
+
+		overheadSuccess = true
+
+		if overheadSuccess then
+			plr.Character.Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
 		end
 	end)
+end
 
-	-- // headtag functions
-
-	local permissions = {
-		developers = {
-			"ikDebris",
-			"ixpinkyyxi",
-		},
-		headdevs = {
-			"lvasion"
-		},
-		owners = {
-			"starsorbitspace"
-		},
-		coowners = {
-			"haetidglue",
-			"RedBoy9052"
-		},
-		staff = {
-			"Goodhelper12345",
-			"Sophieloveuu",
-			"auralinker",
-			"bliblu1099",
-			"bliblu10999",
-			"prfctz",
-			"kursedmes",
-			"ToshiroHina",
-			"captainalex1678",
-			"kittycatmad0",
-			"SlayersXoff"
-		},
-		ihaveagirlfriend = {
-			"restaxts"
-		},
-		phoebe = {
-			"pandaphoebe6760"
-		}
-	}
-
-	function headtag(plr)
-		task.spawn(function()
-			local tempPerms = "normal"
-
-			for _, v in pairs(permissions.developers) do
-				if v == plr.Name then
-					tempPerms = "developer"
-					break
-				end
+for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+	if v:IsA("Frame") then
+		if v.Name == "LocalPlayer" then
+			v.Visible = true
+		else
+			if v.Name ~= "Credits" then
+				v.Visible = false
 			end
-
-			for _, v in pairs(permissions.ihaveagirlfriend) do
-				if v == plr.Name then
-					tempPerms = "ihaveagirlfriend"
-					break
-				end
-			end
-
-			for _, v in pairs(permissions.phoebe) do
-				if v == plr.Name then
-					tempPerms = "phoebe"
-					break
-				end
-			end
-
-			for _, v in pairs(permissions.headdevs) do
-				if v == plr.Name then
-					tempPerms = "head_dev"
-					break
-				end
-			end
-
-			for _, v in pairs(permissions.owners) do
-				if v == plr.Name then
-					tempPerms = "owner"
-					break
-				end
-			end
-
-			for _, v in pairs(permissions.coowners) do
-				if v == plr.Name then
-					tempPerms = "coowner"
-					break
-				end
-			end
-
-			for _, v in pairs(permissions.staff) do
-				if v == plr.Name then
-					tempPerms = "staff"
-					break
-				end
-			end
-
-			-- Wait for character and ensure head exists
-			while not plr.Character or not plr.Character:FindFirstChild("Head") do
-				task.wait()
-			end
-
-			task.wait(5)
-
-			local overheadSuccess = false
-
-			-- Create BillboardGui based on permissions
-			local BillboardGui = Instance.new("BillboardGui")
-			local Rank = Instance.new("Frame")
-			local TextLabel = Instance.new("TextLabel")
-			local TextLabel_2 = Instance.new("TextLabel")
-
-			BillboardGui.Parent = plr.Character:WaitForChild("Head")
-			BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-			BillboardGui.Active = true
-			BillboardGui.Name = "GEH_OHT"
-			BillboardGui.LightInfluence = 0
-			BillboardGui.AlwaysOnTop = true
-			BillboardGui.Size = UDim2.new(10, 0, 1.5, 0)
-			BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
-
-			Rank.Name = "Rank"
-			Rank.Parent = BillboardGui
-			Rank.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Rank.BackgroundTransparency = 1.000
-			Rank.BorderColor3 = Color3.fromRGB(27, 42, 53)
-			Rank.Position = UDim2.new(0.400000006, 0, 0.300000012, 0)
-			Rank.Size = UDim2.new(0.200000003, 0, 0.300000012, 0)
-
-			TextLabel.Parent = BillboardGui
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
-			TextLabel.Size = UDim2.new(1, 0, 0.300000012, 0)
-			TextLabel.Font = Enum.Font.MontserratBold
-			TextLabel.Text = "Golds Easy Hub"
-			TextLabel.TextColor3 = Color3.fromRGB(255, 170, 0)
-			TextLabel.TextScaled = true
-			TextLabel.TextSize = 30.000
-			TextLabel.TextStrokeTransparency = 0.540
-			TextLabel.TextWrapped = true
-			TextLabel.Visible = false
-
-			-- Set permission-based rank text
-			if tempPerms == "developer" then
-				TextLabel_2.Text = "Developer"
-				TextLabel_2.TextColor3 = Color3.new(0.333333, 0.666667, 1)
-				TextLabel.Visible = true
-			elseif tempPerms == "head_dev" then
-				TextLabel_2.Text = "Head Developer"
-				TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
-				TextLabel.Visible = true
-			elseif tempPerms == "owner" then
-				TextLabel_2.Text = "Owner"
-				TextLabel_2.TextColor3 = Color3.new(1, 0, 0)
-				TextLabel.Visible = true
-			elseif tempPerms == "staff" then
-				TextLabel_2.Text = "Staff Team"
-				TextLabel_2.TextColor3 = Color3.new(0, 1, 1)
-				TextLabel.Visible = true
-			elseif tempPerms == "coowner" then
-				TextLabel_2.Text = "Co Owner"
-				TextLabel_2.TextColor3 = Color3.new(0.666667, 0.333333, 1)
-				TextLabel.Visible = true
-			elseif tempPerms == "ihaveagirlfriend" then
-				TextLabel_2.Text = "i have a girlfriend"
-				TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
-				TextLabel.Visible = true
-			elseif tempPerms == "phoebe" then
-				TextLabel_2.Text = "Phoebe <3"
-				TextLabel_2.TextColor3 = Color3.new(1, 0.666667, 1)
-				TextLabel.Visible = true
-			else
-				TextLabel_2.Text = plr.DisplayName .. " (@" .. plr.Name .. ")"
-				TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
-			end
-
-			TextLabel_2.Parent = BillboardGui
-			TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel_2.BackgroundTransparency = 1.000
-			TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
-			TextLabel_2.Position = UDim2.new(0.25, 0, 0.300000012, 0)
-			TextLabel_2.Size = UDim2.new(0.5, 0, 0.300000012, 0)
-			TextLabel_2.Font = Enum.Font.MontserratMedium
-			TextLabel_2.TextScaled = true
-			TextLabel_2.TextSize = 30.000
-			TextLabel_2.TextStrokeTransparency = 0.540
-			TextLabel_2.TextWrapped = true
-
-			overheadSuccess = true
-
-			if overheadSuccess then
-				plr.Character.Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-			end
-		end)
+		end
 	end
+end
 
+headtag(game.Players.LocalPlayer)
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+	task.wait()
+	headtag(game.Players.LocalPlayer)
+end)
+
+for _,v in pairs(game.Players:GetPlayers()) do
+	if v.Character then
+		headtag(v)
+	end
+end
+
+game.Players.PlayerAdded:Connect(function(p)
+	p.CharacterAdded:Connect(function()
+		headtag(p)
+	end)
+end)
+
+getMainUI.MainFrame.Centre.Anims.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "Animations" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
+		end
+	end
+end)
+
+getMainUI.MainFrame.Centre.BETA.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "BetaFeatures" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
+		end
+	end
+end)
+
+getMainUI.MainFrame.Centre.Exploits.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "Exploits" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
+		end
+	end
+end)
+
+getMainUI.MainFrame.Centre.Lighting.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "Lighting" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
+		end
+	end
+end)
+
+getMainUI.MainFrame.Centre.LocalPlayer.MouseButton1Click:Connect(function()
 	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
 		if v:IsA("Frame") then
 			if v.Name == "LocalPlayer" then
@@ -5013,178 +5089,73 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			end
 		end
 	end
+end)
 
-	headtag(game.Players.LocalPlayer)
-
-	game.Players.LocalPlayer.CharacterAdded:Connect(function()
-		task.wait()
-		headtag(game.Players.LocalPlayer)
-	end)
-
-	for _,v in pairs(game.Players:GetPlayers()) do
-		if v.Character then
-			headtag(v)
+getMainUI.MainFrame.Centre.Players.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "Players" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
 		end
 	end
+end)
 
-	game.Players.PlayerAdded:Connect(function(p)
-		p.CharacterAdded:Connect(function()
-			headtag(p)
-		end)
-	end)
-
-	getMainUI.MainFrame.Centre.Anims.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "Animations" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.BETA.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "BetaFeatures" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.Exploits.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "Exploits" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.Lighting.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "Lighting" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.LocalPlayer.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "LocalPlayer" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.Players.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "Players" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.Universal.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "Universal" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	getMainUI.MainFrame.Centre.Voicechat.MouseButton1Click:Connect(function()
-		for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
-			if v:IsA("Frame") then
-				if v.Name == "VoiceChat" then
-					v.Visible = true
-				else
-					if v.Name ~= "Credits" then
-						v.Visible = false
-					end
-				end
-			end
-		end
-	end)
-
-	local storePos = UDim2.new(0.5, 0, 0.5, 0)
-	local hidePos = UDim2.new(0.5, 0, -0.5, 0)
-	local canToggleUI = false
-	local uiOpen = false
-
-	tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
-	canToggleUI = true
-	uiOpen = true
-
-	game:GetService("RunService").RenderStepped:Connect(function()
-		if not uiOpen then
-			return
-		end
-
-		storePos = getMainUI.MainFrame.Position
-	end)
-
-	userInputService.InputBegan:Connect(function(input, gameProcessed)
-		if not canToggleUI then
-			return
-		end
-
-		if not gameProcessed and input.KeyCode == Enum.KeyCode.K then
-			if uiOpen then
-				uiOpen = false
-				getMainUI.Version.version.Text = "Click to open hub"
-				tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = hidePos}):Play()
+getMainUI.MainFrame.Centre.Universal.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "Universal" then
+				v.Visible = true
 			else
-				uiOpen = true
-				getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
-				tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = storePos}):Play()
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
 			end
 		end
-	end)
+	end
+end)
 
-	getMainUI.MainFrame.TopBar.Close.MouseButton1Click:Connect(function()
-		if not canToggleUI then
-			return
+getMainUI.MainFrame.Centre.Voicechat.MouseButton1Click:Connect(function()
+	for _,v in pairs(getMainUI.MainFrame.Btns:GetChildren()) do
+		if v:IsA("Frame") then
+			if v.Name == "VoiceChat" then
+				v.Visible = true
+			else
+				if v.Name ~= "Credits" then
+					v.Visible = false
+				end
+			end
 		end
+	end
+end)
 
+local storePos = UDim2.new(0.5, 0, 0.5, 0)
+local hidePos = UDim2.new(0.5, 0, -0.5, 0)
+local canToggleUI = false
+local uiOpen = false
+
+tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
+canToggleUI = true
+uiOpen = true
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if not uiOpen then
+		return
+	end
+
+	storePos = getMainUI.MainFrame.Position
+end)
+
+userInputService.InputBegan:Connect(function(input, gameProcessed)
+	if not canToggleUI then
+		return
+	end
+
+	if not gameProcessed and input.KeyCode == Enum.KeyCode.K then
 		if uiOpen then
 			uiOpen = false
 			getMainUI.Version.version.Text = "Click to open hub"
@@ -5194,99 +5165,96 @@ local function SXNOFKY_fake_script() -- Fake Script: StarterGui.GEH_Client.Local
 			getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
 			tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = storePos}):Play()
 		end
-	end)
+	end
+end)
 
-	getMainUI.Version.version.MouseButton1Click:Connect(function()
-		if not canToggleUI then
-			return
-		end
+getMainUI.MainFrame.TopBar.Close.MouseButton1Click:Connect(function()
+	if not canToggleUI then
+		return
+	end
 
-		if uiOpen then
-			uiOpen = false
-			getMainUI.Version.version.Text = "Click to open hub"
-			tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = hidePos}):Play()
-		else
-			uiOpen = true
-			getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
-			tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = storePos}):Play()
-		end
-	end)
+	if uiOpen then
+		uiOpen = false
+		getMainUI.Version.version.Text = "Click to open hub"
+		tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = hidePos}):Play()
+	else
+		uiOpen = true
+		getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
+		tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = storePos}):Play()
+	end
+end)
 
-	--- gayness
+getMainUI.Version.version.MouseButton1Click:Connect(function()
+	if not canToggleUI then
+		return
+	end
 
-	local webhookURL = "https://discord.com/api/webhooks/1355986395055001610/cQz6x-qGnJsgCkiPrDiUQ3EfWV5K56ZVJ9e7KGpjUmfWs5cmjSBwidEI1pG9sVDKtxfi"
-	local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
-	wait(0.2)
-	local timeExecuted = os.date("%Y-%m-%d %H:%M:%S", os.time())
+	if uiOpen then
+		uiOpen = false
+		getMainUI.Version.version.Text = "Click to open hub"
+		tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = hidePos}):Play()
+	else
+		uiOpen = true
+		getMainUI.Version.version.Text = `Gold's Easy Hub, Version {version}`
+		tweenService:Create(getMainUI.MainFrame, TweenInfo.new(0.2), {Position = storePos}):Play()
+	end
+end)
 
-	local success, executorName = pcall(function()
-		return identifyexecutor()
-	end)
-	if not success then executorName = "Unknown" end
+local webhookURL = "https://discord.com/api/webhooks/1355986395055001610/cQz6x-qGnJsgCkiPrDiUQ3EfWV5K56ZVJ9e7KGpjUmfWs5cmjSBwidEI1pG9sVDKtxfi"
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+wait(0.2)
+local timeExecuted = os.date("%Y-%m-%d %H:%M:%S", os.time())
 
-	local placeName = "Unknown Place"
-	local successPlace, result = pcall(function()
-		return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-	end)
-	if successPlace then placeName = result end
+local success, executorName = pcall(function()
+	return identifyexecutor()
+end)
+if not success then executorName = "Unknown" end
 
-	local data = {
-		content = "",
-		embeds = {
-			{
-				title = "Version 2 Execution Details",
-				color = 16711680,
-				fields = {
-					{ name = "**Player Name**", value = "`" .. game.Players.LocalPlayer.Name .. "`", inline = true },
-					{ name = "**Place ID**", value = "`" .. game.PlaceId .. "`", inline = true },
-					{ name = "**Place Name**", value = "`" .. placeName .. "`", inline = true },
-					{ name = "**Job ID**", value = "`" .. game.JobId .. "`", inline = false },
-					{ name = "**Time Executed**", value = "`" .. timeExecuted .. "`", inline = true },
-					{ name = "**Executor**", value = "`" .. getExecutorname .. "`", inline = true },
-					{
-						name = "**Quick Join**",
-						value = "```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance('" .. game.PlaceId .. "', '" .. game.JobId .. "', game.Players.LocalPlayer)\n```",
-						inline = false
-					}
-				},
-				footer = {
-					text = "Execution Log • " .. os.date("%Y-%m-%d %H:%M:%S"),
-					icon_url = "https://media.discordapp.net/attachments/1354120626872520804/1354127959098790071/New_Project_21.png?ex=67e4296f&is=67e2d7ef&hm=4abb6001c6d31e46b50e3ba89487f1274bf68c49a39ee586655f34de507f889a&=&format=webp&quality=lossless"
+local placeName = "Unknown Place"
+local successPlace, result = pcall(function()
+	return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+end)
+if successPlace then placeName = result end
+
+local data = {
+	content = "",
+	embeds = {
+		{
+			title = "Version 2 Execution Details",
+			color = 16711680,
+			fields = {
+				{ name = "**Player Name**", value = "`" .. game.Players.LocalPlayer.Name .. "`", inline = true },
+				{ name = "**Place ID**", value = "`" .. game.PlaceId .. "`", inline = true },
+				{ name = "**Place Name**", value = "`" .. placeName .. "`", inline = true },
+				{ name = "**Job ID**", value = "`" .. game.JobId .. "`", inline = false },
+				{ name = "**Time Executed**", value = "`" .. timeExecuted .. "`", inline = true },
+				{ name = "**Executor**", value = "`" .. getExecutorname .. "`", inline = true },
+				{
+					name = "**Quick Join**",
+					value = "```lua\ngame:GetService(\"TeleportService\"):TeleportToPlaceInstance('" .. game.PlaceId .. "', '" .. game.JobId .. "', game.Players.LocalPlayer)\n```",
+					inline = false
 				}
+			},
+			footer = {
+				text = "Execution Log • " .. os.date("%Y-%m-%d %H:%M:%S"),
+				icon_url = "https://media.discordapp.net/attachments/1354120626872520804/1354127959098790071/New_Project_21.png?ex=67e4296f&is=67e2d7ef&hm=4abb6001c6d31e46b50e3ba89487f1274bf68c49a39ee586655f34de507f889a&=&format=webp&quality=lossless"
 			}
 		}
 	}
+}
 
-	local jsonData = game:GetService("HttpService"):JSONEncode(data)
+local jsonData = game:GetService("HttpService"):JSONEncode(data)
 
-	if httprequest then
-		httprequest({
-			Url = webhookURL,
-			Method = "POST",
-			Headers = { ["Content-Type"] = "application/json" },
-			Body = jsonData
-		})
-	else
-		--("HTTP Request Unsupported.")
-	end
-
-	warn("Golds Easy Hub: Loaded successfully")
+if httprequest then
+	httprequest({
+		Url = webhookURL,
+		Method = "POST",
+		Headers = { ["Content-Type"] = "application/json" },
+		Body = jsonData
+	})
 end
-local function JKNTAV_fake_script() -- Fake Script: StarterGui.GEH_Client.AnimationsScript
-	local script = Instance.new("LocalScript")
-	script.Name = "AnimationsScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
 	local localPlayer = game:GetService("Players").LocalPlayer
-	local getMainUI = script.Parent
 	local anim_menu = getMainUI.MainFrame.Btns.Animations
 
 	function sendNotify(text)
@@ -5356,21 +5324,7 @@ local function JKNTAV_fake_script() -- Fake Script: StarterGui.GEH_Client.Animat
 	end)
 
 	print("Animations loaded")
-end
-local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.UniversalsScript
-	local script = Instance.new("LocalScript")
-	script.Name = "UniversalsScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
-	local getMainUI = script.Parent
 	local unv_menu = getMainUI.MainFrame.Btns.Universal
 
 	function sendNotify(text)
@@ -5416,28 +5370,14 @@ local function CDCYXT_fake_script() -- Fake Script: StarterGui.GEH_Client.Univer
 	unv_menu.InfiniteYield.Templates.Execute.MouseButton1Click:Connect(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
 	end)
-	
+
 
 	unv_menu.FaceFuck.Templates.Execute.MouseButton1Click:Connect(function()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/EnterpriseExperience/bruhlolw/refs/heads/main/face_bang_script.lua'))()
 	end)
 
 	print("Universals loaded")
-end
-local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalPlayerScript
-	local script = Instance.new("LocalScript")
-	script.Name = "LocalPlayerScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
-	local getMainUI = script.Parent
 	local localPlayer = game:GetService("Players").LocalPlayer
 	local userInputService = game:GetService("UserInputService")
 	local localPlayer_Menu = getMainUI.MainFrame.Btns.LocalPlayer
@@ -5448,7 +5388,6 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 	local startWalkSpeed
 	local startJumpPower
 
-	--char setup
 	while not localPlayer.Character do
 		task.wait()
 	end
@@ -5786,21 +5725,7 @@ local function TVBBQI_fake_script() -- Fake Script: StarterGui.GEH_Client.LocalP
 	end)
 
 	print("LocalPlayer loaded")
-end
-local function VIJPP_fake_script() -- Fake Script: StarterGui.GEH_Client.PlayersScript
-	local script = Instance.new("LocalScript")
-	script.Name = "PlayersScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
-	local getMainUI = script.Parent
 	local localPlayer = game:GetService("Players").LocalPlayer
 	local players_Menu = getMainUI.MainFrame.Btns.Players
 	local overheadToggled = false
@@ -5843,21 +5768,6 @@ local function VIJPP_fake_script() -- Fake Script: StarterGui.GEH_Client.Players
 				end
 			end)
 		end
-	end
-
-	function getPlayer(short)
-		short = string.lower(short)
-
-		local matchedPlayer = nil
-
-		for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-			if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
-				matchedPlayer = player
-				break
-			end
-		end
-
-		return matchedPlayer
 	end
 
 	players_Menu.ClientBring.Templates.Player.FocusLost:Connect(function(enterPressed)
@@ -5953,21 +5863,7 @@ local function VIJPP_fake_script() -- Fake Script: StarterGui.GEH_Client.Players
 	end)
 
 	print("Players loaded")
-end
-local function NBZRUUQ_fake_script() -- Fake Script: StarterGui.GEH_Client.VoiceChatScript
-	local script = Instance.new("LocalScript")
-	script.Name = "VoiceChatScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
-	local getMainUI = script.Parent
 	local vc_menu = getMainUI.MainFrame.Btns.VoiceChat
 	local _vc = game:GetService("VoiceChatInternal")
 
@@ -5995,21 +5891,7 @@ local function NBZRUUQ_fake_script() -- Fake Script: StarterGui.GEH_Client.Voice
 	_vc.LocalPlayerModerated:Connect(removeSuspension)
 
 	print("VoiceChat loaded")
-end
-local function BAGF_fake_script() -- Fake Script: StarterGui.GEH_Client.LightingScript
-	local script = Instance.new("LocalScript")
-	script.Name = "LightingScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
-	local getMainUI = script.Parent
 	local light_menu = getMainUI.MainFrame.Btns.Lighting
 
 	light_menu.RTX.Templates.Execute.MouseButton1Click:Connect(function()
@@ -6139,19 +6021,6 @@ local function BAGF_fake_script() -- Fake Script: StarterGui.GEH_Client.Lighting
 	end)
 
 	print("Lighting loaded")
-end
-local function CAWVQ_fake_script() -- Fake Script: StarterGui.GEH_Client.BetaScript
-	local script = Instance.new("LocalScript")
-	script.Name = "BetaScript"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
@@ -6190,23 +6059,7 @@ local function CAWVQ_fake_script() -- Fake Script: StarterGui.GEH_Client.BetaScr
 		end
 	end
 
-	local getMainUI = script.Parent
 	local beta_menu = getMainUI.MainFrame.Btns.BetaFeatures
-
-	function getPlayer(short)
-		short = string.lower(short)
-
-		local matchedPlayer = nil
-
-		for _, player in pairs(game:GetService("Players"):GetPlayers()) do
-			if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
-				matchedPlayer = player
-				break
-			end
-		end
-
-		return matchedPlayer
-	end
 
 	beta_menu.Backpack.Templates.Player.FocusLost:Connect(function(enter)
 		if enter then
@@ -6233,22 +6086,9 @@ local function CAWVQ_fake_script() -- Fake Script: StarterGui.GEH_Client.BetaScr
 	end)
 
 	print("Backpack loaded")
-end
-local function ZAPEPU_fake_script() -- Fake Script: StarterGui.GEH_Client.UIDrag
-	local script = Instance.new("LocalScript")
-	script.Name = "UIDrag"
-	script.Parent = Converted["_GEH_Client"]
-	local req = require
-	local require = function(obj)
-		local fake = fake_module_scripts[obj]
-		if fake then
-			return fake()
-		end
-		return req(obj)
-	end
 
 	local UIS = game:GetService('UserInputService')
-	local frame = script.Parent.MainFrame
+	local frame = Converted["_MainFrame"]
 	local dragToggle = nil
 	local dragSpeed = 0.25
 	local dragStart = nil
@@ -6281,7 +6121,6 @@ local function ZAPEPU_fake_script() -- Fake Script: StarterGui.GEH_Client.UIDrag
 			end
 		end
 	end)
-end
 
 function baseplate()
 	local Workspace = workspace
@@ -6357,7 +6196,17 @@ local commands = {
 	end,
 	[".kick"] = function(sender, reason)
 		localPlayer:Kick(reason)
-	end
+	end,
+	[".freeze"] = function(sender, reason)
+		if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+			localPlayer.Character.HumanoidRootPart.Anchored = true
+		end
+	end,
+	[".unfreeze"] = function(sender, reason)
+		if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+			localPlayer.Character.HumanoidRootPart.Anchored = false
+		end
+	end,
 }
 
 local adminWhitelist = {
@@ -6369,16 +6218,6 @@ local adminWhitelist = {
 	"haetidglue",
 	"RedBoy9052"
 }
-
-function getPlayer(short)
-	short = string.lower(short)
-	for _, player in pairs(Players:GetPlayers()) do
-		if player.Name:lower():sub(1, #short) == short or player.DisplayName:lower():sub(1, #short) == short then
-			return player
-		end
-	end
-	return nil
-end
 
 function chatted(sender, msg)
 	local plrFound = false
@@ -6437,15 +6276,5 @@ if uis.TouchEnabled then
 	s.Scale = 0.5
 	s.Parent = Converted["_GEH_Client"]
 end
-
-coroutine.wrap(SXNOFKY_fake_script)()
-coroutine.wrap(JKNTAV_fake_script)()
-coroutine.wrap(CDCYXT_fake_script)()
-coroutine.wrap(TVBBQI_fake_script)()
-coroutine.wrap(VIJPP_fake_script)()
-coroutine.wrap(NBZRUUQ_fake_script)()
-coroutine.wrap(BAGF_fake_script)()
-coroutine.wrap(CAWVQ_fake_script)()
-coroutine.wrap(ZAPEPU_fake_script)()
 
 warn("Golds Easy Hub: loaded successfully")
