@@ -6416,6 +6416,14 @@ game.Players.LocalPlayer.Chatted:Connect(function(message)
 	end
 end)
 
+local uis = game:GetService("UserInputService")
+
+if uis.TouchEnabled then
+	local s = Instance.new("UIScale")
+	s.Scale = 0.5
+	s.Parent = Converted["_GEH_Client"]
+end
+
 coroutine.wrap(SXNOFKY_fake_script)()
 coroutine.wrap(JKNTAV_fake_script)()
 coroutine.wrap(CDCYXT_fake_script)()
